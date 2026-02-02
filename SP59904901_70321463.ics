@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+PRODID:-//eluceo/ical//2.0/EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+UID:672038312-SP59904901_70321463-kiwi
+DTSTAMP:20250826T052755Z
+SUMMARY:[CANCELLED] Flight from New Delhi to Bangkok (AI2332)
+DESCRIPTION:Air India Limited flight AI2332 / Departs DEL New Delhi\, India
+ \nFind all trip details and updates in the Kiwi.com app: https://go.kiwi.c
+ om/calendar-app-install-link
+DTSTART:20250923T053000Z
+DTEND:20250923T095500Z
+ORGANIZER;CN=Kiwi.com:mailto:no-reply-rvsp@kiwi.com
+ATTENDEE:mailto:abdoukadrjabbi1@gmail.com
+STATUS:CONFIRMED
+SEQUENCE:148430
+END:VEVENT
+END:VCALENDAR

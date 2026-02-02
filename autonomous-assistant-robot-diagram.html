@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Assistant Robot – System Architecture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            padding: 10px;
+            color: #ffffff;
+        }
+        .diagram-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+        .diagram-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #00d9ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .diagram-subtitle {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #b0b8d1;
+            margin-bottom: 16px;
+        }
+        svg { width: 100%; height: auto; display: block; }
+        .layer-box {
+            fill: rgba(255, 255, 255, 0.05);
+            stroke: rgba(0, 217, 255, 0.3);
+            stroke-width: 2;
+            rx: 10;
+        }
+        .layer-title { font-size: 14px; font-weight: 700; fill: #00d9ff; text-anchor: middle; }
+        .component-box {
+            fill: rgba(0, 217, 255, 0.08);
+            stroke: rgba(0, 217, 255, 0.35);
+            stroke-width: 1.5;
+            rx: 8;
+        }
+        .component-text { font-size: 10px; fill: #ffffff; text-anchor: start; font-weight: 500; }
+        .component-label { font-size: 9px; fill: #b0b8d1; text-anchor: start; }
+        .robot-center {
+            fill: rgba(123, 47, 247, 0.18);
+            stroke: rgba(123, 47, 247, 0.6);
+            stroke-width: 3;
+            rx: 16;
+        }
+        .robot-title { font-size: 16px; font-weight: 700; fill: #b88aff; text-anchor: middle; }
+        .arrow-vision { stroke: #2196f3; stroke-width: 2.5; fill: none; marker-end: url(#arrow-vision); }
+        .arrow-control { stroke: #4caf50; stroke-width: 2.5; fill: none; marker-end: url(#arrow-control); }
+        .arrow-feedback { stroke: #ff9800; stroke-width: 2.5; stroke-dasharray: 6,5; fill: none; marker-end: url(#arrow-feedback); }
+        .label-vision { font-size: 9px; fill: #2196f3; font-weight: 600; }
+        .label-control { font-size: 9px; fill: #4caf50; font-weight: 600; }
+        .label-feedback { font-size: 9px; fill: #ff9800; font-weight: 600; }
+        .legend { margin-top: 20px; display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 10px; }
+        .legend-vision { width: 36px; height: 3px; background: #2196f3; }
+        .legend-control { width: 36px; height: 3px; background: #4caf50; }
+        .legend-feedback { width: 36px; height: 3px; background: repeating-linear-gradient(90deg, #ff9800 0, #ff9800 4px, transparent 4px, transparent 9px); }
+        .legend-text { color: #b0b8d1; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1 class="diagram-title">Autonomous Assistant Robot</h1>
+        <p class="diagram-subtitle">System Architecture – Perception · AI · Embedded Control · Humanoid Interaction</p>
+
+        <svg viewBox="0 0 1400 1150" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrow-vision" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+                    <polygon points="0 0, 9 4.5, 0 9" fill="#2196f3" />
+                </marker>
+                <marker id="arrow-control" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+                    <polygon points="0 0, 9 4.5, 0 9" fill="#4caf50" />
+                </marker>
+                <marker id="arrow-feedback" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+                    <polygon points="0 0, 9 4.5, 0 9" fill="#ff9800" />
+                </marker>
+            </defs>
+
+            <!-- ========== TOP: PERCEPTION & AI LAYER ========== -->
+            <g id="perception-layer">
+                <rect x="160" y="25" width="1080" height="260" class="layer-box" />
+                <text x="700" y="55" class="layer-title">3. PERCEPTION &amp; AI LAYER – Smartphone AI &amp; Vision System</text>
+                <text x="700" y="75" class="component-label" text-anchor="middle" font-size="9px">Flask · MediaPipe · YOLO · Face Recognition · RTAB-Map</text>
+
+                <rect x="180" y="90" width="200" height="90" class="component-box" />
+                <text x="280" y="115" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Camera Feed</text>
+                <text x="190" y="135" class="component-text" font-size="10px">• Robot eyes (smartphone)</text>
+                <text x="190" y="152" class="component-text" font-size="10px">• Live video stream</text>
+                <text x="190" y="172" class="component-label" font-size="9px">→ AI Perception</text>
+
+                <rect x="400" y="90" width="180" height="90" class="component-box" />
+                <text x="490" y="115" class="component-text" font-weight="700" text-anchor="middle" font-size="10px">MediaPipe</text>
+                <text x="410" y="135" class="component-text" font-size="10px">• Face detection</text>
+                <text x="410" y="152" class="component-text" font-size="10px">• Face tracking</text>
+                <text x="410" y="172" class="component-label" font-size="9px">Vision Data</text>
+
+                <rect x="600" y="90" width="160" height="90" class="component-box" />
+                <text x="680" y="115" class="component-text" font-weight="700" text-anchor="middle" font-size="10px">YOLO</text>
+                <text x="610" y="135" class="component-text" font-size="10px">• Object detection</text>
+                <text x="610" y="152" class="component-text" font-size="10px">• Object recognition</text>
+                <text x="610" y="172" class="component-label" font-size="9px">Vision Data</text>
+
+                <rect x="780" y="90" width="180" height="90" class="component-box" />
+                <text x="870" y="112" class="component-text" font-weight="700" text-anchor="middle" font-size="10px">Face Recognition</text>
+                <text x="790" y="132" class="component-text" font-size="10px">• User identification</text>
+                <text x="790" y="149" class="component-text" font-size="10px">• Name recall &amp; greeting</text>
+                <text x="790" y="172" class="component-label" font-size="9px">Known individuals</text>
+
+                <rect x="980" y="90" width="240" height="90" class="component-box" />
+                <text x="1100" y="112" class="component-text" font-weight="700" text-anchor="middle" font-size="10px">RTAB-Map</text>
+                <text x="990" y="132" class="component-text" font-size="10px">• Indoor navigation</text>
+                <text x="990" y="149" class="component-text" font-size="10px">• Room transitions &amp; landmarks</text>
+                <text x="990" y="172" class="component-label" font-size="9px">Visual SLAM / RTAB-Map</text>
+
+                <rect x="180" y="195" width="1040" height="78" class="component-box" />
+                <text x="700" y="218" class="component-text" font-weight="700" text-anchor="middle" font-size="10px">Flask Application – Local server &amp; control hub · Receives AI decisions → Sends control commands to ESP32</text>
+                <text x="200" y="240" class="component-text" font-size="10px">• Vision Data: Camera → MediaPipe / YOLO / Face Recognition / RTAB-Map</text>
+                <text x="200" y="258" class="component-label" font-size="9px">• Control Commands: Flask → ESP32 (movement, arm gestures, navigation)</text>
+            </g>
+
+            <!-- ========== LEFT: INTERACTION & AUTONOMY LAYER ========== -->
+            <g id="interaction-layer">
+                <rect x="25" y="305" width="480" height="400" class="layer-box" />
+                <text x="265" y="335" class="layer-title">4. INTERACTION &amp; AUTONOMY LAYER</text>
+                <text x="265" y="355" class="component-label" text-anchor="middle" font-size="9px">AI Interaction &amp; Autonomous Behavior</text>
+
+                <rect x="45" y="375" width="440" height="95" class="component-box" />
+                <text x="265" y="398" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">AI Conversation &amp; Voice</text>
+                <text x="55" y="418" class="component-text" font-size="10px">• Voice interaction via smartphone · Answers questions (temperature, weather, general)</text>
+                <text x="55" y="436" class="component-text" font-size="10px">• Task-based commands: &quot;Go to Room A&quot;, &quot;Deliver this item&quot;, &quot;Return to base&quot;</text>
+                <text x="55" y="458" class="component-label" font-size="9px">Smartphone-based AI</text>
+
+                <rect x="45" y="485" width="440" height="105" class="component-box" />
+                <text x="265" y="508" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Autonomous Functions</text>
+                <text x="55" y="528" class="component-text" font-size="10px">• Indoor navigation (visual SLAM / RTAB-Map)</text>
+                <text x="55" y="546" class="component-text" font-size="10px">• Obstacle avoidance (ultrasonic + vision)</text>
+                <text x="55" y="564" class="component-text" font-size="10px">• Path planning &amp; return navigation</text>
+                <text x="55" y="582" class="component-label" font-size="9px">• Human-following &amp; greeting behavior</text>
+            </g>
+
+            <!-- ========== RIGHT: EMBEDDED CONTROL LAYER ========== -->
+            <g id="control-layer">
+                <rect x="895" y="305" width="480" height="400" class="layer-box" />
+                <text x="1135" y="335" class="layer-title">2. EMBEDDED CONTROL LAYER</text>
+                <text x="1135" y="355" class="component-label" text-anchor="middle" font-size="9px">Embedded Control System (ESP32)</text>
+
+                <rect x="915" y="375" width="440" height="100" class="component-box" />
+                <text x="1135" y="398" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">ESP32 Microcontroller</text>
+                <text x="925" y="418" class="component-text" font-size="10px">• Motor control (Mecanum wheel kinematics)</text>
+                <text x="925" y="436" class="component-text" font-size="10px">• Servo control (arm gestures &amp; positioning)</text>
+                <text x="925" y="454" class="component-text" font-size="10px">• Ultrasonic sensor data processing · Movement execution</text>
+                <text x="925" y="468" class="component-label" font-size="9px">Wireless: receives commands from Smartphone · Sends sensor feedback</text>
+
+                <rect x="915" y="488" width="440" height="100" class="component-box" />
+                <text x="1135" y="511" class="component-text" font-weight="700" text-anchor="middle" font-size="10px">Control Outputs</text>
+                <text x="925" y="531" class="component-text" font-size="10px">• Motor drivers → 4× DC motors (Mecanum)</text>
+                <text x="925" y="549" class="component-text" font-size="10px">• Servo outputs → 2× servos (arms: wave, carry, deliver)</text>
+                <text x="925" y="582" class="component-label" font-size="9px">Control Commands from Flask</text>
+            </g>
+
+            <!-- ========== BOTTOM: PHYSICAL HARDWARE LAYER ========== -->
+            <g id="hardware-layer">
+                <rect x="160" y="725" width="1080" height="380" class="layer-box" />
+                <text x="700" y="755" class="layer-title">1. PHYSICAL HARDWARE LAYER – Humanoid Robot Hardware</text>
+
+                <rect x="180" y="775" width="320" height="120" class="component-box" />
+                <text x="340" y="798" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Mecanum Wheels &amp; Drive</text>
+                <text x="190" y="818" class="component-text" font-size="10px">• Four Mecanum wheels (omnidirectional)</text>
+                <text x="190" y="836" class="component-text" font-size="10px">• Four DC motors · Motor drivers</text>
+                <text x="190" y="854" class="component-label" font-size="9px">Movement in all directions</text>
+
+                <rect x="520" y="775" width="360" height="120" class="component-box" />
+                <text x="700" y="798" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Robot Arms (Gestures &amp; Delivery)</text>
+                <text x="530" y="818" class="component-text" font-size="10px">• Two servo motors (arm movement)</text>
+                <text x="530" y="836" class="component-text" font-size="10px">• Wave, carry, deliver objects · Greeting &amp; delivery</text>
+                <text x="530" y="854" class="component-label" font-size="9px">Servo control from ESP32</text>
+
+                <rect x="900" y="775" width="320" height="120" class="component-box" />
+                <text x="1060" y="798" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Sensors &amp; Face</text>
+                <text x="910" y="818" class="component-text" font-size="10px">• Ultrasonic sensor (obstacle detection)</text>
+                <text x="910" y="836" class="component-text" font-size="10px">• Mounted smartphone (robot face &amp; eyes)</text>
+                <text x="910" y="854" class="component-label" font-size="9px">Sensor feedback → ESP32 → Smartphone</text>
+            </g>
+
+            <!-- ========== CENTER: ROBOT ========== -->
+            <g id="robot-center">
+                <rect x="520" y="420" width="360" height="300" class="robot-center" />
+                <text x="700" y="455" class="robot-title">AUTONOMOUS ASSISTANT ROBOT</text>
+                <text x="700" y="478" class="robot-title" font-size="12px">Humanoid Platform</text>
+                <rect x="540" y="495" width="320" height="210" class="component-box" />
+                <text x="700" y="518" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">PERCEPTION · AI · CONTROL · HARDWARE</text>
+                <text x="550" y="540" class="component-text" font-size="10px">• Smartphone = face &amp; brain (vision, AI, voice)</text>
+                <text x="550" y="558" class="component-text" font-size="10px">• ESP32 = motion &amp; sensors (wheels, arms, ultrasonic)</text>
+                <text x="550" y="576" class="component-text" font-size="10px">• Mecanum wheels + arms = omnidirectional + gestures</text>
+                <text x="550" y="594" class="component-text" font-size="10px">• Indoor nav: RTAB-Map + obstacle avoidance</text>
+                <text x="550" y="612" class="component-label" font-size="9px">Vision Data (blue) · Control Commands (green) · Sensor Feedback (orange)</text>
+            </g>
+
+            <!-- ========== ARROWS: Vision (Blue) ========== -->
+            <path d="M 380 135 L 398 135" class="arrow-vision" />
+            <path d="M 580 135 L 598 135" class="arrow-vision" />
+            <path d="M 760 135 L 778 135" class="arrow-vision" />
+            <path d="M 700 285 L 700 418" class="arrow-vision" />
+            <text x="705" y="355" class="label-vision">Vision Data</text>
+            <path d="M 380 180 L 700 235" class="arrow-vision" />
+            <text x="520" y="205" class="label-vision">Camera → AI</text>
+
+            <!-- ========== ARROWS: Control (Green) ========== -->
+            <path d="M 700 265 L 700 420 L 913 420" class="arrow-control" />
+            <text x="800" y="408" class="label-control">Control Commands</text>
+            <path d="M 1135 475 L 1135 718 L 700 718 L 700 773" class="arrow-control" />
+            <text x="900" y="625" class="label-control">ESP32 → Motors/Servos</text>
+
+            <!-- ========== ARROWS: Sensor Feedback (Orange) ========== -->
+            <path d="M 1060 895 L 1060 600 L 918 600 L 918 475" class="arrow-feedback" />
+            <text x="985" y="745" class="label-feedback">Sensor Feedback</text>
+            <path d="M 915 420 L 700 420 L 700 285" class="arrow-feedback" />
+            <text x="795" y="355" class="label-feedback">ESP32 → Smartphone</text>
+
+            <!-- Flow summary -->
+            <text x="700" y="1125" font-size="11" fill="#00d9ff" text-anchor="middle" font-weight="700">
+                FLOW: Camera → AI Perception (Vision) → Flask → ESP32 (Control) → Motors/Servos · Ultrasonic → ESP32 → Smartphone (Feedback)
+            </text>
+        </svg>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-vision"></div><span class="legend-text">Vision &amp; AI (Vision Data)</span></div>
+            <div class="legend-item"><div class="legend-control"></div><span class="legend-text">Control Commands</span></div>
+            <div class="legend-item"><div class="legend-feedback"></div><span class="legend-text">Sensor Feedback</span></div>
+        </div>
+    </div>
+</body>
+</html>

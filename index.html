@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABDOKADIR JABBI - AI Robotics Engineer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- MODAL FOR EXPANDED MEDIA -->
+    <div id="mediaModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <div class="modal-content"></div>
+    </div>
+
+    <!-- FLOATING PROJECT NAVIGATION - STICKY RIGHT CORNER -->
+    <div class="floating-project-nav">
+        <div class="floating-nav-header">
+            <span class="nav-icon">⚡</span>
+            <span class="nav-title">PROJECTS</span>
+        </div>
+        <div class="floating-nav-list">
+            <button class="floating-nav-item active" data-project="project-1">
+                <span class="nav-number">01</span>
+                <span class="nav-name">Healthcare Robot</span>
+            </button>
+            <button class="floating-nav-item" data-project="project-2">
+                <span class="nav-number">02</span>
+                <span class="nav-name">Multifunctional AI</span>
+            </button>
+            <button class="floating-nav-item" data-project="project-3">
+                <span class="nav-number">03</span>
+                <span class="nav-name">Autonomous Assistant</span>
+            </button>
+            <button class="floating-nav-item" data-project="project-4">
+                <span class="nav-number">04</span>
+                <span class="nav-name">Self-Driving Car</span>
+            </button>
+            <button class="floating-nav-item" data-project="project-5">
+                <span class="nav-number">05</span>
+                <span class="nav-name">Electric Mobility</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-wrapper">
+        <!-- HERO SECTION -->
+        <header class="hero-section">
+            <div class="hero-content">
+                <div class="profile-container">
+                    <img src="ja.png" alt="ABDOKADIR JABBI" class="profile-img">
+                </div>
+                <h1 class="hero-name">ABDOKADIR JABBI</h1>
+                <h2 class="hero-title">AI ROBOTICS ENGINEER</h2>
+                <p class="hero-subtitle">Autonomous Systems | Computer Vision | Embedded AI</p>
+                <p class="hero-description">
+                    Building intelligent robotic systems that solve real-world problems. 
+                    Specialized in end-to-end AI robotics from hardware to cloud deployment.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-label">📍</span>
+                        <span>Open to relocation / Remote</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">📧</span>
+                        <span>buxinjabbi@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">📞</span>
+                        <span>+919319038312</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="mailto:buxinjabbi@gmail.com" class="social-link">Email</a>
+                    <a href="https://github.com/buxin2" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+                    <a href="https://www.linkedin.com/in/abdoukadir-jabbi-a7b3082a9/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+        </header>
+
+        <section class="projects-section">
+            <div class="projects-container">
+                
+                <!-- PROJECT 1 -->
+                <div id="project-1" class="project-card active">
+                    <div class="project-header-card">
+                        <h3 class="project-name">AI Healthcare Robot</h3>
+                        <span class="project-badge">Flagship Project</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Problem Statement</h4>
+                            <p class="section-text">
+                                In high-traffic and low-resource hospitals, patients often wait hours for a single consultation. This leads to delayed triage, 
+                                inconsistent initial assessments, staff overload, and poor patient experience. Existing kiosks or apps do not combine 
+                                continuous vitals capture with face-to-camera interaction and doctor handoff.
+                            </p>
+                            <p class="section-text">
+                                The core gap is doctor scarcity plus the lack of a scalable, physical first-contact system that can reliably collect 
+                                physiological data and facial cues while keeping the human in the loop for diagnosis.
+                            </p>
+                            <p class="section-text" style="font-weight: 600; color: var(--accent-cyan); margin-top: 16px;">
+                                Goal: Build a physical AI healthcare robot that autonomously collects vitals, performs facial analysis, interacts conversationally, 
+                                and connects patients to doctors remotely—with emphasis on sensor reliability, medical constraints, and ethics.
+                            </p>
+                            <img src="https://via.placeholder.com/1200x600/0d1117/00d9ff?text=Healthcare+Robot+Prototype" alt="Healthcare Robot" class="project-image">
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Solution Overview</h4>
+                            <p class="section-text">
+                                A stationary, kiosk-style AI healthcare robot that acts as a first-contact medical assistant. From the user’s perspective: 
+                                the patient approaches, is detected by the system, and the camera adjusts to their height. They place hands on sensors and 
+                                stand on the weight platform; the robot collects vitals, runs facial analysis, and engages in AI-driven conversation. 
+                                Data is sent to a cloud backend where doctors can view dashboards and initiate video consultations.
+                            </p>
+                            <p class="section-text">
+                                This approach is practical because it prioritizes reliability and calibration over mobility—evolving from an initial 
+                                humanoid concept to a fixed, deployable form factor.
+                            </p>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">System Architecture</h4>
+                            <p class="section-text" style="margin-bottom: 20px;">
+                                End-to-end flow: patient interaction → edge hardware (sensors, camera, actuators, ESP32) → edge intelligence (MediaPipe, AI interaction, safety logic) → cloud backend (Flask, database, Firebase) → doctor interface. Diagram below.
+                            </p>
+                            <div style="margin: 24px 0; border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; background: var(--glass-bg); backdrop-filter: var(--blur);">
+                                <iframe src="architecture-diagram.html" style="width: 100%; height: 700px; border: none; display: block;" title="AI Healthcare Robot System Architecture"></iframe>
+                            </div>
+                            <div class="tech-tags" style="margin-top: 20px;">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">ESP32</span>
+                                <span class="tech-tag">MediaPipe</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">MAX32664</span>
+                                <span class="tech-tag">MLX90614</span>
+                                <span class="tech-tag">HX711</span>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Key Technical Challenges</h4>
+                            <ul class="challenge-list">
+                                <li><strong>Sensor calibration & reliability:</strong> HX711 load-cell drift and wiring sensitivity; MAX32664 stabilization delay and strict hand-placement requirements</li>
+                                <li><strong>Real-time coordination:</strong> Synchronizing vision, servo movement, sensor readings, and AI dialogue without blocking or lag</li>
+                                <li><strong>Camera height adaptation:</strong> Accurate face tracking across varying patient heights</li>
+                                <li><strong>Edge–cloud latency:</strong> Keeping interaction smooth while offloading AI and storage to the cloud</li>
+                                <li><strong>Medical signal noise:</strong> Rejecting inconsistent or physiologically unrealistic optical-sensor readings</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Engineering Decisions & Trade-offs</h4>
+                            <ul class="decision-list">
+                                <li><strong>Humanoid vs stationary:</strong> Humanoid was complex and unreliable for clinical use; stationary kiosk improved reliability and deployability.</li>
+                                <li><strong>MediaPipe vs custom CV:</strong> MediaPipe chosen for robust, real-time face tracking and faster iteration.</li>
+                                <li><strong>Edge vs cloud:</strong> Edge for real-time tracking and interaction; cloud for AI analysis, storage, and doctor access.</li>
+                                <li><strong>MAX30102 → MAX32664:</strong> Upgraded for better signal processing and integrated physiological calculations.</li>
+                                <li><strong>ESP32 + Arduino:</strong> Clear separation between communication and low-level hardware control.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Results & Impact</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <h5>End-to-end system</h5>
+                                    <p>Fully functional robot integrating edge hardware, AI, cloud, and doctor dashboard</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Real-time operation</h5>
+                                    <p>Live face tracking with servo-adjusted camera; continuous vitals; conversational AI</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Healthcare relevance</h5>
+                                    <p>Reduces triage load, improves consistency, enables remote consultation; scalable to clinics and rural settings</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <div style="padding: 24px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
+                                <h4 class="section-heading" style="color: var(--accent-cyan); margin-bottom: 12px;">Why This Project Matters</h4>
+                                <ul class="challenge-list">
+                                    <li><strong>Sensor reliability & medical constraints:</strong> Real calibration and failure-mode thinking for physiological sensors</li>
+                                    <li><strong>Ethics & accuracy:</strong> Designed for human-in-the-loop; no replacement of clinical judgment</li>
+                                    <li><strong>Prototype-to-practical evolution:</strong> Pivot from humanoid to kiosk shows systems-level decision-making</li>
+                                    <li><strong>Systems thinking:</strong> Hardware, edge AI, cloud, and human workflow in one pipeline</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 2 -->
+                <div id="project-2" class="project-card">
+                    <div class="project-header-card">
+                        <h3 class="project-name">Multifunctional AI Robot</h3>
+                        <span class="project-badge">Vision, Voice & Control</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Problem Statement</h4>
+                            <p class="section-text">
+                                Human–robot interaction in real environments needs versatile perception and intuitive control. Many robots support 
+                                either vision or voice, but not both in a single pipeline—and few fuse face, body, and object tracking with 
+                                natural-language queries and real-time motion control.
+                            </p>
+                            <p class="section-text">
+                                The gap: a single platform that sees (people, objects, color), hears (voice commands), reasons (e.g. “What do you see?”), 
+                                and acts (Mecanum drive, servos, safety) with low latency and clear failure handling.
+                            </p>
+                            <p class="section-text" style="font-weight: 600; color: var(--accent-cyan); margin-top: 16px;">
+                                Goal: Build a multi-modal robot that combines vision, voice, and real-time control so it can follow, greet, answer questions, and operate safely indoors.
+                            </p>
+                            <img src="https://via.placeholder.com/1200x600/0d1117/00d9ff?text=Multifunctional+AI+Robot" alt="Multifunctional AI Robot" class="project-image">
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Solution Overview</h4>
+                            <p class="section-text">
+                                A centralized robot platform with a smartphone as the main sensor and AI host: camera feeds YOLO and MediaPipe for object/person/face tracking; 
+                                voice input drives conversation and “What do you see?”–style queries; an AI reasoning layer turns perception into behavior; and an ESP32 executes 
+                                motor and servo commands over Wi-Fi. From the user’s perspective: speak to the robot, point at objects, and it responds with movement and spoken answers.
+                            </p>
+                            <p class="section-text">
+                                This approach keeps perception and AI on a single compute node (smartphone/PC) while offloading only real-time actuation to the embedded controller—balancing latency and complexity.
+                            </p>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">System Architecture</h4>
+                            <p class="section-text" style="margin-bottom: 20px;">
+                                Perception (camera, streaming) → AI layer (YOLO, MediaPipe, color/person tracking, reasoning, voice/conversation) → control (ESP32, motors, servos, ultrasonic) → remote (Wi-Fi, smartphone). Diagram below.
+                            </p>
+                            <div style="margin: 24px 0; border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; background: var(--glass-bg); backdrop-filter: var(--blur);">
+                                <iframe src="multifunctional-robot-diagram.html" style="width: 100%; height: 700px; border: none; display: block;" title="Multifunctional AI Robot System Architecture"></iframe>
+                            </div>
+                            <div class="tech-tags" style="margin-top: 20px;">
+                                <span class="tech-tag">MediaPipe</span>
+                                <span class="tech-tag">YOLO</span>
+                                <span class="tech-tag">ESP32</span>
+                                <span class="tech-tag">Mecanum</span>
+                                <span class="tech-tag">Wi-Fi</span>
+                                <span class="tech-tag">Voice</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Key Technical Challenges</h4>
+                            <ul class="challenge-list">
+                                <li><strong>Multi-modal fusion:</strong> Running YOLO, MediaPipe, and color/person tracking without frame drops or conflicting outputs</li>
+                                <li><strong>Vision–voice alignment:</strong> Keeping conversation and scene understanding in sync with live video</li>
+                                <li><strong>Real-time control loop:</strong> Wi-Fi latency between smartphone/PC and ESP32; timing of motor and servo commands</li>
+                                <li><strong>Safety and fail-safes:</strong> Ultrasonic-based obstacle stop; behavior when vision or network fails</li>
+                                <li><strong>Integration complexity:</strong> Multiple pipelines (video stream, voice, motor commands) on one platform</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Engineering Decisions & Trade-offs</h4>
+                            <ul class="decision-list">
+                                <li><strong>Smartphone as brain:</strong> Single device for camera, AI, and voice; trade-off is battery and thermal limits vs. avoiding a separate PC.</li>
+                                <li><strong>YOLO + MediaPipe:</strong> YOLO for objects/people; MediaPipe for face/body; combined coverage at the cost of two pipelines.</li>
+                                <li><strong>ESP32 for actuation only:</strong> Offloads only time-critical motor/servo control; keeps perception and reasoning on the main host.</li>
+                                <li><strong>Mecanum wheels:</strong> Omnidirectional movement for following and positioning; more complex than differential drive.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Results & Impact</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <h5>Multi-modal perception</h5>
+                                    <p>Simultaneous face, body, object, and color tracking in one pipeline</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Vision + voice fusion</h5>
+                                    <p>Natural-language queries and spoken answers tied to live vision</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Real-time control</h5>
+                                    <p>Wi-Fi-based command flow from AI to ESP32 to Mecanum and servos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <div style="padding: 24px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
+                                <h4 class="section-heading" style="color: var(--accent-cyan); margin-bottom: 12px;">Why This Project Matters</h4>
+                                <ul class="challenge-list">
+                                    <li><strong>Multi-modal perception:</strong> Combining vision and voice in one reasoning pipeline</li>
+                                    <li><strong>Real-time control:</strong> From perception to actuation with latency and safety in mind</li>
+                                    <li><strong>Systems integration:</strong> Smartphone, ESP32, motors, sensors, and network in a single deployable robot</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 3 -->
+                <div id="project-3" class="project-card">
+                    <div class="project-header-card">
+                        <h3 class="project-name">Autonomous Assistant Robot</h3>
+                        <span class="project-badge">Indoor Autonomy</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Problem Statement</h4>
+                            <p class="section-text">
+                                Indoor robots that navigate room-to-room without human intervention usually depend on LiDAR, beacons, or pre-installed markers. 
+                                These add cost and deployment friction. Many environments need a solution that works with minimal infrastructure—using only 
+                                what a robot can see and sense on board.
+                            </p>
+                            <p class="section-text">
+                                The goal is indoor autonomy plus human interaction: the robot should map and navigate, avoid obstacles, and still recognize people 
+                                and support tasks like “go to Room A” or “deliver this item” with voice and a visible face (smartphone as interface).
+                            </p>
+                            <p class="section-text" style="font-weight: 600; color: var(--accent-cyan); margin-top: 16px;">
+                                Goal: Build a humanoid-style assistant that navigates using camera-only (RTAB-Map / visual SLAM), avoids obstacles with ultrasonic + vision, and interacts via face recognition and voice.
+                            </p>
+                            <img src="https://via.placeholder.com/1200x600/0d1117/00d9ff?text=Autonomous+Assistant+Robot" alt="Autonomous Assistant Robot" class="project-image">
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Solution Overview</h4>
+                            <p class="section-text">
+                                A smartphone acts as the robot’s face and brain: camera feeds RTAB-Map and AR-based mapping for indoor navigation, MediaPipe/YOLO for face and object detection, and Flask as the control hub. 
+                                The ESP32 handles Mecanum wheels, arm servos, and ultrasonic; it receives movement and gesture commands over Wi-Fi and sends sensor feedback. From the user’s perspective: the robot greets by name, 
+                                answers questions (e.g. temperature, weather), and executes task commands like “go to Room A” or “deliver this” with obstacle avoidance and return-to-base behavior.
+                            </p>
+                            <p class="section-text">
+                                This approach emphasizes camera-only navigation and human interaction without relying on beacons or LiDAR.
+                            </p>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">System Architecture</h4>
+                            <p class="section-text" style="margin-bottom: 20px;">
+                                Four layers: Physical Hardware (Mecanum, servos, ultrasonic, smartphone mount) → Embedded Control (ESP32) → Perception & AI (Flask, MediaPipe, YOLO, face recognition, RTAB-Map) → Interaction & Autonomy (conversation, voice, task commands, path planning). Diagram below.
+                            </p>
+                            <div style="margin: 24px 0; border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; background: var(--glass-bg); backdrop-filter: var(--blur);">
+                                <iframe src="autonomous-assistant-robot-diagram.html" title="Autonomous Assistant Robot System Architecture" style="width: 100%; height: 720px; border: none; display: block;"></iframe>
+                            </div>
+                            <div class="tech-tags" style="margin-top: 20px;">
+                                <span class="tech-tag">RTAB-Map</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">MediaPipe</span>
+                                <span class="tech-tag">YOLO</span>
+                                <span class="tech-tag">Face Recognition</span>
+                                <span class="tech-tag">ESP32</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Key Technical Challenges</h4>
+                            <ul class="challenge-list">
+                                <li><strong>Camera-only navigation:</strong> Reliable mapping and localization without LiDAR; handling lighting and texture-poor areas</li>
+                                <li><strong>Indoor autonomy:</strong> Room transitions, landmarks, and return navigation with visual SLAM / RTAB-Map</li>
+                                <li><strong>Human interaction:</strong> Face recognition and name recall integrated with navigation and task execution</li>
+                                <li><strong>Obstacle avoidance:</strong> Fusing ultrasonic and vision for safe motion and emergency stop</li>
+                                <li><strong>Latency and reliability:</strong> Wi-Fi link between smartphone and ESP32; behavior when connection or perception fails</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Engineering Decisions & Trade-offs</h4>
+                            <ul class="decision-list">
+                                <li><strong>RTAB-Map / camera-only:</strong> Avoids LiDAR cost; trade-off is robustness in low-texture or dynamic lighting.</li>
+                                <li><strong>Smartphone as face and brain:</strong> Single device for camera, AI, and voice; limits compute but improves form factor and UX.</li>
+                                <li><strong>ESP32 for motion only:</strong> Keeps navigation and AI on the phone; ESP32 executes low-level motor and servo control.</li>
+                                <li><strong>Ultrasonic + vision:</strong> Redundancy for obstacle detection; ultrasonic for close-range, vision for semantic understanding.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Results & Impact</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <h5>Indoor navigation</h5>
+                                    <p>Room-to-room navigation using visual SLAM / RTAB-Map without fixed infrastructure</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Human interaction</h5>
+                                    <p>Face recognition, greeting by name, voice commands, and task execution (“go to room”, “deliver”)</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Obstacle avoidance</h5>
+                                    <p>Ultrasonic and vision-based safety with path planning and return-to-base</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <div style="padding: 24px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
+                                <h4 class="section-heading" style="color: var(--accent-cyan); margin-bottom: 12px;">Why This Project Matters</h4>
+                                <ul class="challenge-list">
+                                    <li><strong>Camera-only navigation:</strong> Demonstrates autonomy without LiDAR or beacons</li>
+                                    <li><strong>Indoor autonomy:</strong> Mapping, localization, and path planning in real indoor spaces</li>
+                                    <li><strong>Human interaction:</strong> Face recognition, voice, and task-level commands in one system</li>
+                                    <li><strong>Systems thinking:</strong> Perception, AI, embedded control, and humanoid interaction in a single pipeline</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 4 -->
+                <div id="project-4" class="project-card">
+                    <div class="project-header-card">
+                        <h3 class="project-name">Self-Driving Car Prototype</h3>
+                        <span class="project-badge">Vision-First Autonomy</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Problem Statement</h4>
+                            <p class="section-text">
+                                Autonomous vehicle navigation demands robust perception for pedestrians and obstacles in real time. 
+                                Production systems often rely on LiDAR and radar, which are costly and complex to integrate for education 
+                                and rapid prototyping.
+                            </p>
+                            <p class="section-text">
+                                The challenge is to show end-to-end autonomy—lane following, sign detection, person/obstacle avoidance—using 
+                                a vision-first, logic-based approach that keeps cost low and the pipeline interpretable.
+                            </p>
+                            <p class="section-text" style="font-weight: 600; color: var(--accent-cyan); margin-top: 16px;">
+                                Goal: Build a cost-effective self-driving prototype with PC as brain, vision-only perception (YOLO + OpenCV), and ESP32 for motion control—no AI decision model, only computer vision and logic.
+                            </p>
+                            <img src="https://via.placeholder.com/1200x600/0d1117/00d9ff?text=Self-Driving+Car+Prototype" alt="Self-Driving Car Prototype" class="project-image">
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Solution Overview</h4>
+                            <p class="section-text">
+                                A small-scale car with a smartphone camera streaming video to a PC over Wi-Fi. The PC runs Python, OpenCV, and YOLO: 
+                                road/lane detection via HOG and Hough line transform, traffic sign and person detection via YOLO, and decision logic 
+                                (move, stop, turn, slow) based on rules—no learned policy. The ESP32 receives commands wirelessly and drives four 
+                                Mecanum motors; an ultrasonic sensor and buzzer handle close-range obstacle and emergency stop.
+                            </p>
+                            <p class="section-text">
+                                From the user’s perspective: the car follows the lane, stops at STOP signs and for people, and avoids obstacles using vision and ultrasonic feedback.
+                            </p>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">System Architecture</h4>
+                            <p class="section-text" style="margin-bottom: 20px;">
+                                Vision input (camera over Wi-Fi) → PC (vision processing + decision logic) → ESP32 (motor control, ultrasonic, buzzer) → Mecanum wheels. Diagram below.
+                            </p>
+                            <div style="margin: 24px 0; border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; background: var(--glass-bg); backdrop-filter: var(--blur);">
+                                <iframe src="self-driving-car-diagram.html" title="Self-Driving Car System Architecture" style="width: 100%; height: 700px; border: none; display: block;"></iframe>
+                            </div>
+                            <div class="tech-tags" style="margin-top: 20px;">
+                                <span class="tech-tag">YOLO</span>
+                                <span class="tech-tag">OpenCV</span>
+                                <span class="tech-tag">Hough</span>
+                                <span class="tech-tag">ESP32</span>
+                                <span class="tech-tag">Wi-Fi</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Key Technical Challenges</h4>
+                            <ul class="challenge-list">
+                                <li><strong>Real-time vision pipeline:</strong> YOLO + OpenCV lane/sign detection with low latency for responsive control</li>
+                                <li><strong>Wi-Fi link:</strong> Video stream and command flow between PC and ESP32; handling packet loss and delay</li>
+                                <li><strong>Smartphone as sensor:</strong> Mounting, framing, and streaming stability for lane and object detection</li>
+                                <li><strong>Decision logic:</strong> Rule-based stop/turn/slow that stays safe under detection noise and missed frames</li>
+                                <li><strong>Ultrasonic + vision fusion:</strong> Emergency stop and obstacle feedback feeding back into the PC loop</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Engineering Decisions & Trade-offs</h4>
+                            <ul class="decision-list">
+                                <li><strong>PC as brain:</strong> Heavy compute on PC; ESP32 only for motion—keeps perception and logic in one place and avoids embedded ML constraints.</li>
+                                <li><strong>Vision-first, no learned policy:</strong> YOLO + OpenCV + rules; interpretable and debuggable at the cost of less “end-to-end” flexibility.</li>
+                                <li><strong>Mecanum wheels:</strong> Omnidirectional motion for tight turns and corrections; more complex than differential drive.</li>
+                                <li><strong>Ultrasonic as backup:</strong> Vision for semantics; ultrasonic for close-range safety and emergency stop.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Results & Impact</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <h5>Cost-effective autonomy</h5>
+                                    <p>End-to-end prototype without LiDAR or radar; PC + camera + ESP32 + Mecanum</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Vision-first pipeline</h5>
+                                    <p>Lane following, STOP/person detection, obstacle avoidance with YOLO and OpenCV</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>PC-as-brain design</h5>
+                                    <p>Clear separation: perception and decisions on PC, execution on ESP32</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <div style="padding: 24px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
+                                <h4 class="section-heading" style="color: var(--accent-cyan); margin-bottom: 12px;">Why This Project Matters</h4>
+                                <ul class="challenge-list">
+                                    <li><strong>Cost-effective autonomy:</strong> Demonstrates perception and control without expensive sensors</li>
+                                    <li><strong>Vision-first approach:</strong> Lane, sign, and object detection with interpretable logic</li>
+                                    <li><strong>PC-as-brain:</strong> Systems thinking—where compute lives and how data flows between vision, decision, and actuation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 5 -->
+                <div id="project-5" class="project-card">
+                    <div class="project-header-card">
+                        <h3 class="project-name">Electric Mobility Systems</h3>
+                        <span class="project-badge">Hardware & EV</span>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Problem Statement</h4>
+                            <p class="section-text">
+                                Electric mobility must be affordable, efficient, and tailored to specific use cases—from mini-buses and tractors 
+                                to scooters and small cars. Off-the-shelf EVs are often expensive and not optimized for local or niche applications 
+                                (e.g. campus shuttle, farm tractor, last-mile delivery).
+                            </p>
+                            <p class="section-text">
+                                The gap is end-to-end hardware capability: power source selection, motor and controller sizing, accelerator and 
+                                safety logic, and mechanical–electrical integration that is reliable and maintainable.
+                            </p>
+                            <p class="section-text" style="font-weight: 600; color: var(--accent-cyan); margin-top: 16px;">
+                                Goal: Design and build multiple electric vehicle prototypes with clear power flow, control flow, and component relationships—emphasizing hardware engineering and mechanical–electrical integration.
+                            </p>
+                            <img src="https://via.placeholder.com/1200x600/0d1117/00d9ff?text=Electric+Mobility+Systems" alt="Electric Mobility Systems" class="project-image">
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Solution Overview</h4>
+                            <p class="section-text">
+                                Four distinct electric systems were built and documented: (1) Electric mini-bus—48 V Li-ion, dual BLDC motors with individual controllers, single accelerator, front/rear lamps; (2) Electric tractor—high-power GM motor (5 HP), Li-ion and optional lead-acid/solar, key switch and accelerator; (3) Electric scooters—two generations (24 V DC and Li-ion BLDC) with accelerator and lights; (4) Electric car—Li-ion pack, single controller, dual BLDC motors, accelerator, and lighting. From the user’s perspective: one pedal and key (where applicable) control speed; power and control flow are explicit and consistent across platforms.
+                            </p>
+                            <p class="section-text">
+                                This approach prioritizes hardware clarity: power source → controller → motor(s), and battery → loads (lights), with control signals (accelerator, key) clearly separated.
+                            </p>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">System Architecture</h4>
+                            <p class="section-text" style="margin-bottom: 20px;">
+                                Four panels: Mini-bus (48 V, 2× BLDC, 2× controllers, accelerator, lights) | Tractor (solar/battery, controller, GM motor, key, accelerator) | Scooters (DC vs BLDC versions) | Car (Li-ion, 1 controller, 2× BLDC, accelerator, lights). Diagram below.
+                            </p>
+                            <div style="margin: 24px 0; border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; background: var(--glass-bg); backdrop-filter: var(--blur);">
+                                <iframe src="electric-mobility-diagram.html" title="Electric Mobility Systems Architecture" style="width: 100%; height: 720px; border: none; display: block;"></iframe>
+                            </div>
+                            <div class="tech-tags" style="margin-top: 20px;">
+                                <span class="tech-tag">BLDC</span>
+                                <span class="tech-tag">Motor Controllers</span>
+                                <span class="tech-tag">Li-ion</span>
+                                <span class="tech-tag">Power Systems</span>
+                                <span class="tech-tag">Mechanical</span>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Key Technical Challenges</h4>
+                            <ul class="challenge-list">
+                                <li><strong>Motor controllers:</strong> Sizing and tuning BLDC and DC controllers for torque, speed, and thermal limits</li>
+                                <li><strong>Power management:</strong> Battery selection, charging paths (e.g. solar on tractor), and load distribution (motors vs lights)</li>
+                                <li><strong>Mechanical–electrical integration:</strong> Mounting, wiring, and reliability under vibration and environmental conditions</li>
+                                <li><strong>Control logic:</strong> Single accelerator driving one or multiple controllers; key switch and safety interlocks</li>
+                                <li><strong>Affordability vs performance:</strong> Component choice (e.g. DC vs BLDC) and scalability across different vehicle classes</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Engineering Decisions & Trade-offs</h4>
+                            <ul class="decision-list">
+                                <li><strong>Dual motors + dual controllers (mini-bus):</strong> Symmetry and redundancy; one accelerator drives both for simplicity.</li>
+                                <li><strong>Solar on tractor:</strong> Supporting charge path; trade-off is added complexity vs off-grid capability.</li>
+                                <li><strong>DC vs BLDC (scooters):</strong> First version 24 V DC for cost; second version Li-ion BLDC for efficiency and performance.</li>
+                                <li><strong>Single controller, dual motors (car):</strong> Simpler control and wiring; both motors share one command stream.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Results & Impact</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <h5>Multiple prototypes</h5>
+                                    <p>Mini-bus, tractor, two scooter generations, and car—each with documented power and control flow</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Hardware engineering</h5>
+                                    <p>Motor control, power systems, and mechanical–electrical integration across 4 vehicle classes</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Consistent design language</h5>
+                                    <p>Energy flow and control flow clearly separated; same arrow and component conventions across all four</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <div style="padding: 24px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
+                                <h4 class="section-heading" style="color: var(--accent-cyan); margin-bottom: 12px;">Why This Project Matters</h4>
+                                <ul class="challenge-list">
+                                    <li><strong>Hardware engineering:</strong> Power systems, motor controllers, and battery integration from spec to build</li>
+                                    <li><strong>Motor control:</strong> BLDC and DC; single and dual motor/controller topologies</li>
+                                    <li><strong>Mechanical–electrical integration:</strong> Real prototypes with wiring, mounting, and reliability in mind</li>
+                                    <li><strong>Systems thinking:</strong> One diagram set covering four vehicles with consistent energy and control flow</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

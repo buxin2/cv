@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Healthcare Robot - System Architecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            padding: 10px;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .diagram-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .diagram-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #00d9ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .diagram-subtitle {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #b0b8d1;
+            margin-bottom: 20px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Layer Styles */
+        .layer-box {
+            fill: rgba(255, 255, 255, 0.05);
+            stroke: rgba(0, 217, 255, 0.3);
+            stroke-width: 2;
+            rx: 10;
+        }
+
+        .layer-title {
+            font-size: 18px;
+            font-weight: 700;
+            fill: #00d9ff;
+            text-anchor: middle;
+        }
+
+        .component-box {
+            fill: rgba(0, 217, 255, 0.1);
+            stroke: rgba(0, 217, 255, 0.4);
+            stroke-width: 1.5;
+            rx: 8;
+        }
+
+        .component-text {
+            font-size: 11px;
+            fill: #ffffff;
+            text-anchor: start;
+            font-weight: 500;
+        }
+
+        .component-label {
+            font-size: 10px;
+            fill: #b0b8d1;
+            text-anchor: start;
+        }
+
+        /* Arrows */
+        .arrow-solid {
+            stroke: #00d9ff;
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead-solid);
+        }
+
+        .arrow-dashed {
+            stroke: #7b2ff7;
+            stroke-width: 2;
+            stroke-dasharray: 5,5;
+            fill: none;
+            marker-end: url(#arrowhead-dashed);
+        }
+
+        .arrow-label {
+            font-size: 11px;
+            fill: #00d9ff;
+            font-weight: 600;
+        }
+
+        .arrow-label-dashed {
+            font-size: 11px;
+            fill: #7b2ff7;
+            font-weight: 600;
+        }
+
+        /* Icons */
+        .icon-circle {
+            fill: rgba(0, 217, 255, 0.2);
+            stroke: #00d9ff;
+            stroke-width: 2;
+        }
+
+        .icon-text {
+            font-size: 14px;
+            fill: #00d9ff;
+            text-anchor: middle;
+            font-weight: 700;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-line {
+            width: 40px;
+            height: 2px;
+            background: #00d9ff;
+        }
+
+        .legend-line-dashed {
+            width: 40px;
+            height: 2px;
+            background: repeating-linear-gradient(to right, #7b2ff7 0, #7b2ff7 5px, transparent 5px, transparent 10px);
+        }
+
+        .legend-text {
+            color: #b0b8d1;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1 class="diagram-title">AI Healthcare Robot</h1>
+        <p class="diagram-subtitle">System Architecture & Data Flow Diagram</p>
+
+        <svg viewBox="0 0 1500 1100" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
+            <!-- Arrow Markers -->
+            <defs>
+                <marker id="arrowhead-solid" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#00d9ff" />
+                </marker>
+                <marker id="arrowhead-dashed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#7b2ff7" />
+                </marker>
+            </defs>
+
+            <!-- LAYER 1: PATIENT INTERACTION -->
+            <g id="layer1">
+                <rect x="50" y="50" width="200" height="180" class="layer-box" />
+                <text x="150" y="78" class="layer-title">PATIENT INTERACTION</text>
+                <circle cx="150" cy="128" r="24" class="icon-circle" />
+                <text x="150" y="135" class="icon-text">👤</text>
+                <text x="150" y="162" class="component-text" text-anchor="middle">Patient</text>
+                <text x="60" y="188" class="component-label">• Hands on sensors</text>
+                <text x="60" y="206" class="component-label">• Weight platform</text>
+            </g>
+
+            <!-- LAYER 2: ROBOT HARDWARE (EDGE) -->
+            <g id="layer2">
+                <rect x="300" y="50" width="280" height="500" class="layer-box" />
+                <text x="440" y="80" class="layer-title">EDGE HARDWARE</text>
+                
+                <!-- Sensors Group -->
+                <rect x="320" y="95" width="240" height="195" class="component-box" />
+                <text x="440" y="118" class="component-text" font-weight="700" text-anchor="middle">SENSORS</text>
+                <text x="330" y="140" class="component-text">MAX32664</text>
+                <text x="330" y="158" class="component-label">• Heart Rate · SpO₂</text>
+                <text x="330" y="176" class="component-label">• Blood Pressure</text>
+                <text x="330" y="198" class="component-text">MLX90614</text>
+                <text x="330" y="216" class="component-label">• Body Temperature</text>
+                <text x="330" y="236" class="component-text">HX711 + Load Cells</text>
+                <text x="330" y="254" class="component-label">• Weight Measurement</text>
+                
+                <!-- Camera -->
+                <rect x="320" y="298" width="240" height="58" class="component-box" />
+                <text x="440" y="320" class="component-text" text-anchor="middle" font-weight="700">Camera</text>
+                <text x="330" y="338" class="component-label">Face Detection &amp; Tracking</text>
+                
+                <!-- Actuators -->
+                <rect x="320" y="364" width="240" height="88" class="component-box" />
+                <text x="440" y="386" class="component-text" font-weight="700" text-anchor="middle">ACTUATORS</text>
+                <text x="330" y="408" class="component-text">Servo Motor</text>
+                <text x="330" y="426" class="component-label">• Camera Tilt · Face Tracking</text>
+                <text x="330" y="444" class="component-text">Buzzer &amp; LED</text>
+                
+                <!-- Microcontrollers -->
+                <rect x="320" y="460" width="240" height="82" class="component-box" />
+                <text x="440" y="482" class="component-text" font-weight="700" text-anchor="middle">MICROCONTROLLERS</text>
+                <text x="330" y="504" class="component-text">ESP32</text>
+                <text x="330" y="522" class="component-label">Wi-Fi Communication</text>
+            </g>
+
+            <!-- LAYER 3: EDGE INTELLIGENCE -->
+            <g id="layer3">
+                <rect x="630" y="50" width="240" height="500" class="layer-box" />
+                <text x="750" y="80" class="layer-title">EDGE INTELLIGENCE</text>
+                
+                <!-- MediaPipe -->
+                <rect x="650" y="95" width="200" height="118" class="component-box" />
+                <text x="750" y="118" class="component-text" font-weight="700" text-anchor="middle">MediaPipe</text>
+                <text x="660" y="140" class="component-text">• Face Detection</text>
+                <text x="660" y="158" class="component-text">• Face Tracking</text>
+                <text x="660" y="176" class="component-text">• Feature Analysis</text>
+                <text x="660" y="198" class="component-label">Real-time Processing</text>
+                
+                <!-- AI Interaction -->
+                <rect x="650" y="221" width="200" height="98" class="component-box" />
+                <text x="750" y="244" class="component-text" font-weight="700" text-anchor="middle">AI Interaction</text>
+                <text x="660" y="266" class="component-text">• Voice Q&amp;A</text>
+                <text x="660" y="284" class="component-text">• Symptom Logic</text>
+                <text x="660" y="302" class="component-label">Natural Language</text>
+                
+                <!-- Safety Logic -->
+                <rect x="650" y="327" width="200" height="98" class="component-box" />
+                <text x="750" y="350" class="component-text" font-weight="700" text-anchor="middle">Safety Logic</text>
+                <text x="660" y="372" class="component-text">• Value Validation</text>
+                <text x="660" y="390" class="component-text">• Anomaly Detection</text>
+                <text x="660" y="408" class="component-label">Real-time Monitoring</text>
+                
+                <!-- Data Processing -->
+                <rect x="650" y="433" width="200" height="108" class="component-box" />
+                <text x="750" y="456" class="component-text" font-weight="700" text-anchor="middle">Signal Processing</text>
+                <text x="660" y="478" class="component-label">Sensor Data Aggregation</text>
+            </g>
+
+            <!-- LAYER 4: CLOUD & BACKEND -->
+            <g id="layer4">
+                <rect x="920" y="50" width="280" height="500" class="layer-box" />
+                <text x="1060" y="80" class="layer-title">CLOUD &amp; BACKEND</text>
+                
+                <!-- Flask Backend -->
+                <rect x="940" y="95" width="240" height="128" class="component-box" />
+                <text x="1060" y="118" class="component-text" font-weight="700" text-anchor="middle">Flask Backend</text>
+                <text x="950" y="140" class="component-text">• API Layer</text>
+                <text x="950" y="158" class="component-text">• Data Aggregation</text>
+                <text x="950" y="176" class="component-text">• AI Analysis Engine</text>
+                <text x="950" y="194" class="component-label">Health Inference · Risk Indicators</text>
+                
+                <!-- Database -->
+                <rect x="940" y="231" width="240" height="78" class="component-box" />
+                <text x="1060" y="254" class="component-text" font-weight="700" text-anchor="middle">Database</text>
+                <text x="950" y="276" class="component-text">• Patient Vitals</text>
+                <text x="950" y="294" class="component-text">• Facial Analysis</text>
+                
+                <!-- Firebase -->
+                <rect x="940" y="317" width="240" height="98" class="component-box" />
+                <text x="1060" y="340" class="component-text" font-weight="700" text-anchor="middle">Firebase</text>
+                <text x="950" y="362" class="component-text">• Notifications</text>
+                <text x="950" y="380" class="component-text">• Video Call Signaling</text>
+                <text x="950" y="398" class="component-label">Real-time Communication</text>
+                
+                <!-- Cloud Services -->
+                <rect x="940" y="423" width="240" height="118" class="component-box" />
+                <text x="1060" y="446" class="component-text" font-weight="700" text-anchor="middle">Cloud Services</text>
+                <text x="950" y="468" class="component-label">Scalable Infrastructure</text>
+            </g>
+
+            <!-- LAYER 5: DOCTOR & ADMIN -->
+            <g id="layer5">
+                <rect x="1250" y="50" width="200" height="500" class="layer-box" />
+                <text x="1350" y="80" class="layer-title">DOCTOR INTERFACE</text>
+                
+                <!-- Doctor Icon -->
+                <circle cx="1350" cy="145" r="28" class="icon-circle" />
+                <text x="1350" y="155" class="icon-text" font-size="18">👨‍⚕️</text>
+                <text x="1350" y="192" class="component-text" font-weight="700" text-anchor="middle">Doctor</text>
+                
+                <!-- Dashboard -->
+                <rect x="1270" y="212" width="160" height="118" class="component-box" />
+                <text x="1350" y="235" class="component-text" font-weight="700" text-anchor="middle">Dashboard</text>
+                <text x="1280" y="257" class="component-text">• Real-time View</text>
+                <text x="1280" y="275" class="component-text">• Patient History</text>
+                <text x="1280" y="293" class="component-text">• AI Insights</text>
+                <text x="1280" y="314" class="component-label">Web / Mobile</text>
+                
+                <!-- Video Call -->
+                <rect x="1270" y="338" width="160" height="82" class="component-box" />
+                <text x="1350" y="361" class="component-text" font-weight="700" text-anchor="middle">Video Call</text>
+                <text x="1280" y="383" class="component-text">• Consultation</text>
+                <text x="1280" y="402" class="component-label">Real-time Communication</text>
+                
+                <!-- Prescriptions -->
+                <rect x="1270" y="428" width="160" height="112" class="component-box" />
+                <text x="1350" y="451" class="component-text" font-weight="700" text-anchor="middle">Prescriptions</text>
+                <text x="1280" y="473" class="component-label">Medical Advice</text>
+            </g>
+
+            <!-- DATA FLOW ARROWS -->
+            
+            <!-- Patient to Sensors -->
+            <line x1="250" y1="130" x2="320" y2="192" class="arrow-solid" />
+            <text x="270" y="158" class="arrow-label">Physical Contact</text>
+            
+            <!-- Sensors to ESP32 -->
+            <line x1="440" y1="290" x2="440" y2="460" class="arrow-solid" />
+            <text x="458" y="372" class="arrow-label">Vitals Data</text>
+            
+            <!-- Camera to MediaPipe -->
+            <line x1="440" y1="327" x2="750" y2="154" class="arrow-solid" />
+            <text x="580" y="238" class="arrow-label">Video Stream</text>
+            
+            <!-- MediaPipe to Servo -->
+            <line x1="650" y1="154" x2="440" y2="408" class="arrow-solid" />
+            <text x="530" y="278" class="arrow-label">Tracking Data</text>
+            
+            <!-- Edge AI to Flask -->
+            <line x1="850" y1="270" x2="940" y2="159" class="arrow-solid" />
+            <text x="888" y="212" class="arrow-label">AI Insights</text>
+            
+            <!-- ESP32 to Flask -->
+            <line x1="580" y1="501" x2="940" y2="159" class="arrow-dashed" />
+            <text x="748" y="328" class="arrow-label-dashed">Sensor Data</text>
+            
+            <!-- Flask to Database -->
+            <line x1="1060" y1="223" x2="1060" y2="231" class="arrow-solid" />
+            <text x="1080" y="226" class="arrow-label">Store</text>
+            
+            <!-- Flask to Firebase -->
+            <line x1="1060" y1="317" x2="1060" y2="223" class="arrow-solid" />
+            <text x="1080" y="268" class="arrow-label">Notifications</text>
+            
+            <!-- Firebase to Doctor -->
+            <line x1="1180" y1="366" x2="1270" y2="379" class="arrow-solid" />
+            <text x="1218" y="370" class="arrow-label">Alerts</text>
+            
+            <!-- Doctor to Video Call -->
+            <line x1="1350" y1="330" x2="1350" y2="338" class="arrow-solid" />
+            <text x="1370" y="332" class="arrow-label">Initiate</text>
+            
+            <!-- Video Call to Patient -->
+            <line x1="1270" y1="379" x2="250" y2="130" class="arrow-dashed" />
+            <text x="748" y="252" class="arrow-label-dashed">Video Stream</text>
+            
+            <!-- Doctor to Prescriptions -->
+            <line x1="1350" y1="420" x2="1350" y2="428" class="arrow-solid" />
+            <text x="1370" y="422" class="arrow-label">Prescribe</text>
+            
+            <!-- Prescriptions to Backend -->
+            <line x1="1270" y1="484" x2="1180" y2="270" class="arrow-dashed" />
+            <text x="1218" y="374" class="arrow-label-dashed">Medical Data</text>
+
+            <!-- Bottom Labels -->
+            <text x="750" y="650" font-size="13" fill="#00d9ff" text-anchor="middle" font-weight="700">
+                DATA FLOW: Patient → Hardware → Edge AI → Cloud → Doctor → Patient
+            </text>
+        </svg>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-line"></div>
+                <span class="legend-text">Real-time Data Flow</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-line-dashed"></div>
+                <span class="legend-text">Periodic / Batch Data</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

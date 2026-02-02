@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Mobility Systems – Architecture Overview</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            padding: 16px;
+            color: #1a1a1a;
+        }
+        .diagram-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+        }
+        .diagram-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #1a1a1a;
+            letter-spacing: 0.5px;
+        }
+        .diagram-subtitle {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #616161;
+            margin-bottom: 20px;
+        }
+        svg { width: 100%; height: auto; display: block; }
+        .panel {
+            fill: #fafafa;
+            stroke: #bdbdbd;
+            stroke-width: 1.5;
+            rx: 8;
+        }
+        .panel-title {
+            font-size: 13px;
+            font-weight: 700;
+            fill: #1a1a1a;
+            text-anchor: middle;
+        }
+        .comp-box {
+            fill: #ffffff;
+            stroke: #9e9e9e;
+            stroke-width: 1;
+            rx: 6;
+        }
+        .comp-power { fill: #fff3e0; stroke: #e65100; stroke-width: 1.2; rx: 6; }
+        .comp-control { fill: #e3f2fd; stroke: #1565c0; stroke-width: 1.2; rx: 6; }
+        .comp-load { fill: #f5f5f5; stroke: #757575; stroke-width: 1; rx: 6; }
+        .comp-text { font-size: 9px; fill: #212121; text-anchor: start; font-weight: 500; }
+        .comp-label { font-size: 8px; fill: #616161; text-anchor: start; }
+        .arrow-power { stroke: #e65100; stroke-width: 2; fill: none; marker-end: url(#arrow-power); }
+        .arrow-control { stroke: #1565c0; stroke-width: 2; stroke-dasharray: 5,4; fill: none; marker-end: url(#arrow-control); }
+        .legend { margin-top: 20px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 8px; }
+        .legend-power { width: 32px; height: 3px; background: #e65100; }
+        .legend-control { width: 32px; height: 3px; background: repeating-linear-gradient(90deg, #1565c0 0, #1565c0 4px, transparent 4px, transparent 9px); }
+        .legend-text { color: #616161; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1 class="diagram-title">Electric Mobility Systems – Architecture Overview</h1>
+        <p class="diagram-subtitle">Power Flow & Control Flow · Four Electric Vehicle Architectures</p>
+
+        <svg viewBox="0 0 1240 1180" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrow-power" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                    <polygon points="0 0, 8 4, 0 8" fill="#e65100" />
+                </marker>
+                <marker id="arrow-control" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                    <polygon points="0 0, 8 4, 0 8" fill="#1565c0" />
+                </marker>
+            </defs>
+
+            <!-- ========== PANEL 1: ELECTRIC MINI-BUS ========== -->
+            <g id="panel-minibus">
+                <rect x="20" y="70" width="580" height="520" class="panel" />
+                <text x="310" y="98" class="panel-title">1. Electric Mini-Bus</text>
+
+                <!-- Components -->
+                <rect x="45" y="115" width="120" height="52" class="comp-power" />
+                <text x="55" y="132" class="comp-text">48V Li-ion</text>
+                <text x="55" y="143" class="comp-text">Battery Pack</text>
+                <text x="55" y="160" class="comp-label">+ 48V Charger</text>
+
+                <rect x="45" y="178" width="120" height="38" class="comp-control" />
+                <text x="55" y="195" class="comp-text">Accelerator Pedal</text>
+                <text x="55" y="208" class="comp-label">Single pedal</text>
+
+                <rect x="200" y="115" width="100" height="48" class="comp-box" />
+                <text x="210" y="132" class="comp-text">Motor</text>
+                <text x="210" y="145" class="comp-text">Controller 1</text>
+                <text x="210" y="158" class="comp-label">→ Motor 1</text>
+
+                <rect x="310" y="115" width="100" height="48" class="comp-box" />
+                <text x="320" y="132" class="comp-text">Motor</text>
+                <text x="320" y="145" class="comp-text">Controller 2</text>
+                <text x="320" y="158" class="comp-label">→ Motor 2</text>
+
+                <rect x="200" y="178" width="100" height="42" class="comp-box" />
+                <text x="210" y="195" class="comp-text">BLDC Motor 1</text>
+                <text x="210" y="212" class="comp-label">Rear-mounted</text>
+
+                <rect x="310" y="178" width="100" height="42" class="comp-box" />
+                <text x="320" y="195" class="comp-text">BLDC Motor 2</text>
+                <text x="320" y="212" class="comp-label">Rear-mounted</text>
+
+                <rect x="435" y="115" width="150" height="105" class="comp-load" />
+                <text x="445" y="132" class="comp-text">Front Lamps</text>
+                <text x="445" y="148" class="comp-text">Rear Lamps</text>
+                <text x="445" y="168" class="comp-label">Lighting System</text>
+                <text x="445" y="182" class="comp-label">Battery → Lights</text>
+
+                <!-- Arrows - Mini-Bus -->
+                <path d="M 165 141 L 198 139" class="arrow-power" />
+                <path d="M 165 141 L 265 139 L 265 115 L 308 115" class="arrow-power" />
+                <path d="M 165 197 L 250 197 L 250 163" class="arrow-control" />
+                <path d="M 165 197 L 360 197 L 360 163" class="arrow-control" />
+                <path d="M 250 163 L 250 178" class="arrow-power" />
+                <path d="M 360 163 L 360 178" class="arrow-power" />
+                <path d="M 165 141 L 435 141 L 435 168" class="arrow-power" />
+            </g>
+
+            <!-- ========== PANEL 2: ELECTRIC TRACTOR ========== -->
+            <g id="panel-tractor">
+                <rect x="620" y="70" width="600" height="520" class="panel" />
+                <text x="920" y="98" class="panel-title">2. Electric Tractor</text>
+
+                <rect x="645" y="115" width="100" height="50" class="comp-power" />
+                <text x="655" y="132" class="comp-text">Solar Panel</text>
+                <text x="655" y="158" class="comp-label">Charging support</text>
+
+                <rect x="645" y="178" width="130" height="55" class="comp-power" />
+                <text x="655" y="195" class="comp-text">Li-ion Battery</text>
+                <text x="655" y="210" class="comp-label">+ Lead-Acid (aux)</text>
+
+                <rect x="645" y="248" width="100" height="38" class="comp-control" />
+                <text x="655" y="265" class="comp-text">Key Switch</text>
+                <text x="655" y="278" class="comp-label">ON / OFF</text>
+
+                <rect x="645" y="298" width="100" height="38" class="comp-control" />
+                <text x="655" y="315" class="comp-text">Accelerator</text>
+                <text x="655" y="328" class="comp-label">Pedal</text>
+
+                <rect x="800" y="178" width="120" height="50" class="comp-box" />
+                <text x="810" y="195" class="comp-text">Motor Controller</text>
+                <text x="810" y="222" class="comp-label">Torque & power</text>
+
+                <rect x="945" y="178" width="130" height="70" class="comp-box" />
+                <text x="955" y="198" class="comp-text">GM Motor 5 HP</text>
+                <text x="955" y="215" class="comp-text">High-Power</text>
+                <text x="955" y="240" class="comp-label">Drivetrain</text>
+
+                <!-- Arrows - Tractor -->
+                <path d="M 745 141 L 745 178 L 645 206" class="arrow-power" />
+                <path d="M 775 178 L 798 203" class="arrow-power" />
+                <path d="M 920 203 L 943 203" class="arrow-power" />
+                <path d="M 705 315 L 800 203 L 810 203" class="arrow-control" />
+                <path d="M 695 274 L 800 228 L 810 228" class="arrow-control" />
+            </g>
+
+            <!-- ========== PANEL 3: ELECTRIC SCOOTERS ========== -->
+            <g id="panel-scooters">
+                <rect x="20" y="610" width="580" height="520" class="panel" />
+                <text x="310" y="638" class="panel-title">3. Electric Scooters (Two Generations)</text>
+
+                <!-- Scooter A -->
+                <rect x="45" y="655" width="250" height="220" class="comp-box" stroke="#9e9e9e" stroke-dasharray="4,2" />
+                <text x="170" y="678" class="comp-text" font-weight="700" text-anchor="middle">Scooter A (First Version)</text>
+                <rect x="55" y="690" width="110" height="42" class="comp-power" />
+                <text x="65" y="708" class="comp-text">24V Battery</text>
+                <text x="65" y="725" class="comp-label">DC system</text>
+                <rect x="55" y="742" width="110" height="38" class="comp-control" />
+                <text x="65" y="759" class="comp-text">Accelerator</text>
+                <rect x="180" y="690" width="100" height="42" class="comp-box" />
+                <text x="190" y="708" class="comp-text">DC Controller</text>
+                <rect x="180" y="742" width="100" height="42" class="comp-box" />
+                <text x="190" y="760" class="comp-text">DC Motor</text>
+                <rect x="55" y="790" width="225" height="32" class="comp-load" />
+                <text x="65" y="808" class="comp-text">Front &amp; Rear Lights ← Battery</text>
+
+                <!-- Scooter B -->
+                <rect x="315" y="655" width="270" height="220" class="comp-box" stroke="#9e9e9e" stroke-dasharray="4,2" />
+                <text x="450" y="678" class="comp-text" font-weight="700" text-anchor="middle">Scooter B (Second Version)</text>
+                <rect x="325" y="690" width="120" height="42" class="comp-power" />
+                <text x="335" y="708" class="comp-text">Li-ion Battery</text>
+                <text x="335" y="725" class="comp-label">BLDC system</text>
+                <rect x="325" y="742" width="120" height="38" class="comp-control" />
+                <text x="335" y="759" class="comp-text">Accelerator</text>
+                <rect x="460" y="690" width="110" height="42" class="comp-box" />
+                <text x="470" y="708" class="comp-text">BLDC Controller</text>
+                <rect x="460" y="742" width="110" height="42" class="comp-box" />
+                <text x="470" y="760" class="comp-text">BLDC Motor</text>
+                <rect x="325" y="790" width="245" height="32" class="comp-load" />
+                <text x="335" y="808" class="comp-text">Front &amp; Rear Lights ← Battery</text>
+
+                <!-- Arrows Scooter A: Battery→Controller, Controller→Motor, Accelerator→Controller, Battery→Lights -->
+                <path d="M 165 711 L 178 711" class="arrow-power" />
+                <path d="M 280 711 L 280 763" class="arrow-power" />
+                <path d="M 165 762 L 230 732" class="arrow-control" />
+                <path d="M 110 732 L 110 790 L 167 790" class="arrow-power" />
+                <!-- Arrows Scooter B -->
+                <path d="M 445 711 L 458 711" class="arrow-power" />
+                <path d="M 570 711 L 570 763" class="arrow-power" />
+                <path d="M 445 762 L 515 732" class="arrow-control" />
+                <path d="M 385 732 L 385 790 L 447 790" class="arrow-power" />
+            </g>
+
+            <!-- ========== PANEL 4: ELECTRIC CAR ========== -->
+            <g id="panel-car">
+                <rect x="620" y="610" width="600" height="520" class="panel" />
+                <text x="920" y="638" class="panel-title">4. Electric Car</text>
+
+                <rect x="645" y="655" width="140" height="52" class="comp-power" />
+                <text x="655" y="672" class="comp-text">Li-ion Battery Pack</text>
+                <text x="655" y="698" class="comp-label">Single pack</text>
+
+                <rect x="645" y="718" width="140" height="38" class="comp-control" />
+                <text x="655" y="735" class="comp-text">Accelerator Pedal</text>
+                <text x="655" y="748" class="comp-label">→ Controller</text>
+
+                <rect x="820" y="655" width="130" height="55" class="comp-box" />
+                <text x="830" y="672" class="comp-text">Motor Controller</text>
+                <text x="830" y="688" class="comp-text">(Single unit)</text>
+                <text x="830" y="702" class="comp-label">→ 2× BLDC</text>
+
+                <rect x="980" y="638" width="100" height="48" class="comp-box" />
+                <text x="990" y="656" class="comp-text">BLDC Motor 1</text>
+                <text x="990" y="678" class="comp-label">Drivetrain</text>
+
+                <rect x="980" y="696" width="100" height="48" class="comp-box" />
+                <text x="990" y="714" class="comp-text">BLDC Motor 2</text>
+                <text x="990" y="736" class="comp-label">Drivetrain</text>
+
+                <rect x="645" y="768" width="435" height="42" class="comp-load" />
+                <text x="655" y="786" class="comp-text">Front &amp; Rear Lamps · Battery → Lighting System</text>
+
+                <!-- Arrows - Car -->
+                <path d="M 785 681 L 818 682" class="arrow-power" />
+                <path d="M 950 682 L 978 662" class="arrow-power" />
+                <path d="M 950 682 L 950 696 L 978 720" class="arrow-power" />
+                <path d="M 715 737 L 820 682 L 830 682" class="arrow-control" />
+                <path d="M 785 707 L 785 765 L 655 765 L 655 768" class="arrow-power" />
+            </g>
+
+            <!-- Global legend labels -->
+            <text x="620" y="60" font-size="10" fill="#e65100" font-weight="700">Energy Flow</text>
+            <text x="720" y="60" font-size="10" fill="#1565c0" font-weight="700">Control Flow</text>
+        </svg>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-power"></div><span class="legend-text">Power / Energy Flow</span></div>
+            <div class="legend-item"><div class="legend-control"></div><span class="legend-text">Control Signals</span></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Driving Car - System Architecture</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            padding: 10px;
+            color: #ffffff;
+        }
+        .diagram-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+        .diagram-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #00d9ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .diagram-subtitle {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #b0b8d1;
+            margin-bottom: 16px;
+        }
+        svg { width: 100%; height: auto; display: block; }
+        .layer-box {
+            fill: rgba(255, 255, 255, 0.05);
+            stroke: rgba(0, 217, 255, 0.3);
+            stroke-width: 2;
+            rx: 10;
+        }
+        .layer-title { font-size: 14px; font-weight: 700; fill: #00d9ff; text-anchor: middle; }
+        .component-box {
+            fill: rgba(0, 217, 255, 0.1);
+            stroke: rgba(0, 217, 255, 0.4);
+            stroke-width: 1.5;
+            rx: 8;
+        }
+        .highlight-vision { fill: rgba(0, 200, 255, 0.18); stroke: rgba(0, 217, 255, 0.6); stroke-width: 2; rx: 8; }
+        .highlight-decision { fill: rgba(123, 47, 247, 0.18); stroke: rgba(123, 47, 247, 0.6); stroke-width: 2; rx: 8; }
+        .highlight-motion { fill: rgba(0, 255, 160, 0.15); stroke: rgba(0, 255, 160, 0.5); stroke-width: 2; rx: 8; }
+        .component-text { font-size: 10px; fill: #ffffff; text-anchor: start; font-weight: 500; }
+        .component-label { font-size: 9px; fill: #b0b8d1; text-anchor: start; }
+        .car-center {
+            fill: rgba(123, 47, 247, 0.12);
+            stroke: rgba(123, 47, 247, 0.5);
+            stroke-width: 2.5;
+            rx: 12;
+        }
+        .car-title { font-size: 14px; font-weight: 700; fill: #7b2ff7; text-anchor: middle; }
+        .arrow-solid { stroke: #00d9ff; stroke-width: 2.5; fill: none; marker-end: url(#arrowhead-solid); }
+        .arrow-dashed { stroke: #7b2ff7; stroke-width: 2.5; stroke-dasharray: 6,6; fill: none; marker-end: url(#arrowhead-dashed); }
+        .arrow-label { font-size: 9px; fill: #00d9ff; font-weight: 600; }
+        .arrow-label-dashed { font-size: 9px; fill: #7b2ff7; font-weight: 600; }
+        .legend { margin-top: 20px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .legend-item { display: flex; align-items: center; gap: 10px; }
+        .legend-line { width: 40px; height: 2px; background: #00d9ff; }
+        .legend-line-dashed { width: 40px; height: 2px; background: repeating-linear-gradient(to right, #7b2ff7 0, #7b2ff7 5px, transparent 5px, transparent 10px); }
+        .legend-text { color: #b0b8d1; font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1 class="diagram-title">Self-Driving Car Prototype</h1>
+        <p class="diagram-subtitle">Perception → Decision → Control → Motion</p>
+
+        <svg viewBox="0 0 1100 820" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead-solid" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#00d9ff" />
+                </marker>
+                <marker id="arrowhead-dashed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#7b2ff7" />
+                </marker>
+            </defs>
+
+            <!-- LEFT: MOBILE PHONE CAMERA (Vision Input) -->
+            <g id="vision-input">
+                <rect x="30" y="80" width="200" height="160" class="layer-box" />
+                <text x="130" y="108" class="layer-title">VISION INPUT</text>
+                <rect x="50" y="125" width="160" height="100" class="component-box" />
+                <text x="130" y="148" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Mobile Phone Camera</text>
+                <text x="60" y="168" class="component-text" font-size="10px">• Road / Lane detection</text>
+                <text x="60" y="185" class="component-text" font-size="10px">• Object detection</text>
+                <text x="60" y="202" class="component-text" font-size="10px">• Traffic sign recognition</text>
+                <text x="60" y="218" class="component-label" font-size="9px">Mounted on car · Wi-Fi stream</text>
+            </g>
+
+            <!-- CENTER-TOP: PC/LAPTOP (Central Processing & Decision Unit) -->
+            <g id="pc-brain">
+                <rect x="280" y="20" width="540" height="320" class="layer-box" />
+                <text x="550" y="52" class="layer-title">CENTRAL PROCESSING &amp; DECISION UNIT (PC / Laptop)</text>
+                <text x="550" y="72" class="component-label" text-anchor="middle" font-size="9px">Python · OpenCV · YOLO · HOG + HoughLinesP</text>
+
+                <!-- Vision Processing (highlighted) -->
+                <rect x="300" y="90" width="240" height="115" class="highlight-vision" />
+                <text x="420" y="112" class="component-text" font-weight="700" text-anchor="middle" font-size="11px" fill="#00d9ff">VISION PROCESSING</text>
+                <text x="310" y="132" class="component-text" font-size="10px">• Road edge detection</text>
+                <text x="310" y="148" class="component-text" font-size="10px">• Lane tracking (black road, white boundaries)</text>
+                <text x="310" y="164" class="component-text" font-size="10px">• YOLO object detection</text>
+                <text x="310" y="180" class="component-text" font-size="10px">• Traffic sign detection (STOP, obstacles, people)</text>
+                <text x="310" y="196" class="component-label" font-size="9px">HOG + HoughLinesP</text>
+
+                <!-- Decision Making (highlighted) -->
+                <rect x="560" y="90" width="240" height="115" class="highlight-decision" />
+                <text x="680" y="112" class="component-text" font-weight="700" text-anchor="middle" font-size="11px" fill="#b88aff">DECISION MAKING</text>
+                <text x="570" y="132" class="component-text" font-size="10px">• Move / Stop / Turn / Slow down</text>
+                <text x="570" y="148" class="component-text" font-size="10px">• Lane following (edge detection)</text>
+                <text x="570" y="164" class="component-text" font-size="10px">• Stop on STOP sign</text>
+                <text x="570" y="180" class="component-text" font-size="10px">• Stop when person detected</text>
+                <text x="570" y="196" class="component-label" font-size="9px">Logic-based control (no AI model)</text>
+
+                <!-- Driving logic summary -->
+                <rect x="300" y="218" width="500" height="108" class="component-box" />
+                <text x="550" y="240" class="component-text" font-weight="700" text-anchor="middle" font-size="10px">DRIVING LOGIC</text>
+                <text x="310" y="260" class="component-text" font-size="10px">• Lane following using edge detection</text>
+                <text x="310" y="278" class="component-text" font-size="10px">• Stop on STOP sign detection · Stop when person detected</text>
+                <text x="310" y="296" class="component-text" font-size="10px">• Obstacle avoidance using ultrasonic sensor</text>
+                <text x="310" y="314" class="component-label" font-size="9px">Continuous feedback loop: Sensors → PC → ESP32</text>
+            </g>
+
+            <!-- RIGHT: ESP32 (Hardware Control Unit) -->
+            <g id="esp32">
+                <rect x="860" y="80" width="210" height="260" class="layer-box" />
+                <text x="965" y="108" class="layer-title">HARDWARE CONTROL UNIT</text>
+                <rect x="880" y="125" width="170" height="200" class="highlight-motion" />
+                <text x="965" y="148" class="component-text" font-weight="700" text-anchor="middle" font-size="12px" fill="#00ffa0">ESP32</text>
+                <text x="890" y="170" class="component-text" font-size="10px">• Receives commands wirelessly</text>
+                <text x="890" y="188" class="component-text" font-size="10px">• 4× DC Motors (Mecanum)</text>
+                <text x="890" y="206" class="component-text" font-size="10px">• Ultrasonic sensor</text>
+                <text x="890" y="224" class="component-text" font-size="10px">• Buzzer (emergency alerts)</text>
+                <text x="890" y="242" class="component-text" font-size="10px">• Real-time motor control</text>
+                <text x="890" y="258" class="component-label" font-size="9px">MOTION CONTROL</text>
+            </g>
+
+            <!-- BOTTOM: Car platform + Sensors & Actuators -->
+            <g id="car-platform">
+                <rect x="280" y="380" width="540" height="180" class="layer-box" />
+                <text x="550" y="408" class="layer-title">SENSORS &amp; ACTUATORS (on vehicle)</text>
+
+                <!-- Ultrasonic -->
+                <rect x="300" y="425" width="160" height="120" class="component-box" />
+                <text x="380" y="448" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Ultrasonic Sensor</text>
+                <text x="310" y="468" class="component-text" font-size="10px">• Distance measurement</text>
+                <text x="310" y="485" class="component-text" font-size="10px">• Obstacle detection</text>
+                <text x="310" y="502" class="component-text" font-size="10px">• Emergency stop logic</text>
+                <text x="310" y="532" class="component-label" font-size="9px">→ ESP32 → PC feedback</text>
+
+                <!-- Car (center) -->
+                <rect x="480" y="425" width="200" height="120" class="car-center" />
+                <text x="580" y="455" class="car-title">SELF-DRIVING CAR</text>
+                <text x="580" y="475" class="car-title" font-size="11px">PLATFORM</text>
+                <text x="490" y="500" class="component-text" font-size="10px">• Camera mount</text>
+                <text x="490" y="518" class="component-text" font-size="10px">• ESP32 onboard</text>
+                <text x="490" y="536" class="component-label" font-size="9px">Wi-Fi connected</text>
+
+                <!-- Buzzer -->
+                <rect x="700" y="425" width="100" height="55" class="component-box" />
+                <text x="750" y="448" class="component-text" font-weight="700" text-anchor="middle" font-size="10px">Buzzer</text>
+                <text x="710" y="468" class="component-text" font-size="9px">Emergency alerts</text>
+                <text x="710" y="472" class="component-label" font-size="9px">← ESP32</text>
+
+                <!-- Mecanum Wheels -->
+                <rect x="700" y="490" width="100" height="55" class="component-box" />
+                <text x="750" y="513" class="component-text" font-weight="700" text-anchor="middle" font-size="10px">Mecanum</text>
+                <text x="750" y="528" class="component-text" font-weight="700" text-anchor="middle" font-size="10px">Wheels (4×)</text>
+                <text x="710" y="538" class="component-label" font-size="9px">Fwd / Side / Turn</text>
+            </g>
+
+            <!-- DATA FLOW ARROWS -->
+
+            <!-- Camera → PC (video over Wi-Fi) -->
+            <path d="M 230 160 L 275 160 L 275 170 L 550 170" class="arrow-solid" />
+            <text x="350" y="162" class="arrow-label">Live video (Wi-Fi)</text>
+
+            <!-- PC Vision → Decision (internal) -->
+            <line x1="540" y1="147" x2="560" y2="147" class="arrow-solid" />
+            <text x="545" y="142" class="arrow-label" font-size="8px">Detection</text>
+
+            <!-- Decision → ESP32 (wireless commands) -->
+            <path d="M 800 147 L 860 147 L 860 205 L 878 205" class="arrow-dashed" />
+            <text x="800" y="175" class="arrow-label-dashed">Commands</text>
+
+            <!-- ESP32 → Motors (Mecanum) -->
+            <path d="M 965 325 L 965 380 L 750 380 L 750 488" class="arrow-solid" />
+            <text x="850" y="355" class="arrow-label">Motor control</text>
+
+            <!-- Ultrasonic → ESP32 -->
+            <path d="M 460 485 L 878 255" class="arrow-solid" />
+            <text x="650" y="365" class="arrow-label">Distance</text>
+
+            <!-- ESP32 → PC (obstacle feedback) -->
+            <path d="M 878 285 L 820 285 L 820 170 L 800 170" class="arrow-dashed" />
+            <text x="815" y="225" class="arrow-label-dashed">Obstacle feedback</text>
+
+            <!-- ESP32 → Buzzer -->
+            <path d="M 965 325 L 965 452 L 698 452" class="arrow-solid" />
+            <text x="820" y="392" class="arrow-label" font-size="8px">Alert</text>
+
+            <!-- Bottom flow label -->
+            <text x="550" y="595" font-size="11" fill="#00d9ff" text-anchor="middle" font-weight="700">
+                FLOW: Camera → PC (Vision + Decision) → ESP32 → Motors / Buzzer · Ultrasonic → ESP32 → PC (feedback)
+            </text>
+        </svg>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-line"></div><span class="legend-text">Real-time Data</span></div>
+            <div class="legend-item"><div class="legend-line-dashed"></div><span class="legend-text">Commands &amp; Feedback</span></div>
+        </div>
+    </div>
+</body>
+</html>

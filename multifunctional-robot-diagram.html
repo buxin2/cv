@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multifunctional AI Robot - System Architecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            padding: 10px;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .diagram-container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .diagram-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #00d9ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .diagram-subtitle {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #b0b8d1;
+            margin-bottom: 20px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Layer Styles */
+        .layer-box {
+            fill: rgba(255, 255, 255, 0.05);
+            stroke: rgba(0, 217, 255, 0.3);
+            stroke-width: 2;
+            rx: 10;
+        }
+
+        .layer-title {
+            font-size: 16px;
+            font-weight: 700;
+            fill: #00d9ff;
+            text-anchor: middle;
+        }
+
+        .component-box {
+            fill: rgba(0, 217, 255, 0.1);
+            stroke: rgba(0, 217, 255, 0.4);
+            stroke-width: 1.5;
+            rx: 8;
+        }
+
+        .component-text {
+            font-size: 10px;
+            fill: #ffffff;
+            text-anchor: start;
+            font-weight: 500;
+        }
+
+        .component-label {
+            font-size: 9px;
+            fill: #b0b8d1;
+            text-anchor: start;
+        }
+
+        .robot-center {
+            fill: rgba(123, 47, 247, 0.15);
+            stroke: rgba(123, 47, 247, 0.6);
+            stroke-width: 3;
+            rx: 15;
+        }
+
+        .robot-title {
+            font-size: 18px;
+            font-weight: 700;
+            fill: #7b2ff7;
+            text-anchor: middle;
+        }
+
+        /* Arrows */
+        .arrow-solid {
+            stroke: #00d9ff;
+            stroke-width: 2.5;
+            fill: none;
+            marker-end: url(#arrowhead-solid);
+        }
+
+        .arrow-dashed {
+            stroke: #7b2ff7;
+            stroke-width: 2.5;
+            stroke-dasharray: 6,6;
+            fill: none;
+            marker-end: url(#arrowhead-dashed);
+        }
+
+        .arrow-label {
+            font-size: 9px;
+            fill: #00d9ff;
+            font-weight: 600;
+        }
+
+        .arrow-label-dashed {
+            font-size: 9px;
+            fill: #7b2ff7;
+            font-weight: 600;
+        }
+
+        /* Legend */
+        .legend {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legend-line {
+            width: 40px;
+            height: 2px;
+            background: #00d9ff;
+        }
+
+        .legend-line-dashed {
+            width: 40px;
+            height: 2px;
+            background: repeating-linear-gradient(to right, #7b2ff7 0, #7b2ff7 5px, transparent 5px, transparent 10px);
+        }
+
+        .legend-text {
+            color: #b0b8d1;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1 class="diagram-title">Multifunctional AI Robot</h1>
+        <p class="diagram-subtitle">System Architecture & Communication Flow</p>
+
+        <svg viewBox="0 0 1400 1300" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
+            <!-- Arrow Markers -->
+            <defs>
+                <marker id="arrowhead-solid" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#00d9ff" />
+                </marker>
+                <marker id="arrowhead-dashed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                    <polygon points="0 0, 10 3, 0 6" fill="#7b2ff7" />
+                </marker>
+            </defs>
+
+            <!-- TOP: AI & INTELLIGENCE LAYER -->
+            <g id="ai-layer">
+                <rect x="200" y="50" width="1000" height="250" class="layer-box" />
+                <text x="700" y="80" class="layer-title">AI PERCEPTION &amp; DECISION LAYER</text>
+                
+                <!-- YOLO Object Detection -->
+                <rect x="230" y="100" width="200" height="110" class="component-box" />
+                <text x="330" y="125" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">YOLO Object Detection</text>
+                <text x="240" y="150" class="component-text" font-size="10px">• Person Detection</text>
+                <text x="240" y="170" class="component-text" font-size="10px">• Object Recognition</text>
+                <text x="240" y="190" class="component-label" font-size="9px">Real-time Inference</text>
+                
+                <!-- MediaPipe Tracking -->
+                <rect x="460" y="100" width="200" height="110" class="component-box" />
+                <text x="560" y="125" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">MediaPipe Tracking</text>
+                <text x="470" y="150" class="component-text" font-size="10px">• Face Tracking</text>
+                <text x="470" y="170" class="component-text" font-size="10px">• Body Tracking</text>
+                <text x="470" y="190" class="component-label" font-size="9px">Multi-modal Tracking</text>
+                
+                <!-- Color & Person Tracking -->
+                <rect x="690" y="100" width="200" height="110" class="component-box" />
+                <text x="790" y="125" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Color &amp; Person</text>
+                <text x="790" y="140" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Tracking</text>
+                <text x="700" y="160" class="component-text" font-size="10px">• Color Detection</text>
+                <text x="700" y="180" class="component-text" font-size="10px">• Person Following</text>
+                <text x="700" y="195" class="component-label" font-size="9px">Target Tracking</text>
+                
+                <!-- AI Reasoning Engine -->
+                <rect x="920" y="100" width="200" height="110" class="component-box" />
+                <text x="1020" y="125" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">AI Reasoning</text>
+                <text x="1020" y="140" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Engine</text>
+                <text x="930" y="160" class="component-text" font-size="10px">• Scene Understanding</text>
+                <text x="930" y="180" class="component-text" font-size="10px">• Behavior Decisions</text>
+                <text x="930" y="195" class="component-label" font-size="9px">Command Generation</text>
+                
+                <!-- Voice Command Processing -->
+                <rect x="230" y="220" width="200" height="70" class="component-box" />
+                <text x="330" y="245" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Voice Command</text>
+                <text x="330" y="260" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Processing</text>
+                <text x="240" y="278" class="component-text" font-size="10px">• Speech Recognition</text>
+                <text x="240" y="288" class="component-label" font-size="9px">Natural Language</text>
+                
+                <!-- Conversation Engine -->
+                <rect x="460" y="220" width="200" height="70" class="component-box" />
+                <text x="560" y="245" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Conversation</text>
+                <text x="560" y="260" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Engine</text>
+                <text x="470" y="278" class="component-text" font-size="10px">• &quot;What do you see?&quot;</text>
+                <text x="470" y="288" class="component-label" font-size="9px">Scene Explanation</text>
+                
+                <!-- Speech Output -->
+                <rect x="690" y="220" width="200" height="70" class="component-box" />
+                <text x="790" y="245" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Speech Output</text>
+                <text x="700" y="265" class="component-text" font-size="10px">• AI Voice Feedback</text>
+                <text x="700" y="280" class="component-label" font-size="9px">Command Confirmation</text>
+            </g>
+
+            <!-- TOP-RIGHT: AUDIO SYSTEM -->
+            <g id="audio-layer">
+                <rect x="950" y="320" width="400" height="140" class="layer-box" />
+                <text x="1150" y="350" class="layer-title">AUDIO SYSTEM</text>
+                
+                <!-- Mobile Phone Audio -->
+                <rect x="980" y="370" width="340" height="80" class="component-box" />
+                <text x="1150" y="390" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Mobile Phone Audio</text>
+                <text x="1150" y="405" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Output</text>
+                <text x="990" y="425" class="component-text" font-size="10px">• AI Voice Feedback</text>
+                <text x="990" y="440" class="component-label" font-size="9px">External Speaker</text>
+                <text x="990" y="452" class="component-label" font-size="9px">(Buck Converter)</text>
+            </g>
+
+            <!-- LEFT: PERCEPTION LAYER -->
+            <g id="perception-layer">
+                <rect x="50" y="480" width="400" height="320" class="layer-box" />
+                <text x="250" y="510" class="layer-title">PERCEPTION &amp; VISION LAYER</text>
+                
+                <!-- Mobile Phone Camera -->
+                <rect x="80" y="540" width="340" height="130" class="component-box" />
+                <text x="250" y="565" class="component-text" font-weight="700" text-anchor="middle" font-size="12px">Mobile Phone Camera</text>
+                <text x="90" y="590" class="component-text" font-size="10px">• Real-time Video Capture</text>
+                <text x="90" y="610" class="component-text" font-size="10px">• Object Detection</text>
+                <text x="90" y="630" class="component-text" font-size="10px">• Person Detection</text>
+                <text x="90" y="650" class="component-label" font-size="9px">Mounted on Robot</text>
+                
+                <!-- Video Streaming Module -->
+                <rect x="80" y="690" width="340" height="100" class="component-box" />
+                <text x="250" y="715" class="component-text" font-weight="700" text-anchor="middle" font-size="12px">Video Streaming Module</text>
+                <text x="90" y="740" class="component-text" font-size="10px">• Live Video Feed</text>
+                <text x="90" y="760" class="component-text" font-size="10px">• Remote Viewing</text>
+                <text x="90" y="780" class="component-label" font-size="9px">Wi-Fi Streaming</text>
+                
+                <!-- Vision Processing -->
+                <rect x="80" y="810" width="340" height="50" class="component-box" />
+                <text x="250" y="835" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Vision Processing</text>
+                <text x="250" y="850" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Pipeline</text>
+            </g>
+
+            <!-- RIGHT: CONTROL & ACTUATION LAYER -->
+            <g id="control-layer">
+                <rect x="950" y="480" width="400" height="320" class="layer-box" />
+                <text x="1150" y="510" class="layer-title">LOW-LEVEL MOTION &amp; ACTUATION</text>
+                
+                <!-- ESP32 Microcontroller -->
+                <rect x="980" y="540" width="340" height="150" class="component-box" />
+                <text x="1150" y="565" class="component-text" font-weight="700" text-anchor="middle" font-size="12px">ESP32</text>
+                <text x="1150" y="580" class="component-text" font-weight="700" text-anchor="middle" font-size="12px">Microcontroller</text>
+                <text x="990" y="600" class="component-text" font-size="10px">• Motor Control</text>
+                <text x="990" y="620" class="component-text" font-size="10px">• Servo Control</text>
+                <text x="990" y="640" class="component-text" font-size="10px">• Relay Module</text>
+                <text x="990" y="660" class="component-text" font-size="10px">• Buzzer Control</text>
+                <text x="990" y="680" class="component-label" font-size="9px">Wi-Fi Communication</text>
+                
+                <!-- Motor Drivers -->
+                <rect x="980" y="710" width="340" height="90" class="component-box" />
+                <text x="1150" y="735" class="component-text" font-weight="700" text-anchor="middle" font-size="12px">Motor Drivers</text>
+                <text x="990" y="755" class="component-text" font-size="10px">• 4 × DC Motor Control</text>
+                <text x="990" y="775" class="component-text" font-size="10px">• Speed &amp; Direction</text>
+                <text x="990" y="790" class="component-label" font-size="9px">PWM Control</text>
+            </g>
+
+            <!-- RIGHT-BOTTOM: MOBILITY SYSTEM -->
+            <g id="mobility-layer">
+                <rect x="950" y="840" width="400" height="180" class="layer-box" />
+                <text x="1150" y="870" class="layer-title">MOBILITY SYSTEM</text>
+                
+                <!-- Mecanum Wheels -->
+                <rect x="980" y="900" width="340" height="100" class="component-box" />
+                <text x="1150" y="925" class="component-text" font-weight="700" text-anchor="middle" font-size="12px">Mecanum Wheel Base</text>
+                <text x="990" y="945" class="component-text" font-size="10px">• 4 × DC Motors</text>
+                <text x="990" y="965" class="component-text" font-size="10px">• Forward / Backward</text>
+                <text x="990" y="985" class="component-text" font-size="10px">• Left / Right / Diagonal</text>
+                <text x="990" y="1000" class="component-label" font-size="9px">Omnidirectional Movement</text>
+            </g>
+
+            <!-- BOTTOM: NETWORK & REMOTE CONTROL -->
+            <g id="network-layer">
+                <rect x="200" y="1050" width="1000" height="130" class="layer-box" />
+                <text x="700" y="1080" class="layer-title">REMOTE CONTROL &amp; COMMUNICATION LAYER</text>
+                
+                <!-- School Wi-Fi -->
+                <rect x="230" y="1090" width="220" height="70" class="component-box" />
+                <text x="340" y="1115" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">School Wi-Fi</text>
+                <text x="340" y="1130" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Network</text>
+                <text x="240" y="1150" class="component-label" font-size="9px">Campus-wide Connectivity</text>
+                
+                <!-- Smartphone Controller -->
+                <rect x="480" y="1090" width="220" height="70" class="component-box" />
+                <text x="590" y="1115" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Smartphone</text>
+                <text x="590" y="1130" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Controller</text>
+                <text x="490" y="1150" class="component-label" font-size="9px">Remote Driving Interface</text>
+                
+                <!-- Remote Streaming -->
+                <rect x="730" y="1090" width="220" height="70" class="component-box" />
+                <text x="840" y="1115" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Remote Streaming</text>
+                <text x="740" y="1135" class="component-text" font-size="10px">• Live Video</text>
+                <text x="740" y="1150" class="component-label" font-size="9px">Remote Control</text>
+                
+                <!-- Command Transmission -->
+                <rect x="980" y="1090" width="220" height="70" class="component-box" />
+                <text x="1090" y="1115" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Command</text>
+                <text x="1090" y="1130" class="component-text" font-weight="700" text-anchor="middle" font-size="11px">Transmission</text>
+                <text x="990" y="1150" class="component-label" font-size="9px">Long-distance Control</text>
+            </g>
+
+            <!-- BOTTOM-LEFT: SENSOR & SAFETY -->
+            <g id="safety-layer">
+                <rect x="50" y="840" width="400" height="180" class="layer-box" />
+                <text x="250" y="870" class="layer-title">OBSTACLE DETECTION &amp; SAFETY</text>
+                
+                <!-- Ultrasonic Sensor -->
+                <rect x="80" y="900" width="340" height="100" class="component-box" />
+                <text x="250" y="925" class="component-text" font-weight="700" text-anchor="middle" font-size="12px">Ultrasonic Sensor</text>
+                <text x="90" y="945" class="component-text" font-size="10px">• Distance Measurement</text>
+                <text x="90" y="965" class="component-text" font-size="10px">• Collision Detection</text>
+                <text x="90" y="985" class="component-text" font-size="10px">• Emergency Stop Logic</text>
+                <text x="90" y="1000" class="component-label" font-size="9px">Safety Monitoring</text>
+            </g>
+
+            <!-- CENTRAL ROBOT PLATFORM -->
+            <g id="robot-center">
+                <rect x="550" y="500" width="300" height="280" class="robot-center" />
+                <text x="700" y="535" class="robot-title">MULTIFUNCTIONAL AI ROBOT</text>
+                <text x="700" y="560" class="robot-title" font-size="14px">PLATFORM</text>
+                
+                <!-- Robot Components -->
+                <rect x="570" y="580" width="260" height="180" class="component-box" />
+                <text x="700" y="605" class="component-text" font-weight="700" text-anchor="middle" font-size="12px">ROBOT COMPONENTS</text>
+                
+                <text x="580" y="630" class="component-text" font-size="10px">• Mecanum Wheel Base</text>
+                <text x="580" y="650" class="component-text" font-size="10px">• Mobile Camera Mount</text>
+                <text x="580" y="670" class="component-text" font-size="10px">• Speaker</text>
+                <text x="580" y="690" class="component-text" font-size="10px">• Ultrasonic Sensor</text>
+                <text x="580" y="710" class="component-text" font-size="10px">• Buzzer</text>
+                <text x="580" y="730" class="component-text" font-size="10px">• Relay-Controlled Actuator</text>
+                <text x="580" y="750" class="component-label" font-size="9px">Gun Mechanism</text>
+            </g>
+
+            <!-- DATA FLOW ARROWS -->
+            
+            <!-- Camera to YOLO/MediaPipe -->
+            <line x1="420" y1="605" x2="330" y2="155" class="arrow-solid" />
+            <text x="360" y="370" class="arrow-label" font-size="9px">Video Stream</text>
+            
+            <line x1="420" y1="605" x2="560" y2="155" class="arrow-solid" />
+            <text x="480" y="370" class="arrow-label" font-size="9px">Video Stream</text>
+            
+            <!-- YOLO/MediaPipe to AI Reasoning -->
+            <line x1="430" y1="155" x2="920" y2="155" class="arrow-solid" />
+            <text x="670" y="145" class="arrow-label" font-size="9px">Detection Results</text>
+            
+            <line x1="660" y1="155" x2="920" y2="155" class="arrow-solid" />
+            
+            <!-- AI Reasoning to ESP32 -->
+            <line x1="1020" y1="210" x2="1150" y2="615" class="arrow-solid" />
+            <text x="1080" y="410" class="arrow-label" font-size="9px">Movement Commands</text>
+            
+            <!-- Voice Command to AI -->
+            <line x1="330" y1="290" x2="560" y2="290" class="arrow-solid" />
+            <text x="440" y="285" class="arrow-label" font-size="9px">Voice Input</text>
+            
+            <!-- AI to Speech Output -->
+            <line x1="790" y1="290" x2="1150" y2="410" class="arrow-solid" />
+            <text x="960" y="340" class="arrow-label" font-size="9px">Voice Output</text>
+            
+            <!-- Speech Output to Speaker (via Robot) -->
+            <line x1="1150" y1="450" x2="700" y2="670" class="arrow-dashed" />
+            <text x="920" y="550" class="arrow-label-dashed" font-size="9px">Audio Signal</text>
+            
+            <!-- ESP32 to Motors -->
+            <line x1="1150" y1="800" x2="1150" y2="900" class="arrow-solid" />
+            <text x="1170" y="850" class="arrow-label" font-size="9px">Motor Control</text>
+            
+            <!-- ESP32 to Servo/Relay -->
+            <line x1="1320" y1="690" x2="1320" y2="750" class="arrow-solid" />
+            <text x="1340" y="720" class="arrow-label" font-size="9px">Servo/Relay</text>
+            
+            <!-- Ultrasonic to ESP32 -->
+            <line x1="420" y1="950" x2="980" y2="690" class="arrow-solid" />
+            <text x="680" y="820" class="arrow-label" font-size="9px">Distance Data</text>
+            
+            <!-- ESP32 to Buzzer (via Robot) -->
+            <line x1="1320" y1="615" x2="830" y2="710" class="arrow-dashed" />
+            <text x="1070" y="660" class="arrow-label-dashed" font-size="9px">Alert Signal</text>
+            
+            <!-- Wi-Fi to Robot -->
+            <line x1="590" y1="1090" x2="700" y2="780" class="arrow-dashed" />
+            <text x="630" y="930" class="arrow-label-dashed" font-size="9px">Remote Control</text>
+            
+            <!-- Robot to Wi-Fi (Video Stream) -->
+            <line x1="550" y1="720" x2="340" y1="1090" class="arrow-dashed" />
+            <text x="400" y="900" class="arrow-label-dashed" font-size="9px">Video Stream</text>
+            
+            <!-- Camera to Streaming -->
+            <line x1="250" y1="660" x2="250" y2="690" class="arrow-solid" />
+            <text x="270" y="675" class="arrow-label" font-size="9px">Video Feed</text>
+            
+            <!-- Streaming to Network -->
+            <line x1="250" y1="790" x2="840" y2="1125" class="arrow-dashed" />
+            <text x="520" y="950" class="arrow-label-dashed" font-size="9px">Live Stream</text>
+
+            <!-- Bottom Flow Label -->
+            <text x="700" y="1250" font-size="12" fill="#00d9ff" text-anchor="middle" font-weight="700">
+                COMMUNICATION FLOW: Perception → AI Reasoning → Control → Actuation → Feedback
+            </text>
+        </svg>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-line"></div>
+                <span class="legend-text">Real-time Data Flow</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-line-dashed"></div>
+                <span class="legend-text">Commands &amp; Feedback</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
