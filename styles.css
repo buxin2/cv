@@ -120,6 +120,11 @@ video.media-el { height: auto; }
 
 .callout-box { border: 1px solid var(--ink); padding: 22px; }
 
+.placeholder-box { border: 1px dashed var(--rule); padding: 22px; color: var(--ink-soft); font-size: 0.92rem; }
+.placeholder-box p { margin-bottom: 8px; }
+.placeholder-box p:last-child { margin-bottom: 0; }
+.placeholder-box code { font-family: 'Courier New', Courier, monospace; background: #F2F2F2; padding: 1px 5px; }
+
 .text-link { color: var(--ink); text-decoration: underline; }
 
 /* ============ MODAL ============ */
