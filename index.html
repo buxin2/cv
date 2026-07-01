@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABDOKADIR JABBI - AI Robotics Engineer Portfolio</title>
+    <title>Abdoukadir Jabbi — AI Robotics Engineer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,11 +13,10 @@
         <div class="modal-content"></div>
     </div>
 
-    <!-- FLOATING PROJECT NAVIGATION - STICKY RIGHT CORNER -->
-    <div class="floating-project-nav">
+    <!-- PROJECT INDEX - STICKY -->
+    <nav class="floating-project-nav" aria-label="Project index">
         <div class="floating-nav-header">
-            <span class="nav-icon">⚡</span>
-            <span class="nav-title">PROJECTS</span>
+            <span class="nav-title">Projects</span>
         </div>
         <div class="floating-nav-list">
             <button class="floating-nav-item active" data-project="project-1">
@@ -41,7 +40,7 @@
                 <span class="nav-name">Electric Mobility</span>
             </button>
         </div>
-    </div>
+    </nav>
 
     <!-- MAIN CONTAINER -->
     <div class="main-wrapper">
@@ -49,28 +48,20 @@
         <header class="hero-section">
             <div class="hero-content">
                 <div class="profile-container">
-                    <img src="ja.png" alt="ABDOKADIR JABBI" class="profile-img">
+                    <img src="ja.png" alt="Abdoukadir Jabbi" class="profile-img">
                 </div>
-                <h1 class="hero-name">ABDOKADIR JABBI</h1>
-                <h2 class="hero-title">AI ROBOTICS ENGINEER</h2>
-                <p class="hero-subtitle">Autonomous Systems | Computer Vision | Embedded AI</p>
+                <p class="hero-eyebrow">Portfolio</p>
+                <h1 class="hero-name">Abdoukadir Jabbi</h1>
+                <h2 class="hero-title">AI Robotics Engineer</h2>
+                <p class="hero-subtitle">Autonomous Systems — Computer Vision — Embedded AI</p>
                 <p class="hero-description">
-                    Building intelligent robotic systems that solve real-world problems. 
+                    Building intelligent robotic systems that solve real-world problems.
                     Specialized in end-to-end AI robotics from hardware to cloud deployment.
                 </p>
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-label">📍</span>
-                        <span>Open to relocation / Remote</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">📧</span>
-                        <span>buxinjabbi@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">📞</span>
-                        <span>+919319038312</span>
-                    </div>
+                    <span class="contact-item">Open to relocation / Remote</span>
+                    <span class="contact-item">buxinjabbi@gmail.com</span>
+                    <span class="contact-item">+91 93190 38312</span>
                 </div>
                 <div class="social-links">
                     <a href="mailto:buxinjabbi@gmail.com" class="social-link">Email</a>
@@ -82,37 +73,40 @@
 
         <section class="projects-section">
             <div class="projects-container">
-                
+
                 <!-- PROJECT 1 -->
                 <div id="project-1" class="project-card active">
                     <div class="project-header-card">
-                        <h3 class="project-name">AI Healthcare Robot</h3>
-                        <span class="project-badge">Flagship Project</span>
+                        <span class="project-index">01</span>
+                        <div>
+                            <h3 class="project-name">AI Healthcare Robot</h3>
+                            <span class="project-badge">Flagship Project</span>
+                        </div>
                     </div>
                     <div class="project-body">
                         <div class="project-section-item">
                             <h4 class="section-heading">Problem Statement</h4>
                             <p class="section-text">
-                                In high-traffic and low-resource hospitals, patients often wait hours for a single consultation. This leads to delayed triage, 
-                                inconsistent initial assessments, staff overload, and poor patient experience. Existing kiosks or apps do not combine 
+                                In high-traffic and low-resource hospitals, patients often wait hours for a single consultation. This leads to delayed triage,
+                                inconsistent initial assessments, staff overload, and poor patient experience. Existing kiosks or apps do not combine
                                 continuous vitals capture with face-to-camera interaction and doctor handoff.
                             </p>
                             <p class="section-text">
-                                The core gap is doctor scarcity plus the lack of a scalable, physical first-contact system that can reliably collect 
+                                The core gap is doctor scarcity plus the lack of a scalable, physical first-contact system that can reliably collect
                                 physiological data and facial cues while keeping the human in the loop for diagnosis.
                             </p>
-                            <p class="section-text" style="font-weight: 600; color: var(--accent-cyan); margin-top: 16px;">
-                                Goal: Build a physical AI healthcare robot that autonomously collects vitals, performs facial analysis, interacts conversationally, 
-                                and connects patients to doctors remotely—with emphasis on sensor reliability, medical constraints, and ethics.
+                            <p class="section-text section-text--goal">
+                                Goal: Build a physical AI healthcare robot that autonomously collects vitals, performs facial analysis, interacts conversationally,
+                                and connects patients to doctors remotely — with emphasis on sensor reliability, medical constraints, and ethics.
                             </p>
-                           
+
                             <!-- Medical Check Video - Comprehensive Demo -->
-                            <div style="margin: 24px 0; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 12px; font-size: 1.1rem;">Complete Medical Check Demonstration</h5>
-                                <p class="section-text" style="margin-bottom: 16px; font-size: 0.95rem; color: var(--text-secondary);">
-                                    Full demonstration of the healthcare robot performing a complete medical check. Come here, Tim—watch the robot in action as it guides patients through vitals measurement and interaction.
+                            <div class="media-block">
+                                <h5 class="media-title">Complete Medical Check Demonstration</h5>
+                                <p class="media-caption">
+                                    Full demonstration of the healthcare robot performing a complete medical check, guiding a patient through vitals measurement and interaction.
                                 </p>
-                                <video controls style="width: 100%; max-width: 100%; border-radius: 10px; display: block;">
+                                <video controls class="media-el">
                                     <source src="Healthcare_Robot_Medical_Check_Video.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
@@ -122,126 +116,113 @@
                         <div class="project-section-item">
                             <h4 class="section-heading">Solution Overview</h4>
                             <p class="section-text">
-                                A stationary, kiosk-style AI healthcare robot that acts as a first-contact medical assistant. From the user’s perspective: 
-                                the patient approaches, is detected by the system, and the camera adjusts to their height. They place hands on sensors and 
-                                stand on the weight platform; the robot collects vitals, runs facial analysis, and engages in AI-driven conversation. 
+                                A stationary, kiosk-style AI healthcare robot that acts as a first-contact medical assistant. From the user's perspective:
+                                the patient approaches, is detected by the system, and the camera adjusts to their height. They place hands on sensors and
+                                stand on the weight platform; the robot collects vitals, runs facial analysis, and engages in AI-driven conversation.
                                 Data is sent to a cloud backend where doctors can view dashboards and initiate video consultations.
                             </p>
                             <p class="section-text">
-                                This approach is practical because it prioritizes reliability and calibration over mobility—evolving from an initial 
+                                This approach is practical because it prioritizes reliability and calibration over mobility — evolving from an initial
                                 humanoid concept to a fixed, deployable form factor.
                             </p>
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">Robot in Action</h4>
-                            
-                            <!-- Q&A Video - First Video -->
-                            <div style="margin: 24px 0; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 12px; font-size: 1.1rem;">Q&A Session with Robot Anna</h5>
-                                <p class="section-text" style="margin-bottom: 16px; font-size: 0.95rem; color: var(--text-secondary);">
-                                    This video demonstrates the Q&A section slides. The robot Anna engages with the patient—please be patient and have a good time communicating.
+
+                            <div class="media-block">
+                                <h5 class="media-title">Q&amp;A Session with Robot Anna</h5>
+                                <p class="media-caption">
+                                    The robot Anna engages with the patient through a live question-and-answer exchange.
                                 </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/AE9e9DGjzl8" title="Q&A Session with Robot Anna" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px; display: block;"></iframe>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/AE9e9DGjzl8" title="Q&A Session with Robot Anna" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
                             </div>
 
-                            <!-- Face Tracking Video -->
-                            <div style="margin: 24px 0; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 12px; font-size: 1.1rem;">Face Tracking</h5>
-                                <p class="section-text" style="margin-bottom: 16px; font-size: 0.95rem; color: var(--text-secondary);">
+                            <div class="media-block">
+                                <h5 class="media-title">Face Tracking</h5>
+                                <p class="media-caption">
                                     Real-time face detection and tracking with servo-adjusted camera positioning.
                                 </p>
-                                <video controls style="width: 100%; max-width: 100%; border-radius: 10px; display: block;">
+                                <video controls class="media-el">
                                     <source src="facetraking.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
 
-                            <!-- Face Analysis Video -->
-                            <div style="margin: 24px 0; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 12px; font-size: 1.1rem;">Facial Analysis</h5>
-                                <p class="section-text" style="margin-bottom: 16px; font-size: 0.95rem; color: var(--text-secondary);">
+                            <div class="media-block">
+                                <h5 class="media-title">Facial Analysis</h5>
+                                <p class="media-caption">
                                     MediaPipe-based facial feature analysis for fatigue and expression detection.
                                 </p>
-                                <video controls style="width: 100%; max-width: 100%; border-radius: 10px; display: block;">
+                                <video controls class="media-el">
                                     <source src="facenalisis.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
 
-                            <!-- AI Conversation Video -->
-                            <div style="margin: 24px 0; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 12px; font-size: 1.1rem;">AI Conversation</h5>
-                                <p class="section-text" style="margin-bottom: 16px; font-size: 0.95rem; color: var(--text-secondary);">
+                            <div class="media-block">
+                                <h5 class="media-title">AI Conversation</h5>
+                                <p class="media-caption">
                                     Natural language interaction between the robot and patient, demonstrating conversational AI capabilities.
                                 </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/WMGs9Tjyq0s" title="AI Conversation - Healthcare Robot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px; display: block;"></iframe>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/WMGs9Tjyq0s" title="AI Conversation - Healthcare Robot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
                             </div>
 
-                            <!-- Vitals Measurement Video -->
-                            <div style="margin: 24px 0; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 12px; font-size: 1.1rem;">Vitals Measurement</h5>
-                                <p class="section-text" style="margin-bottom: 16px; font-size: 0.95rem; color: var(--text-secondary);">
+                            <div class="media-block">
+                                <h5 class="media-title">Vitals Measurement</h5>
+                                <p class="media-caption">
                                     Patient placing hands on sensors for heart rate, SpO₂, and blood pressure measurement.
                                 </p>
-                                <video controls style="width: 100%; max-width: 100%; border-radius: 10px; display: block;">
+                                <video controls class="media-el">
                                     <source src="putting bhm spo2 mmhg on finger.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
 
-                            <!-- Image Gallery -->
-                            <div style="margin: 24px 0;">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 16px; font-size: 1.1rem;">Robot Features & Validation</h5>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                                    <div style="background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden;">
-                                        <img src="standind on the robot.jpeg" alt="Patient standing on robot weight platform" style="width: 100%; display: block;">
-                                        <p style="padding: 12px; font-size: 0.9rem; color: var(--text-secondary);">Patient standing on weight measurement platform</p>
-                                    </div>
-                                    <div style="background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden;">
-                                        <img src="putting bhm spo2 mmhg on finger.jpeg" alt="Vitals sensor placement" style="width: 100%; display: block;">
-                                        <p style="padding: 12px; font-size: 0.9rem; color: var(--text-secondary);">Heart rate and SpO₂ sensor placement</p>
-                                    </div>
-                                    <div style="background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden;">
-                                        <img src="bodytem on forhead.jpeg" alt="Temperature measurement" style="width: 100%; display: block;">
-                                        <p style="padding: 12px; font-size: 0.9rem; color: var(--text-secondary);">Body temperature measurement</p>
-                                    </div>
-                                    <div style="background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden;">
-                                        <img src="compare 1 realmedical deive values.jpeg" alt="Sensor accuracy comparison" style="width: 100%; display: block;">
-                                        <p style="padding: 12px; font-size: 0.9rem; color: var(--text-secondary);">Comparison with real medical device values</p>
-                                    </div>
-                                    <div style="background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden;">
-                                        <img src="comapre 2 my medical robot.jpeg" alt="Robot comparison" style="width: 100%; display: block;">
-                                        <p style="padding: 12px; font-size: 0.9rem; color: var(--text-secondary);">Medical robot validation comparison</p>
-                                    </div>
+                            <div class="gallery-block">
+                                <h5 class="media-title">Robot Features &amp; Validation</h5>
+                                <div class="image-grid">
+                                    <figure class="image-card">
+                                        <img src="standind on the robot.jpeg" alt="Patient standing on robot weight platform" class="project-image">
+                                        <figcaption>Patient standing on weight measurement platform</figcaption>
+                                    </figure>
+                                    <figure class="image-card">
+                                        <img src="putting bhm spo2 mmhg on finger.jpeg" alt="Vitals sensor placement" class="project-image">
+                                        <figcaption>Heart rate and SpO₂ sensor placement</figcaption>
+                                    </figure>
+                                    <figure class="image-card">
+                                        <img src="bodytem on forhead.jpeg" alt="Temperature measurement" class="project-image">
+                                        <figcaption>Body temperature measurement</figcaption>
+                                    </figure>
+                                    <figure class="image-card">
+                                        <img src="compare 1 realmedical deive values.jpeg" alt="Sensor accuracy comparison" class="project-image">
+                                        <figcaption>Comparison with real medical device values</figcaption>
+                                    </figure>
+                                    <figure class="image-card">
+                                        <img src="comapre 2 my medical robot.jpeg" alt="Robot comparison" class="project-image">
+                                        <figcaption>Medical robot validation comparison</figcaption>
+                                    </figure>
                                 </div>
                             </div>
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">System Architecture</h4>
-                            <p class="section-text" style="margin-bottom: 20px;">
-                                End-to-end flow: patient interaction → edge hardware (sensors, camera, actuators, ESP32) → edge intelligence (MediaPipe, AI interaction, safety logic) → cloud backend (Flask, database, Firebase) → doctor interface. Diagram below.
+                            <p class="section-text">
+                                End-to-end flow: patient interaction → edge hardware (sensors, camera, actuators, ESP32) → edge intelligence (MediaPipe, AI interaction, safety logic) → cloud backend (Flask, database, Firebase) → doctor interface.
                             </p>
-                            <div style="margin: 24px 0; border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; background: var(--glass-bg); backdrop-filter: var(--blur);">
-                                <iframe src="architecture-diagram.html" style="width: 100%; height: 700px; border: none; display: block;" title="AI Healthcare Robot System Architecture"></iframe>
+                            <div class="diagram-frame">
+                                <iframe src="architecture-diagram.html" title="AI Healthcare Robot System Architecture"></iframe>
                             </div>
-                            <div class="tech-tags" style="margin-top: 20px;">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Flask</span>
-                                <span class="tech-tag">ESP32</span>
-                                <span class="tech-tag">MediaPipe</span>
-                                <span class="tech-tag">Firebase</span>
-                                <span class="tech-tag">MAX32664</span>
-                                <span class="tech-tag">MLX90614</span>
-                                <span class="tech-tag">HX711</span>
-                            </div>
+                            <ul class="tech-tags">
+                                <li>Python</li><li>Flask</li><li>ESP32</li><li>MediaPipe</li><li>Firebase</li><li>MAX32664</li><li>MLX90614</li><li>HX711</li>
+                            </ul>
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">Key Technical Challenges</h4>
                             <ul class="challenge-list">
-                                <li><strong>Sensor calibration & reliability:</strong> HX711 load-cell drift and wiring sensitivity; MAX32664 stabilization delay and strict hand-placement requirements</li>
+                                <li><strong>Sensor calibration &amp; reliability:</strong> HX711 load-cell drift and wiring sensitivity; MAX32664 stabilization delay and strict hand-placement requirements</li>
                                 <li><strong>Real-time coordination:</strong> Synchronizing vision, servo movement, sensor readings, and AI dialogue without blocking or lag</li>
                                 <li><strong>Camera height adaptation:</strong> Accurate face tracking across varying patient heights</li>
                                 <li><strong>Edge–cloud latency:</strong> Keeping interaction smooth while offloading AI and storage to the cloud</li>
@@ -250,7 +231,7 @@
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Engineering Decisions & Trade-offs</h4>
+                            <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
                             <ul class="decision-list">
                                 <li><strong>Humanoid vs stationary:</strong> Humanoid was complex and unreliable for clinical use; stationary kiosk improved reliability and deployability.</li>
                                 <li><strong>MediaPipe vs custom CV:</strong> MediaPipe chosen for robust, real-time face tracking and faster iteration.</li>
@@ -261,7 +242,7 @@
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Results & Impact</h4>
+                            <h4 class="section-heading">Results &amp; Impact</h4>
                             <div class="results-grid">
                                 <div class="result-item">
                                     <h5>End-to-end system</h5>
@@ -279,11 +260,11 @@
                         </div>
 
                         <div class="project-section-item">
-                            <div style="padding: 24px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h4 class="section-heading" style="color: var(--accent-cyan); margin-bottom: 12px;">Why This Project Matters</h4>
+                            <div class="callout-box">
+                                <h4 class="section-heading">Why This Project Matters</h4>
                                 <ul class="challenge-list">
-                                    <li><strong>Sensor reliability & medical constraints:</strong> Real calibration and failure-mode thinking for physiological sensors</li>
-                                    <li><strong>Ethics & accuracy:</strong> Designed for human-in-the-loop; no replacement of clinical judgment</li>
+                                    <li><strong>Sensor reliability &amp; medical constraints:</strong> Real calibration and failure-mode thinking for physiological sensors</li>
+                                    <li><strong>Ethics &amp; accuracy:</strong> Designed for human-in-the-loop; no replacement of clinical judgment</li>
                                     <li><strong>Prototype-to-practical evolution:</strong> Pivot from humanoid to kiosk shows systems-level decision-making</li>
                                     <li><strong>Systems thinking:</strong> Hardware, edge AI, cloud, and human workflow in one pipeline</li>
                                 </ul>
@@ -295,34 +276,34 @@
                 <!-- PROJECT 2 -->
                 <div id="project-2" class="project-card">
                     <div class="project-header-card">
-                        <h3 class="project-name">Multifunctional AI Robot</h3>
-                        <span class="project-badge">Vision, Voice & Control</span>
+                        <span class="project-index">02</span>
+                        <div>
+                            <h3 class="project-name">Multifunctional AI Robot</h3>
+                            <span class="project-badge">Vision, Voice &amp; Control</span>
+                        </div>
                     </div>
                     <div class="project-body">
                         <div class="project-section-item">
                             <h4 class="section-heading">Problem Statement</h4>
                             <p class="section-text">
-                                Human–robot interaction in real environments needs versatile perception and intuitive control. Many robots support 
-                                either vision or voice, but not both in a single pipeline—and few fuse face, body, and object tracking with 
+                                Human–robot interaction in real environments needs versatile perception and intuitive control. Many robots support
+                                either vision or voice, but not both in a single pipeline — and few fuse face, body, and object tracking with
                                 natural-language queries and real-time motion control.
                             </p>
                             <p class="section-text">
-                                The gap: a single platform that sees (people, objects, color), hears (voice commands), reasons (e.g. “What do you see?”), 
+                                The gap: a single platform that sees (people, objects, color), hears (voice commands), reasons (e.g. "What do you see?"),
                                 and acts (Mecanum drive, servos, safety) with low latency and clear failure handling.
                             </p>
-                            <p class="section-text" style="font-weight: 600; color: var(--accent-cyan); margin-top: 16px;">
+                            <p class="section-text section-text--goal">
                                 Goal: Build a multi-modal robot that combines vision, voice, and real-time control so it can follow, greet, answer questions, and operate safely indoors.
                             </p>
-                            <div style="margin-top: 16px; border-radius: 15px; overflow: hidden; border: 1px solid var(--glass-border); background: var(--glass-bg);">
+                            <div class="diagram-frame diagram-frame--video">
                                 <iframe
-                                    width="100%"
-                                    height="450"
                                     src="https://www.youtube.com/embed/qGLxgG_UZm4"
                                     title="Multifunctional AI Robot – talking to the AI, YOLO object detection & movement"
                                     frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen
-                                    style="display: block; border: none; border-radius: 0;">
+                                    allowfullscreen>
                                 </iframe>
                             </div>
                         </div>
@@ -330,83 +311,65 @@
                         <div class="project-section-item">
                             <h4 class="section-heading">Solution Overview</h4>
                             <p class="section-text">
-                                A centralized robot platform with a smartphone as the main sensor and AI host: camera feeds YOLO and MediaPipe for object/person/face tracking; 
-                                voice input drives conversation and “What do you see?”–style queries; an AI reasoning layer turns perception into behavior; and an ESP32 executes 
-                                motor and servo commands over Wi-Fi. From the user’s perspective: speak to the robot, point at objects, and it responds with movement and spoken answers.
+                                A centralized robot platform with a smartphone as the main sensor and AI host: camera feeds YOLO and MediaPipe for object/person/face tracking;
+                                voice input drives conversation and "What do you see?"-style queries; an AI reasoning layer turns perception into behavior; and an ESP32 executes
+                                motor and servo commands over Wi-Fi. From the user's perspective: speak to the robot, point at objects, and it responds with movement and spoken answers.
                             </p>
                             <p class="section-text">
-                                This approach keeps perception and AI on a single compute node (smartphone/PC) while offloading only real-time actuation to the embedded controller—balancing latency and complexity.
+                                This approach keeps perception and AI on a single compute node (smartphone/PC) while offloading only real-time actuation to the embedded controller — balancing latency and complexity.
                             </p>
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Inside the Multifunctional AI Robot (Videos)</h4>
-                            <p class="section-text" style="margin-bottom: 18px;">
+                            <h4 class="section-heading">Inside the Multifunctional AI Robot</h4>
+                            <p class="section-text">
                                 These videos show how the robot sees with YOLO, listens with AI, moves with Mecanum wheels, and connects to the control website and hardware.
                             </p>
 
-                            <!-- Video 2 – Website, connection & tracking -->
-                            <div style="margin-bottom: 22px; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border-radius: 15px; border: 1px solid var(--glass-border);">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 10px; font-size: 1.05rem;">
-                                    Website, Robot Connection & Tracking Demo
-                                </h5>
-                                <p class="section-text" style="margin-bottom: 12px; font-size: 0.95rem; color: var(--text-secondary);">
+                            <div class="media-block">
+                                <h5 class="media-title">Website, Robot Connection &amp; Tracking Demo</h5>
+                                <p class="media-caption">
                                     Walk-through of the Flask-based control website, connecting to the robot, and demonstrating object detection, person tracking and body tracking.
                                 </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/FTZ58UlRBk8" title="Multifunctional AI Robot – website & tracking demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px; display: block;"></iframe>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/FTZ58UlRBk8" title="Multifunctional AI Robot – website & tracking demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
                             </div>
 
-                            <!-- Video 3 – Robot shooting me in action (short) -->
-                            <div style="margin-bottom: 22px; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border-radius: 15px; border: 1px solid var(--glass-border);">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 10px; font-size: 1.05rem;">
-                                    Robot Shooting Me in Action (Short)
-                                </h5>
-                                <p class="section-text" style="margin-bottom: 12px; font-size: 0.95rem; color: var(--text-secondary);">
+                            <div class="media-block">
+                                <h5 class="media-title">Robot Shooting Me in Action (Short)</h5>
+                                <p class="media-caption">
                                     Quick action shot of the robot tracking and shooting at the target (me) using its vision pipeline.
                                 </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/iGd9X0dIq2M" title="Multifunctional AI Robot – shooting action short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px; display: block;"></iframe>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/iGd9X0dIq2M" title="Multifunctional AI Robot – shooting action short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
                             </div>
 
-                            <!-- Video 4 – Robot hardware & how it works -->
-                            <div style="margin-bottom: 22px; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border-radius: 15px; border: 1px solid var(--glass-border);">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 10px; font-size: 1.05rem;">
-                                    Robot Hardware & How It Works
-                                </h5>
-                                <p class="section-text" style="margin-bottom: 12px; font-size: 0.95rem; color: var(--text-secondary);">
+                            <div class="media-block">
+                                <h5 class="media-title">Robot Hardware &amp; How It Works</h5>
+                                <p class="media-caption">
                                     Overview of the physical robot: ESP32, motors, servos, mounting, and how the hardware connects to the AI and website.
                                 </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/EIFPCpJY1R4" title="Multifunctional AI Robot – hardware overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px; display: block;"></iframe>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/EIFPCpJY1R4" title="Multifunctional AI Robot – hardware overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
                             </div>
 
-                            <!-- Video 5 – Object & body tracking / shooting demo -->
-                            <div style="margin-bottom: 6px; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border-radius: 15px; border: 1px solid var(--glass-border);">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 10px; font-size: 1.05rem;">
-                                    Object &amp; Body Tracking – Shooting Demo
-                                </h5>
-                                <p class="section-text" style="margin-bottom: 12px; font-size: 0.95rem; color: var(--text-secondary);">
+                            <div class="media-block">
+                                <h5 class="media-title">Object &amp; Body Tracking — Shooting Demo</h5>
+                                <p class="media-caption">
                                     Focused demo of YOLO object detection and body tracking used to aim and shoot, showing the full multi-modal pipeline in action.
                                 </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/Hz-GGYSdzQQ" title="Multifunctional AI Robot – object & body tracking shooting demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px; display: block;"></iframe>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/Hz-GGYSdzQQ" title="Multifunctional AI Robot – object & body tracking shooting demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
                             </div>
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">System Architecture</h4>
-                            <p class="section-text" style="margin-bottom: 20px;">
-                                Perception (camera, streaming) → AI layer (YOLO, MediaPipe, color/person tracking, reasoning, voice/conversation) → control (ESP32, motors, servos, ultrasonic) → remote (Wi-Fi, smartphone). Diagram below.
+                            <p class="section-text">
+                                Perception (camera, streaming) → AI layer (YOLO, MediaPipe, color/person tracking, reasoning, voice/conversation) → control (ESP32, motors, servos, ultrasonic) → remote (Wi-Fi, smartphone).
                             </p>
-                            <div style="margin: 24px 0; border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; background: var(--glass-bg); backdrop-filter: var(--blur);">
-                                <iframe src="multifunctional-robot-diagram.html" style="width: 100%; height: 700px; border: none; display: block;" title="Multifunctional AI Robot System Architecture"></iframe>
+                            <div class="diagram-frame">
+                                <iframe src="multifunctional-robot-diagram.html" title="Multifunctional AI Robot System Architecture"></iframe>
                             </div>
-                            <div class="tech-tags" style="margin-top: 20px;">
-                                <span class="tech-tag">MediaPipe</span>
-                                <span class="tech-tag">YOLO</span>
-                                <span class="tech-tag">ESP32</span>
-                                <span class="tech-tag">Mecanum</span>
-                                <span class="tech-tag">Wi-Fi</span>
-                                <span class="tech-tag">Voice</span>
-                                <span class="tech-tag">Python</span>
-                            </div>
+                            <ul class="tech-tags">
+                                <li>MediaPipe</li><li>YOLO</li><li>ESP32</li><li>Mecanum</li><li>Wi-Fi</li><li>Voice</li><li>Python</li>
+                            </ul>
                         </div>
 
                         <div class="project-section-item">
@@ -421,7 +384,7 @@
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Engineering Decisions & Trade-offs</h4>
+                            <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
                             <ul class="decision-list">
                                 <li><strong>Smartphone as brain:</strong> Single device for camera, AI, and voice; trade-off is battery and thermal limits vs. avoiding a separate PC.</li>
                                 <li><strong>YOLO + MediaPipe:</strong> YOLO for objects/people; MediaPipe for face/body; combined coverage at the cost of two pipelines.</li>
@@ -431,7 +394,7 @@
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Results & Impact</h4>
+                            <h4 class="section-heading">Results &amp; Impact</h4>
                             <div class="results-grid">
                                 <div class="result-item">
                                     <h5>Multi-modal perception</h5>
@@ -449,8 +412,8 @@
                         </div>
 
                         <div class="project-section-item">
-                            <div style="padding: 24px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h4 class="section-heading" style="color: var(--accent-cyan); margin-bottom: 12px;">Why This Project Matters</h4>
+                            <div class="callout-box">
+                                <h4 class="section-heading">Why This Project Matters</h4>
                                 <ul class="challenge-list">
                                     <li><strong>Multi-modal perception:</strong> Combining vision and voice in one reasoning pipeline</li>
                                     <li><strong>Real-time control:</strong> From perception to actuation with latency and safety in mind</li>
@@ -464,33 +427,35 @@
                 <!-- PROJECT 3 -->
                 <div id="project-3" class="project-card">
                     <div class="project-header-card">
-                        <h3 class="project-name">Autonomous Assistant Robot->coming soon</h3>
-                        <span class="project-badge">Indoor Autonomy</span>
+                        <span class="project-index">03</span>
+                        <div>
+                            <h3 class="project-name">Autonomous Assistant Robot <span class="coming-soon">(coming soon)</span></h3>
+                            <span class="project-badge">Indoor Autonomy</span>
+                        </div>
                     </div>
                     <div class="project-body">
                         <div class="project-section-item">
                             <h4 class="section-heading">Problem Statement</h4>
                             <p class="section-text">
-                                Indoor robots that navigate room-to-room without human intervention usually depend on LiDAR, beacons, or pre-installed markers. 
-                                These add cost and deployment friction. Many environments need a solution that works with minimal infrastructure—using only 
+                                Indoor robots that navigate room-to-room without human intervention usually depend on LiDAR, beacons, or pre-installed markers.
+                                These add cost and deployment friction. Many environments need a solution that works with minimal infrastructure — using only
                                 what a robot can see and sense on board.
                             </p>
                             <p class="section-text">
-                                The goal is indoor autonomy plus human interaction: the robot should map and navigate, avoid obstacles, and still recognize people 
-                                and support tasks like “go to Room A” or “deliver this item” with voice and a visible face (smartphone as interface).
+                                The goal is indoor autonomy plus human interaction: the robot should map and navigate, avoid obstacles, and still recognize people
+                                and support tasks like "go to Room A" or "deliver this item" with voice and a visible face (smartphone as interface).
                             </p>
-                            <p class="section-text" style="font-weight: 600; color: var(--accent-cyan); margin-top: 16px;">
+                            <p class="section-text section-text--goal">
                                 Goal: Build a humanoid-style assistant that navigates using camera-only (RTAB-Map / visual SLAM), avoids obstacles with ultrasonic + vision, and interacts via face recognition and voice.
                             </p>
-                            <img src="https://via.placeholder.com/1200x600/0d1117/00d9ff?text=Autonomous+Assistant+Robot" alt="Autonomous Assistant Robot" class="project-image">
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">Solution Overview</h4>
                             <p class="section-text">
-                                A smartphone acts as the robot’s face and brain: camera feeds RTAB-Map and AR-based mapping for indoor navigation, MediaPipe/YOLO for face and object detection, and Flask as the control hub. 
-                                The ESP32 handles Mecanum wheels, arm servos, and ultrasonic; it receives movement and gesture commands over Wi-Fi and sends sensor feedback. From the user’s perspective: the robot greets by name, 
-                                answers questions (e.g. temperature, weather), and executes task commands like “go to Room A” or “deliver this” with obstacle avoidance and return-to-base behavior.
+                                A smartphone acts as the robot's face and brain: camera feeds RTAB-Map and AR-based mapping for indoor navigation, MediaPipe/YOLO for face and object detection, and Flask as the control hub.
+                                The ESP32 handles Mecanum wheels, arm servos, and ultrasonic; it receives movement and gesture commands over Wi-Fi and sends sensor feedback. From the user's perspective: the robot greets by name,
+                                answers questions (e.g. temperature, weather), and executes task commands like "go to Room A" or "deliver this" with obstacle avoidance and return-to-base behavior.
                             </p>
                             <p class="section-text">
                                 This approach emphasizes camera-only navigation and human interaction without relying on beacons or LiDAR.
@@ -499,21 +464,15 @@
 
                         <div class="project-section-item">
                             <h4 class="section-heading">System Architecture</h4>
-                            <p class="section-text" style="margin-bottom: 20px;">
-                                Four layers: Physical Hardware (Mecanum, servos, ultrasonic, smartphone mount) → Embedded Control (ESP32) → Perception & AI (Flask, MediaPipe, YOLO, face recognition, RTAB-Map) → Interaction & Autonomy (conversation, voice, task commands, path planning). Diagram below.
+                            <p class="section-text">
+                                Four layers: Physical Hardware (Mecanum, servos, ultrasonic, smartphone mount) → Embedded Control (ESP32) → Perception &amp; AI (Flask, MediaPipe, YOLO, face recognition, RTAB-Map) → Interaction &amp; Autonomy (conversation, voice, task commands, path planning).
                             </p>
-                            <div style="margin: 24px 0; border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; background: var(--glass-bg); backdrop-filter: var(--blur);">
-                                <iframe src="autonomous-assistant-robot-diagram.html" title="Autonomous Assistant Robot System Architecture" style="width: 100%; height: 720px; border: none; display: block;"></iframe>
+                            <div class="diagram-frame">
+                                <iframe src="autonomous-assistant-robot-diagram.html" title="Autonomous Assistant Robot System Architecture"></iframe>
                             </div>
-                            <div class="tech-tags" style="margin-top: 20px;">
-                                <span class="tech-tag">RTAB-Map</span>
-                                <span class="tech-tag">Flask</span>
-                                <span class="tech-tag">MediaPipe</span>
-                                <span class="tech-tag">YOLO</span>
-                                <span class="tech-tag">Face Recognition</span>
-                                <span class="tech-tag">ESP32</span>
-                                <span class="tech-tag">Python</span>
-                            </div>
+                            <ul class="tech-tags">
+                                <li>RTAB-Map</li><li>Flask</li><li>MediaPipe</li><li>YOLO</li><li>Face Recognition</li><li>ESP32</li><li>Python</li>
+                            </ul>
                         </div>
 
                         <div class="project-section-item">
@@ -528,7 +487,7 @@
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Engineering Decisions & Trade-offs</h4>
+                            <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
                             <ul class="decision-list">
                                 <li><strong>RTAB-Map / camera-only:</strong> Avoids LiDAR cost; trade-off is robustness in low-texture or dynamic lighting.</li>
                                 <li><strong>Smartphone as face and brain:</strong> Single device for camera, AI, and voice; limits compute but improves form factor and UX.</li>
@@ -538,7 +497,7 @@
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Results & Impact</h4>
+                            <h4 class="section-heading">Results &amp; Impact</h4>
                             <div class="results-grid">
                                 <div class="result-item">
                                     <h5>Indoor navigation</h5>
@@ -546,7 +505,7 @@
                                 </div>
                                 <div class="result-item">
                                     <h5>Human interaction</h5>
-                                    <p>Face recognition, greeting by name, voice commands, and task execution (“go to room”, “deliver”)</p>
+                                    <p>Face recognition, greeting by name, voice commands, and task execution ("go to room", "deliver")</p>
                                 </div>
                                 <div class="result-item">
                                     <h5>Obstacle avoidance</h5>
@@ -556,8 +515,8 @@
                         </div>
 
                         <div class="project-section-item">
-                            <div style="padding: 24px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h4 class="section-heading" style="color: var(--accent-cyan); margin-bottom: 12px;">Why This Project Matters</h4>
+                            <div class="callout-box">
+                                <h4 class="section-heading">Why This Project Matters</h4>
                                 <ul class="challenge-list">
                                     <li><strong>Camera-only navigation:</strong> Demonstrates autonomy without LiDAR or beacons</li>
                                     <li><strong>Indoor autonomy:</strong> Mapping, localization, and path planning in real indoor spaces</li>
@@ -572,34 +531,34 @@
                 <!-- PROJECT 4 -->
                 <div id="project-4" class="project-card">
                     <div class="project-header-card">
-                        <h3 class="project-name">Self-Driving Car Prototype</h3>
-                        <span class="project-badge">Vision-First Autonomy</span>
+                        <span class="project-index">04</span>
+                        <div>
+                            <h3 class="project-name">Self-Driving Car Prototype</h3>
+                            <span class="project-badge">Vision-First Autonomy</span>
+                        </div>
                     </div>
                     <div class="project-body">
                         <div class="project-section-item">
                             <h4 class="section-heading">Problem Statement</h4>
                             <p class="section-text">
-                                Autonomous vehicle navigation demands robust perception for pedestrians and obstacles in real time. 
-                                Production systems often rely on LiDAR and radar, which are costly and complex to integrate for education 
+                                Autonomous vehicle navigation demands robust perception for pedestrians and obstacles in real time.
+                                Production systems often rely on LiDAR and radar, which are costly and complex to integrate for education
                                 and rapid prototyping.
                             </p>
                             <p class="section-text">
-                                The challenge is to show end-to-end autonomy—lane following, sign detection, person/obstacle avoidance—using 
+                                The challenge is to show end-to-end autonomy — lane following, sign detection, person/obstacle avoidance — using
                                 a vision-first, logic-based approach that keeps cost low and the pipeline interpretable.
                             </p>
-                            <p class="section-text" style="font-weight: 600; color: var(--accent-cyan); margin-top: 16px;">
-                                Goal: Build a cost-effective self-driving prototype with PC as brain, vision-only perception (YOLO + OpenCV), and ESP32 for motion control—no AI decision model, only computer vision and logic.
+                            <p class="section-text section-text--goal">
+                                Goal: Build a cost-effective self-driving prototype with PC as brain, vision-only perception (YOLO + OpenCV), and ESP32 for motion control — no AI decision model, only computer vision and logic.
                             </p>
-                            <div style="margin-top: 16px; border-radius: 15px; overflow: hidden; border: 1px solid var(--glass-border); background: var(--glass-bg);">
+                            <div class="diagram-frame diagram-frame--video">
                                 <iframe
-                                    width="100%"
-                                    height="450"
                                     src="https://www.youtube.com/embed/sECIhrO91Ug"
                                     title="Self‑Driving Car – vision, Bluetooth serial & gesture control"
                                     frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen
-                                    style="display: block; border: none; border-radius: 0;">
+                                    allowfullscreen>
                                 </iframe>
                             </div>
                         </div>
@@ -607,66 +566,50 @@
                         <div class="project-section-item">
                             <h4 class="section-heading">Solution Overview</h4>
                             <p class="section-text">
-                                A small-scale car with a smartphone camera streaming video to a PC over Wi-Fi. The PC runs Python, OpenCV, and YOLO: 
-                                road/lane detection via HOG and Hough line transform, traffic sign and person detection via YOLO, and decision logic 
-                                (move, stop, turn, slow) based on rules—no learned policy. The ESP32 receives commands wirelessly and drives four 
+                                A small-scale car with a smartphone camera streaming video to a PC over Wi-Fi. The PC runs Python, OpenCV, and YOLO:
+                                road/lane detection via HOG and Hough line transform, traffic sign and person detection via YOLO, and decision logic
+                                (move, stop, turn, slow) based on rules — no learned policy. The ESP32 receives commands wirelessly and drives four
                                 Mecanum motors; an ultrasonic sensor and buzzer handle close-range obstacle and emergency stop.
                             </p>
                             <p class="section-text">
-                                From the user’s perspective: the car follows the lane, stops at STOP signs and for people, and avoids obstacles using vision and ultrasonic feedback.
+                                From the user's perspective: the car follows the lane, stops at STOP signs and for people, and avoids obstacles using vision and ultrasonic feedback.
                             </p>
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Inside the Self-Driving Car (Videos)</h4>
-                            <p class="section-text" style="margin-bottom: 18px;">
+                            <h4 class="section-heading">Inside the Self-Driving Car</h4>
+                            <p class="section-text">
                                 These videos show how the prototype works in practice: gesture control, Bluetooth serial communication, object detection, and the overall self-driving concept.
                             </p>
 
-                            <!-- 1) Top video: LinkedIn post (first video, overview + testing) -->
-                            <div style="margin-bottom: 22px; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border-radius: 15px; border: 1px solid var(--glass-border);">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 10px; font-size: 1.05rem;">
-                                    In my journey to build Self-Driving-Car from scratch
-                                </h5>
-                                <p class="section-text" style="margin-bottom: 6px; font-size: 0.95rem; color: var(--text-secondary);">
-                                    Short story + video of the project, posted on LinkedIn. This is the main “overview” video for the self-driving car.
+                            <div class="media-block">
+                                <h5 class="media-title">In my journey to build Self-Driving-Car from scratch</h5>
+                                <p class="media-caption">
+                                    Short story and video of the project, posted on LinkedIn — testing object detection, Bluetooth serial, and gesture control.
                                 </p>
-                                <p class="section-text" style="margin-bottom: 12px; font-size: 0.9rem; color: var(--text-secondary);">
-                                    <strong>Testing:</strong> Object Detection, Bluetooth Serial &amp; Gesture Control.
-                                </p>
-                                <a href="https://www.linkedin.com/posts/abdoukadir-jabbi-a7b3082a9_in-my-journey-to-build-self-driving-car-from-activity-7266717928425693184-2iq5?utm_medium=ios_app&rcm=ACoAAEpDL_8B2NvXLZuxIkd_oNxvvdQ1k8C9slU&utm_source=social_share_video_v2&utm_campaign=copy_link" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.06); color: var(--text-primary); text-decoration: none; font-size: 0.95rem;">
-                                    <span style="font-weight: 600;">Open LinkedIn video</span>
-                                </a>
+                                <a href="https://www.linkedin.com/posts/abdoukadir-jabbi-a7b3082a9_in-my-journey-to-build-self-driving-car-from-activity-7266717928425693184-2iq5?utm_medium=ios_app&rcm=ACoAAEpDL_8B2NvXLZuxIkd_oNxvvdQ1k8C9slU&utm_source=social_share_video_v2&utm_campaign=copy_link" target="_blank" rel="noopener noreferrer" class="text-link">Open LinkedIn video →</a>
                             </div>
 
-                            <!-- Explaining the self-driving concept -->
-                            <div style="margin-bottom: 6px; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border-radius: 15px; border: 1px solid var(--glass-border);">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 10px; font-size: 1.05rem;">
-                                    Explaining the Self-Driving Concept
-                                </h5>
-                                <p class="section-text" style="margin-bottom: 12px; font-size: 0.95rem; color: var(--text-secondary);">
+                            <div class="media-block">
+                                <h5 class="media-title">Explaining the Self-Driving Concept</h5>
+                                <p class="media-caption">
                                     Walk-through of how the self-driving pipeline works: camera input, PC vision processing, decision logic, and ESP32 motor control.
                                 </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/LX2zFHhjOsw" title="Self-driving concept explanation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px; display: block;"></iframe>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/LX2zFHhjOsw" title="Self-driving concept explanation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
                             </div>
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">System Architecture</h4>
-                            <p class="section-text" style="margin-bottom: 20px;">
-                                Vision input (camera over Wi-Fi) → PC (vision processing + decision logic) → ESP32 (motor control, ultrasonic, buzzer) → Mecanum wheels. Diagram below.
+                            <p class="section-text">
+                                Vision input (camera over Wi-Fi) → PC (vision processing + decision logic) → ESP32 (motor control, ultrasonic, buzzer) → Mecanum wheels.
                             </p>
-                            <div style="margin: 24px 0; border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; background: var(--glass-bg); backdrop-filter: var(--blur);">
-                                <iframe src="self-driving-car-diagram.html" title="Self-Driving Car System Architecture" style="width: 100%; height: 700px; border: none; display: block;"></iframe>
+                            <div class="diagram-frame">
+                                <iframe src="self-driving-car-diagram.html" title="Self-Driving Car System Architecture"></iframe>
                             </div>
-                            <div class="tech-tags" style="margin-top: 20px;">
-                                <span class="tech-tag">YOLO</span>
-                                <span class="tech-tag">OpenCV</span>
-                                <span class="tech-tag">Hough</span>
-                                <span class="tech-tag">ESP32</span>
-                                <span class="tech-tag">Wi-Fi</span>
-                                <span class="tech-tag">Python</span>
-                            </div>
+                            <ul class="tech-tags">
+                                <li>YOLO</li><li>OpenCV</li><li>Hough</li><li>ESP32</li><li>Wi-Fi</li><li>Python</li>
+                            </ul>
                         </div>
 
                         <div class="project-section-item">
@@ -681,17 +624,17 @@
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Engineering Decisions & Trade-offs</h4>
+                            <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
                             <ul class="decision-list">
-                                <li><strong>PC as brain:</strong> Heavy compute on PC; ESP32 only for motion—keeps perception and logic in one place and avoids embedded ML constraints.</li>
-                                <li><strong>Vision-first, no learned policy:</strong> YOLO + OpenCV + rules; interpretable and debuggable at the cost of less “end-to-end” flexibility.</li>
+                                <li><strong>PC as brain:</strong> Heavy compute on PC; ESP32 only for motion — keeps perception and logic in one place and avoids embedded ML constraints.</li>
+                                <li><strong>Vision-first, no learned policy:</strong> YOLO + OpenCV + rules; interpretable and debuggable at the cost of less "end-to-end" flexibility.</li>
                                 <li><strong>Mecanum wheels:</strong> Omnidirectional motion for tight turns and corrections; more complex than differential drive.</li>
                                 <li><strong>Ultrasonic as backup:</strong> Vision for semantics; ultrasonic for close-range safety and emergency stop.</li>
                             </ul>
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Results & Impact</h4>
+                            <h4 class="section-heading">Results &amp; Impact</h4>
                             <div class="results-grid">
                                 <div class="result-item">
                                     <h5>Cost-effective autonomy</h5>
@@ -709,12 +652,12 @@
                         </div>
 
                         <div class="project-section-item">
-                            <div style="padding: 24px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h4 class="section-heading" style="color: var(--accent-cyan); margin-bottom: 12px;">Why This Project Matters</h4>
+                            <div class="callout-box">
+                                <h4 class="section-heading">Why This Project Matters</h4>
                                 <ul class="challenge-list">
                                     <li><strong>Cost-effective autonomy:</strong> Demonstrates perception and control without expensive sensors</li>
                                     <li><strong>Vision-first approach:</strong> Lane, sign, and object detection with interpretable logic</li>
-                                    <li><strong>PC-as-brain:</strong> Systems thinking—where compute lives and how data flows between vision, decision, and actuation</li>
+                                    <li><strong>PC-as-brain:</strong> Systems thinking — where compute lives and how data flows between vision, decision, and actuation</li>
                                 </ul>
                             </div>
                         </div>
@@ -724,36 +667,37 @@
                 <!-- PROJECT 5 -->
                 <div id="project-5" class="project-card">
                     <div class="project-header-card">
-                        <h3 class="project-name">Electric Mobility Systems</h3>
-                        <span class="project-badge">Hardware & EV</span>
+                        <span class="project-index">05</span>
+                        <div>
+                            <h3 class="project-name">Electric Mobility Systems</h3>
+                            <span class="project-badge">Hardware &amp; EV</span>
+                        </div>
                     </div>
                     <div class="project-body">
                         <div class="project-section-item">
                             <h4 class="section-heading">Problem Statement</h4>
                             <p class="section-text">
-                                Electric mobility must be affordable, efficient, and tailored to specific use cases—from mini-buses and tractors 
-                                to scooters and small cars. Off-the-shelf EVs are often expensive and not optimized for local or niche applications 
+                                Electric mobility must be affordable, efficient, and tailored to specific use cases — from mini-buses and tractors
+                                to scooters and small cars. Off-the-shelf EVs are often expensive and not optimized for local or niche applications
                                 (e.g. campus shuttle, farm tractor, last-mile delivery).
                             </p>
                             <p class="section-text">
-                                The gap is end-to-end hardware capability: power source selection, motor and controller sizing, accelerator and 
+                                The gap is end-to-end hardware capability: power source selection, motor and controller sizing, accelerator and
                                 safety logic, and mechanical–electrical integration that is reliable and maintainable.
                             </p>
-                            <p class="section-text" style="font-weight: 600; color: var(--accent-cyan); margin-top: 16px;">
-                                Goal: Design and build multiple electric vehicle prototypes with clear power flow, control flow, and component relationships—emphasizing hardware engineering and mechanical–electrical integration.
+                            <p class="section-text section-text--goal">
+                                Goal: Design and build multiple electric vehicle prototypes with clear power flow, control flow, and component relationships — emphasizing hardware engineering and mechanical–electrical integration.
                             </p>
-                            <a href="https://youtu.be/f0MH8VvLX80" target="_blank" rel="noopener noreferrer" style="display: block;">
-                                <img src="electric scooter.jpg" alt="Electric Mobility Systems (click to watch video)" class="project-image" style="cursor: pointer;">
+                            <a href="https://youtu.be/f0MH8VvLX80" target="_blank" rel="noopener noreferrer" class="figure-link">
+                                <img src="electric scooter.jpg" alt="Electric Mobility Systems (click to watch video)" class="project-image">
                             </a>
-                            <p class="section-text" style="margin-top: 12px; font-size: 0.95rem; color: var(--text-secondary);">
-                                Click the image to watch the full “all vehicles in one video” demo.
-                            </p>
+                            <p class="media-caption">Click the image to watch the full "all vehicles in one video" demo.</p>
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">Solution Overview</h4>
                             <p class="section-text">
-                                Four distinct electric systems were built and documented: (1) Electric mini-bus—48 V Li-ion, dual BLDC motors with individual controllers, single accelerator, front/rear lamps; (2) Electric tractor—high-power GM motor (5 HP), Li-ion and optional lead-acid/solar, key switch and accelerator; (3) Electric scooters—two generations (24 V DC and Li-ion BLDC) with accelerator and lights; (4) Electric car—Li-ion pack, single controller, dual BLDC motors, accelerator, and lighting. From the user’s perspective: one pedal and key (where applicable) control speed; power and control flow are explicit and consistent across platforms.
+                                Four distinct electric systems were built and documented: (1) Electric mini-bus — 48 V Li-ion, dual BLDC motors with individual controllers, single accelerator, front/rear lamps; (2) Electric tractor — high-power GM motor (5 HP), Li-ion and optional lead-acid/solar, key switch and accelerator; (3) Electric scooters — two generations (24 V DC and Li-ion BLDC) with accelerator and lights; (4) Electric car — Li-ion pack, single controller, dual BLDC motors, accelerator, and lighting. From the user's perspective: one pedal and key (where applicable) control speed; power and control flow are explicit and consistent across platforms.
                             </p>
                             <p class="section-text">
                                 This approach prioritizes hardware clarity: power source → controller → motor(s), and battery → loads (lights), with control signals (accelerator, key) clearly separated.
@@ -761,182 +705,80 @@
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Inside Electric Mobility (Photos & Videos)</h4>
-                            <p class="section-text" style="margin-bottom: 16px;">
-                                Click any photo to open it full-size. Video links are below.
-                            </p>
-
-                            <!-- Full photo gallery (clickable) -->
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-                                <!-- Scooters -->
-                                <div style="grid-column: 1 / -1; margin-top: 6px;">
-                                    <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin: 10px 0 12px; font-size: 1.1rem;">Electric Scooters (All Photos)</h5>
-                                </div>
-
-                                <a href="electric scooter.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter.jpg" alt="Electric scooter" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter</div>
-                                </a>
-                                <a href="waterprove electric scooter.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="waterprove electric scooter.jpg" alt="Waterproof electric scooter" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Waterproof scooter</div>
-                                </a>
-                                <a href="electric scooter2.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter2.jpg" alt="Electric scooter 2" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 2</div>
-                                </a>
-                                <a href="electric scooter3.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter3.jpg" alt="Electric scooter 3" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 3</div>
-                                </a>
-                                <a href="electric scooter4.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter4.jpg" alt="Electric scooter 4" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 4</div>
-                                </a>
-                                <a href="electric scooter5.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter5.jpg" alt="Electric scooter 5" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 5</div>
-                                </a>
-                                <a href="electric scooter6.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter6.jpg" alt="Electric scooter 6" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 6</div>
-                                </a>
-                                <a href="electric scooter7.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter7.jpg" alt="Electric scooter 7" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 7</div>
-                                </a>
-                                <a href="electric scooter8.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter8.jpg" alt="Electric scooter 8" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 8</div>
-                                </a>
-                                <a href="electric scooter9.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter9.jpg" alt="Electric scooter 9" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 9</div>
-                                </a>
-                                <a href="electric scooter10.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter10.jpg" alt="Electric scooter 10" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 10</div>
-                                </a>
-                                <a href="electric scooter11.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter11.jpg" alt="Electric scooter 11" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 11</div>
-                                </a>
-                                <a href="electric scooter12.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter12.jpg" alt="Electric scooter 12" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 12</div>
-                                </a>
-                                <a href="electric scooter13.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter13.jpg" alt="Electric scooter 13" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 13</div>
-                                </a>
-                                <a href="electric scooter14.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter14.jpg" alt="Electric scooter 14" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 14</div>
-                                </a>
-                                <a href="electric scooter15.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter15.jpg" alt="Electric scooter 15" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 15</div>
-                                </a>
-                                <a href="electric scooter16.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter16.jpg" alt="Electric scooter 16" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 16</div>
-                                </a>
-                                <a href="electric scooter17.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric scooter17.jpg" alt="Electric scooter 17" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric scooter 17</div>
-                                </a>
-
-                                <!-- Cars -->
-                                <div style="grid-column: 1 / -1; margin-top: 18px;">
-                                    <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin: 10px 0 12px; font-size: 1.1rem;">Electric Car (All Photos)</h5>
-                                </div>
-                                <a href="electric car1.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric car1.jpg" alt="Electric car 1" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric car 1</div>
-                                </a>
-                                <a href="electric car3.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric car3.jpg" alt="Electric car 3" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric car 3</div>
-                                </a>
-                                <a href="electric car4.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric car4.jpg" alt="Electric car 4" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric car 4</div>
-                                </a>
-                                <a href="electric car9.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric car9.jpg" alt="Electric car 9" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric car 9</div>
-                                </a>
-                                <a href="electric car12.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric car12.jpg" alt="Electric car 12" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric car 12</div>
-                                </a>
-
-                                <!-- Tractor -->
-                                <div style="grid-column: 1 / -1; margin-top: 18px;">
-                                    <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin: 10px 0 12px; font-size: 1.1rem;">Electric Tractor (All Photos / Switches)</h5>
-                                </div>
-                                <a href="electric tractor 1.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric tractor 1.jpg" alt="Electric tractor 1" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric tractor 1</div>
-                                </a>
-                                <a href="electric tractor 2.jpeg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric tractor 2.jpeg" alt="Electric tractor 2" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric tractor 2</div>
-                                </a>
-                                <a href="electric tractor 5.png" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric tractor 5.png" alt="Electric tractor 5 (switches / control)" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric tractor switches / control</div>
-                                </a>
-
-                                <!-- Mini-bus -->
-                                <div style="grid-column: 1 / -1; margin-top: 18px;">
-                                    <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin: 10px 0 12px; font-size: 1.1rem;">Electric Mini-bus (All Photos)</h5>
-                                </div>
-                                <a href="electric minibus.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric minibus.jpg" alt="Electric mini-bus" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric mini-bus</div>
-                                </a>
-                                <a href="electric minibus.jpeg" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; display: block;">
-                                    <img src="electric minibus.jpeg" alt="Electric mini-bus (2)" style="width: 100%; height: 170px; object-fit: cover; display: block;">
-                                    <div style="padding: 10px; font-size: 0.9rem; color: var(--text-secondary);">Electric mini-bus (2)</div>
-                                </a>
+                            <h4 class="section-heading">Electric Scooters</h4>
+                            <div class="image-grid">
+                                <figure class="image-card"><a href="electric scooter.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter.jpg" alt="Electric scooter" class="project-image"></a><figcaption>Electric scooter</figcaption></figure>
+                                <figure class="image-card"><a href="waterprove electric scooter.jpg" target="_blank" rel="noopener noreferrer"><img src="waterprove electric scooter.jpg" alt="Waterproof electric scooter" class="project-image"></a><figcaption>Waterproof scooter</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter2.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter2.jpg" alt="Electric scooter 2" class="project-image"></a><figcaption>Electric scooter 2</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter3.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter3.jpg" alt="Electric scooter 3" class="project-image"></a><figcaption>Electric scooter 3</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter4.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter4.jpg" alt="Electric scooter 4" class="project-image"></a><figcaption>Electric scooter 4</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter5.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter5.jpg" alt="Electric scooter 5" class="project-image"></a><figcaption>Electric scooter 5</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter6.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter6.jpg" alt="Electric scooter 6" class="project-image"></a><figcaption>Electric scooter 6</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter7.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter7.jpg" alt="Electric scooter 7" class="project-image"></a><figcaption>Electric scooter 7</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter8.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter8.jpg" alt="Electric scooter 8" class="project-image"></a><figcaption>Electric scooter 8</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter9.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter9.jpg" alt="Electric scooter 9" class="project-image"></a><figcaption>Electric scooter 9</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter10.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter10.jpg" alt="Electric scooter 10" class="project-image"></a><figcaption>Electric scooter 10</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter11.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter11.jpg" alt="Electric scooter 11" class="project-image"></a><figcaption>Electric scooter 11</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter12.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter12.jpg" alt="Electric scooter 12" class="project-image"></a><figcaption>Electric scooter 12</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter13.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter13.jpg" alt="Electric scooter 13" class="project-image"></a><figcaption>Electric scooter 13</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter14.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter14.jpg" alt="Electric scooter 14" class="project-image"></a><figcaption>Electric scooter 14</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter15.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter15.jpg" alt="Electric scooter 15" class="project-image"></a><figcaption>Electric scooter 15</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter16.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter16.jpg" alt="Electric scooter 16" class="project-image"></a><figcaption>Electric scooter 16</figcaption></figure>
+                                <figure class="image-card"><a href="electric scooter17.jpg" target="_blank" rel="noopener noreferrer"><img src="electric scooter17.jpg" alt="Electric scooter 17" class="project-image"></a><figcaption>Electric scooter 17</figcaption></figure>
                             </div>
+                        </div>
 
-                            <!-- Video links + embed -->
-                            <div style="margin: 24px 0 0; padding: 20px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h5 style="font-family: 'Orbitron', sans-serif; color: var(--accent-cyan); margin-bottom: 12px; font-size: 1.1rem;">YouTube Videos</h5>
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Electric Car</h4>
+                            <div class="image-grid">
+                                <figure class="image-card"><a href="electric car1.jpg" target="_blank" rel="noopener noreferrer"><img src="electric car1.jpg" alt="Electric car 1" class="project-image"></a><figcaption>Electric car 1</figcaption></figure>
+                                <figure class="image-card"><a href="electric car3.jpg" target="_blank" rel="noopener noreferrer"><img src="electric car3.jpg" alt="Electric car 3" class="project-image"></a><figcaption>Electric car 3</figcaption></figure>
+                                <figure class="image-card"><a href="electric car4.jpg" target="_blank" rel="noopener noreferrer"><img src="electric car4.jpg" alt="Electric car 4" class="project-image"></a><figcaption>Electric car 4</figcaption></figure>
+                                <figure class="image-card"><a href="electric car9.jpg" target="_blank" rel="noopener noreferrer"><img src="electric car9.jpg" alt="Electric car 9" class="project-image"></a><figcaption>Electric car 9</figcaption></figure>
+                                <figure class="image-card"><a href="electric car12.jpg" target="_blank" rel="noopener noreferrer"><img src="electric car12.jpg" alt="Electric car 12" class="project-image"></a><figcaption>Electric car 12</figcaption></figure>
+                            </div>
+                        </div>
 
-                                <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;">
-                                    <a href="https://youtu.be/y9v7p4lzQ4c" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.06); color: var(--text-primary); text-decoration: none;">
-                                        Waterproof Test
-                                    </a>
-                                    <a href="https://youtu.be/mlHWqiWs9F0" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.06); color: var(--text-primary); text-decoration: none;">
-                                        Interview
-                                    </a>
-                                    <a href="https://youtu.be/f0MH8VvLX80" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.06); color: var(--text-primary); text-decoration: none;">
-                                        All Vehicles (One Video)
-                                    </a>
-                                </div>
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Electric Tractor</h4>
+                            <div class="image-grid">
+                                <figure class="image-card"><a href="electric tractor 1.jpg" target="_blank" rel="noopener noreferrer"><img src="electric tractor 1.jpg" alt="Electric tractor 1" class="project-image"></a><figcaption>Electric tractor 1</figcaption></figure>
+                                <figure class="image-card"><a href="electric tractor 2.jpeg" target="_blank" rel="noopener noreferrer"><img src="electric tractor 2.jpeg" alt="Electric tractor 2" class="project-image"></a><figcaption>Electric tractor 2</figcaption></figure>
+                                <figure class="image-card"><a href="electric tractor 5.png" target="_blank" rel="noopener noreferrer"><img src="electric tractor 5.png" alt="Electric tractor 5 (switches / control)" class="project-image"></a><figcaption>Electric tractor switches / control</figcaption></figure>
+                            </div>
+                        </div>
 
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/f0MH8VvLX80" title="Electric Mobility - All Vehicles (One Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 10px; display: block;"></iframe>
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Electric Mini-bus</h4>
+                            <div class="image-grid">
+                                <figure class="image-card"><a href="electric minibus.jpg" target="_blank" rel="noopener noreferrer"><img src="electric minibus.jpg" alt="Electric mini-bus" class="project-image"></a><figcaption>Electric mini-bus</figcaption></figure>
+                                <figure class="image-card"><a href="electric minibus.jpeg" target="_blank" rel="noopener noreferrer"><img src="electric minibus.jpeg" alt="Electric mini-bus (2)" class="project-image"></a><figcaption>Electric mini-bus (2)</figcaption></figure>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Video Documentation</h4>
+                            <div class="media-block">
+                                <p class="media-caption">
+                                    <a href="https://youtu.be/y9v7p4lzQ4c" target="_blank" rel="noopener noreferrer" class="text-link">Waterproof Test →</a> ·
+                                    <a href="https://youtu.be/mlHWqiWs9F0" target="_blank" rel="noopener noreferrer" class="text-link">Interview →</a> ·
+                                    <a href="https://youtu.be/f0MH8VvLX80" target="_blank" rel="noopener noreferrer" class="text-link">All Vehicles (One Video) →</a>
+                                </p>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/f0MH8VvLX80" title="Electric Mobility - All Vehicles (One Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
                             </div>
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">System Architecture</h4>
-                            <p class="section-text" style="margin-bottom: 20px;">
-                                Four panels: Mini-bus (48 V, 2× BLDC, 2× controllers, accelerator, lights) | Tractor (solar/battery, controller, GM motor, key, accelerator) | Scooters (DC vs BLDC versions) | Car (Li-ion, 1 controller, 2× BLDC, accelerator, lights). Diagram below.
+                            <p class="section-text">
+                                Four panels: Mini-bus (48 V, 2× BLDC, 2× controllers, accelerator, lights) — Tractor (solar/battery, controller, GM motor, key, accelerator) — Scooters (DC vs BLDC versions) — Car (Li-ion, 1 controller, 2× BLDC, accelerator, lights).
                             </p>
-                            <div style="margin: 24px 0; border: 1px solid var(--glass-border); border-radius: 15px; overflow: hidden; background: var(--glass-bg); backdrop-filter: var(--blur);">
-                                <iframe src="electric-mobility-diagram.html" title="Electric Mobility Systems Architecture" style="width: 100%; height: 720px; border: none; display: block;"></iframe>
+                            <div class="diagram-frame">
+                                <iframe src="electric-mobility-diagram.html" title="Electric Mobility Systems Architecture"></iframe>
                             </div>
-                            <div class="tech-tags" style="margin-top: 20px;">
-                                <span class="tech-tag">BLDC</span>
-                                <span class="tech-tag">Motor Controllers</span>
-                                <span class="tech-tag">Li-ion</span>
-                                <span class="tech-tag">Power Systems</span>
-                                <span class="tech-tag">Mechanical</span>
-                            </div>
+                            <ul class="tech-tags">
+                                <li>BLDC</li><li>Motor Controllers</li><li>Li-ion</li><li>Power Systems</li><li>Mechanical</li>
+                            </ul>
                         </div>
 
                         <div class="project-section-item">
@@ -951,7 +793,7 @@
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Engineering Decisions & Trade-offs</h4>
+                            <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
                             <ul class="decision-list">
                                 <li><strong>Dual motors + dual controllers (mini-bus):</strong> Symmetry and redundancy; one accelerator drives both for simplicity.</li>
                                 <li><strong>Solar on tractor:</strong> Supporting charge path; trade-off is added complexity vs off-grid capability.</li>
@@ -961,11 +803,11 @@
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Results & Impact</h4>
+                            <h4 class="section-heading">Results &amp; Impact</h4>
                             <div class="results-grid">
                                 <div class="result-item">
                                     <h5>Multiple prototypes</h5>
-                                    <p>Mini-bus, tractor, two scooter generations, and car—each with documented power and control flow</p>
+                                    <p>Mini-bus, tractor, two scooter generations, and car — each with documented power and control flow</p>
                                 </div>
                                 <div class="result-item">
                                     <h5>Hardware engineering</h5>
@@ -979,8 +821,8 @@
                         </div>
 
                         <div class="project-section-item">
-                            <div style="padding: 24px; background: var(--glass-bg); backdrop-filter: var(--blur); border: 1px solid var(--glass-border); border-radius: 15px;">
-                                <h4 class="section-heading" style="color: var(--accent-cyan); margin-bottom: 12px;">Why This Project Matters</h4>
+                            <div class="callout-box">
+                                <h4 class="section-heading">Why This Project Matters</h4>
                                 <ul class="challenge-list">
                                     <li><strong>Hardware engineering:</strong> Power systems, motor controllers, and battery integration from spec to build</li>
                                     <li><strong>Motor control:</strong> BLDC and DC; single and dual motor/controller topologies</li>
@@ -994,9 +836,13 @@
 
             </div>
         </section>
+
+        <footer class="site-footer">
+            <p>Abdoukadir Jabbi — AI Robotics Engineer</p>
+            <p><a href="mailto:buxinjabbi@gmail.com" class="text-link">buxinjabbi@gmail.com</a> · <a href="https://github.com/buxin2" target="_blank" rel="noopener noreferrer" class="text-link">GitHub</a> · <a href="https://www.linkedin.com/in/abdoukadir-jabbi-a7b3082a9/" target="_blank" rel="noopener noreferrer" class="text-link">LinkedIn</a></p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
