@@ -526,7 +526,7 @@
                     <div class="project-header-card">
                         <span class="project-index">04</span>
                         <div>
-                            <h3 class="project-name">Autonomous Assistant Robot <span class="coming-soon">(coming soon)</span></h3>
+                            <h3 class="project-name">Autonomous Mobile Manipulator Robot <span class="coming-soon">(coming soon)</span></h3>
                             <span class="project-badge">Autonomous Robot with Arm</span>
                         </div>
                     </div>
@@ -534,29 +534,25 @@
                         <div class="project-section-item">
                             <h4 class="section-heading">Problem Statement</h4>
                             <p class="section-text">
-                                Indoor robots that navigate room-to-room without human intervention usually depend on LiDAR, beacons, or pre-installed markers.
-                                These add cost and deployment friction. Many environments need a solution that works with minimal infrastructure — using only
-                                what a robot can see and sense on board.
-                            </p>
-                            <p class="section-text">
-                                The goal is indoor autonomy plus human interaction: the robot should map and navigate, avoid obstacles, and still recognize people
-                                and support tasks like "go to Room A" or "deliver this item" with voice and a visible face (smartphone as interface).
+                                Most robots specialize in either moving or manipulating, rarely both together with vision-guided autonomy. A robot that can find an object,
+                                travel to it, pick it up, and deliver it end-to-end needs locomotion, manipulation, and perception working as one coordinated system —
+                                not three separate demos.
                             </p>
                             <p class="section-text section-text--goal">
-                                Goal: Build a humanoid-style assistant that navigates using camera-only (RTAB-Map / visual SLAM), avoids obstacles with ultrasonic + vision, and interacts via face recognition and voice.
+                                Goal: Build an autonomous mobile manipulator that navigates a room on mecanum wheels, locates target materials with a pan-tilt camera, picks them up with a 6-DOF arm, and delivers them — coordinated entirely through ROS.
                             </p>
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">Solution Overview</h4>
                             <p class="section-text">
-                                A smartphone acts as the robot's face and brain: camera feeds RTAB-Map and AR-based mapping for indoor navigation, MediaPipe/YOLO for face and object detection, and Flask as the control hub.
-                                The ESP32 handles Mecanum wheels, arm servos, and ultrasonic; it receives movement and gesture commands over Wi-Fi and sends sensor feedback. From the user's perspective: the robot greets by name,
-                                answers questions (e.g. temperature, weather), and executes task commands like "go to Room A" or "deliver this" with obstacle avoidance and return-to-base behavior.
+                                Three independently-actuated subsystems run as ROS nodes and communicate over topics/services for modular, real-time coordination:
                             </p>
-                            <p class="section-text">
-                                This approach emphasizes camera-only navigation and human interaction without relying on beacons or LiDAR.
-                            </p>
+                            <ul class="challenge-list">
+                                <li><strong>Locomotion:</strong> 4x independently-driven mecanum wheels. Mecanum drive kinematics convert a target direction/speed vector into per-wheel velocities, enabling forward, lateral, and rotational motion without turning in place.</li>
+                                <li><strong>Manipulation:</strong> 6-DOF robotic arm (6 servo motors). Inverse kinematics converts a target end-effector position into joint angles, executed as coordinated servo moves to reach, grip, and lift.</li>
+                                <li><strong>Perception:</strong> Webcam on a 2-DOF pan-tilt gimbal. Object detection/tracking keeps the target centered in frame, feeding live position data to navigation and manipulation.</li>
+                            </ul>
                         </div>
 
                         <div class="project-section-item">
@@ -592,36 +588,52 @@
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">System Architecture</h4>
+                            <h4 class="section-heading">ROS Control Architecture</h4>
                             <p class="section-text">
-                                Four layers: Physical Hardware (Mecanum, servos, ultrasonic, smartphone mount) → Embedded Control (ESP32) → Perception &amp; AI (Flask, MediaPipe, YOLO, face recognition, RTAB-Map) → Interaction &amp; Autonomy (conversation, voice, task commands, path planning).
+                                Perception Node processes camera input and publishes object position data. Navigation Node subscribes to object/obstacle data and publishes
+                                velocity commands to the mecanum base. Manipulation Node computes arm joint angles via inverse kinematics once in range and executes the grip
+                                sequence. A Motor Control Layer translates all high-level velocity/joint commands into low-level PWM for wheel motors and servos.
                             </p>
                             <div class="diagram-frame">
-                                <iframe src="autonomous-assistant-robot-diagram.html" title="Autonomous Assistant Robot System Architecture"></iframe>
+                                <iframe src="autonomous-assistant-robot-diagram.html" title="Autonomous Mobile Manipulator ROS Architecture"></iframe>
                             </div>
                             <ul class="tech-tags">
-                                <li>RTAB-Map</li><li>Flask</li><li>MediaPipe</li><li>YOLO</li><li>Face Recognition</li><li>ESP32</li><li>Python</li>
+                                <li>ROS</li><li>Python/C++</li><li>Inverse Kinematics</li><li>Computer Vision / Object Detection</li><li>Servo Motor Control</li><li>Mecanum Drive Kinematics</li><li>Embedded Systems</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Control Flow — Pick-and-Place Sequence</h4>
+                            <ul class="challenge-list">
+                                <li><strong>1. Scan:</strong> Camera node scans the room and detects a target object</li>
+                                <li><strong>2. Localize:</strong> Object position calculated relative to the robot and published to the navigation node</li>
+                                <li><strong>3. Navigate:</strong> Mecanum base moves omnidirectionally toward the object, continuously adjusting from live camera feedback</li>
+                                <li><strong>4. Align:</strong> Robot positions itself within the arm's reach envelope; pan-tilt camera keeps the object centered</li>
+                                <li><strong>5. Grasp:</strong> Inverse kinematics solver computes joint angles; servos execute the reach-and-grip sequence</li>
+                                <li><strong>6. Transport:</strong> Robot navigates to the destination point carrying the object</li>
+                                <li><strong>7. Release:</strong> Arm releases the object at the target location</li>
+                                <li><strong>8. Repeat:</strong> System returns to scan mode for the next object</li>
                             </ul>
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">Key Technical Challenges</h4>
                             <ul class="challenge-list">
-                                <li><strong>Camera-only navigation:</strong> Reliable mapping and localization without LiDAR; handling lighting and texture-poor areas</li>
-                                <li><strong>Indoor autonomy:</strong> Room transitions, landmarks, and return navigation with visual SLAM / RTAB-Map</li>
-                                <li><strong>Human interaction:</strong> Face recognition and name recall integrated with navigation and task execution</li>
-                                <li><strong>Obstacle avoidance:</strong> Fusing ultrasonic and vision for safe motion and emergency stop</li>
-                                <li><strong>Latency and reliability:</strong> Wi-Fi link between smartphone and ESP32; behavior when connection or perception fails</li>
+                                <li><strong>Mecanum kinematics:</strong> Converting a target direction/speed vector into correct per-wheel velocities for smooth omnidirectional motion</li>
+                                <li><strong>Inverse kinematics:</strong> Solving 6-DOF joint angles reliably from a target end-effector position</li>
+                                <li><strong>Real-time tracking:</strong> Keeping the target centered via pan-tilt gimbal while the robot itself is moving</li>
+                                <li><strong>ROS node coordination:</strong> Real-time communication between perception, navigation, and manipulation nodes without race conditions</li>
+                                <li><strong>Closed-loop reliability:</strong> Sustaining the full scan → navigate → grasp → deliver loop without manual intervention</li>
                             </ul>
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
                             <ul class="decision-list">
-                                <li><strong>RTAB-Map / camera-only:</strong> Avoids LiDAR cost; trade-off is robustness in low-texture or dynamic lighting.</li>
-                                <li><strong>Smartphone as face and brain:</strong> Single device for camera, AI, and voice; limits compute but improves form factor and UX.</li>
-                                <li><strong>ESP32 for motion only:</strong> Keeps navigation and AI on the phone; ESP32 executes low-level motor and servo control.</li>
-                                <li><strong>Ultrasonic + vision:</strong> Redundancy for obstacle detection; ultrasonic for close-range, vision for semantic understanding.</li>
+                                <li><strong>Three independent ROS nodes:</strong> Locomotion, manipulation, and perception developed and tested independently; trade-off is added complexity in topic/service coordination.</li>
+                                <li><strong>Mecanum over differential drive:</strong> Enables lateral strafing and precise alignment with the arm's reach envelope, at the cost of more complex kinematics.</li>
+                                <li><strong>Pan-tilt gimbal decoupled from base:</strong> Camera can track a target independently of robot heading, improving grasp alignment accuracy.</li>
+                                <li><strong>Motor Control Layer as a single translation point:</strong> Keeps high-level ROS nodes hardware-agnostic; only this layer talks PWM.</li>
                             </ul>
                         </div>
 
@@ -629,16 +641,16 @@
                             <h4 class="section-heading">Results &amp; Impact</h4>
                             <div class="results-grid">
                                 <div class="result-item">
-                                    <h5>Indoor navigation</h5>
-                                    <p>Room-to-room navigation using visual SLAM / RTAB-Map without fixed infrastructure</p>
+                                    <h5>Closed-loop autonomy</h5>
+                                    <p>Object detection → navigation → grasping → delivery, without manual intervention</p>
                                 </div>
                                 <div class="result-item">
-                                    <h5>Human interaction</h5>
-                                    <p>Face recognition, greeting by name, voice commands, and task execution ("go to room", "deliver")</p>
+                                    <h5>Omnidirectional navigation</h5>
+                                    <p>Mecanum-wheel kinematics for forward, lateral, and rotational motion</p>
                                 </div>
                                 <div class="result-item">
-                                    <h5>Obstacle avoidance</h5>
-                                    <p>Ultrasonic and vision-based safety with path planning and return-to-base</p>
+                                    <h5>6-DOF manipulation</h5>
+                                    <p>Inverse kinematics driving a full reach-and-grip sequence</p>
                                 </div>
                             </div>
                         </div>
@@ -647,10 +659,10 @@
                             <div class="callout-box">
                                 <h4 class="section-heading">Why This Project Matters</h4>
                                 <ul class="challenge-list">
-                                    <li><strong>Camera-only navigation:</strong> Demonstrates autonomy without LiDAR or beacons</li>
-                                    <li><strong>Indoor autonomy:</strong> Mapping, localization, and path planning in real indoor spaces</li>
-                                    <li><strong>Human interaction:</strong> Face recognition, voice, and task-level commands in one system</li>
-                                    <li><strong>Systems thinking:</strong> Perception, AI, embedded control, and humanoid interaction in a single pipeline</li>
+                                    <li><strong>Systems integration:</strong> Three independently-actuated subsystems coordinated into one autonomous robot</li>
+                                    <li><strong>ROS architecture:</strong> Modular, real-time node-based control that scales to more subsystems</li>
+                                    <li><strong>Applied robotics math:</strong> Mecanum drive kinematics and 6-DOF inverse kinematics implemented and working together</li>
+                                    <li><strong>Full autonomy loop:</strong> Perception, decision, and action closed without human intervention</li>
                                 </ul>
                             </div>
                         </div>
