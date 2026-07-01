@@ -25,19 +25,23 @@
             </button>
             <button class="floating-nav-item" data-project="project-2">
                 <span class="nav-number">02</span>
-                <span class="nav-name">Multifunctional AI</span>
+                <span class="nav-name">Smart Glasses</span>
             </button>
             <button class="floating-nav-item" data-project="project-3">
                 <span class="nav-number">03</span>
-                <span class="nav-name">Autonomous Assistant</span>
+                <span class="nav-name">Entrepreneurship &amp; Business</span>
             </button>
             <button class="floating-nav-item" data-project="project-4">
                 <span class="nav-number">04</span>
-                <span class="nav-name">Self-Driving Car</span>
+                <span class="nav-name">Autonomous Robot with Arm</span>
             </button>
             <button class="floating-nav-item" data-project="project-5">
                 <span class="nav-number">05</span>
-                <span class="nav-name">Electric Mobility</span>
+                <span class="nav-name">AI Projects</span>
+            </button>
+            <button class="floating-nav-item" data-project="project-6">
+                <span class="nav-number">06</span>
+                <span class="nav-name">Extra Robotics Projects</span>
             </button>
         </div>
     </nav>
@@ -273,404 +277,88 @@
                     </div>
                 </div>
 
-                <!-- PROJECT 2 -->
+                <!-- PROJECT 2: AI SMART GLASSES -->
                 <div id="project-2" class="project-card">
                     <div class="project-header-card">
                         <span class="project-index">02</span>
                         <div>
-                            <h3 class="project-name">Multifunctional AI Robot</h3>
-                            <span class="project-badge">Vision, Voice &amp; Control</span>
+                            <h3 class="project-name">AI Smart Glasses for the Blind</h3>
+                            <span class="project-badge">Assistive Wearable — Edge AI</span>
                         </div>
                     </div>
                     <div class="project-body">
                         <div class="project-section-item">
                             <h4 class="section-heading">Problem Statement</h4>
                             <p class="section-text">
-                                Human–robot interaction in real environments needs versatile perception and intuitive control. Many robots support
-                                either vision or voice, but not both in a single pipeline — and few fuse face, body, and object tracking with
-                                natural-language queries and real-time motion control.
-                            </p>
-                            <p class="section-text">
-                                The gap: a single platform that sees (people, objects, color), hears (voice commands), reasons (e.g. "What do you see?"),
-                                and acts (Mecanum drive, servos, safety) with low latency and clear failure handling.
+                                Visually impaired people rely on canes, guide dogs, or other people to navigate unfamiliar or crowded environments.
+                                These solutions detect obstacles at close range but give little sense of what is actually around a person, or what a
+                                specific object, sign, or scene in front of them looks like.
                             </p>
                             <p class="section-text section-text--goal">
-                                Goal: Build a multi-modal robot that combines vision, voice, and real-time control so it can follow, greet, answer questions, and operate safely indoors.
+                                Goal: Build a self-contained, glasses-form-factor wearable that detects obstacles and hazards in real time and can
+                                describe a scene or read text aloud on request — fully on-device, with no cloud dependency for the safety-critical path.
                             </p>
-                            <div class="diagram-frame diagram-frame--video">
-                                <iframe
-                                    src="https://www.youtube.com/embed/qGLxgG_UZm4"
-                                    title="Multifunctional AI Robot – talking to the AI, YOLO object detection & movement"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
                         </div>
 
                         <div class="project-section-item">
                             <h4 class="section-heading">Solution Overview</h4>
                             <p class="section-text">
-                                A centralized robot platform with a smartphone as the main sensor and AI host: camera feeds YOLO and MediaPipe for object/person/face tracking;
-                                voice input drives conversation and "What do you see?"-style queries; an AI reasoning layer turns perception into behavior; and an ESP32 executes
-                                motor and servo commands over Wi-Fi. From the user's perspective: speak to the robot, point at objects, and it responds with movement and spoken answers.
+                                A Raspberry Pi Zero 2W paired with a Sony IMX500 AI camera runs real-time YOLO-based object detection directly on the
+                                camera sensor, classifying obstacles by distance, direction, and speed and issuing verbal alerts through a small I2S
+                                speaker. On request, the glasses capture a full scene and use Gemini for a richer spoken description or to read text —
+                                giving both immediate hazard awareness and on-demand understanding of the environment.
                             </p>
                             <p class="section-text">
-                                This approach keeps perception and AI on a single compute node (smartphone/PC) while offloading only real-time actuation to the embedded controller — balancing latency and complexity.
+                                Power comes from a LiPo battery with a TP4056 charger and MT3608 boost converter, housed in a 3D-printed frame,
+                                with the full build kept under a $115 bill of materials.
                             </p>
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Inside the Multifunctional AI Robot</h4>
-                            <p class="section-text">
-                                These videos show how the robot sees with YOLO, listens with AI, moves with Mecanum wheels, and connects to the control website and hardware.
-                            </p>
-
-                            <div class="media-block">
-                                <h5 class="media-title">Website, Robot Connection &amp; Tracking Demo</h5>
-                                <p class="media-caption">
-                                    Walk-through of the Flask-based control website, connecting to the robot, and demonstrating object detection, person tracking and body tracking.
-                                </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/FTZ58UlRBk8" title="Multifunctional AI Robot – website & tracking demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
-                            </div>
-
-                            <div class="media-block">
-                                <h5 class="media-title">Robot Shooting Me in Action (Short)</h5>
-                                <p class="media-caption">
-                                    Quick action shot of the robot tracking and shooting at the target (me) using its vision pipeline.
-                                </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/iGd9X0dIq2M" title="Multifunctional AI Robot – shooting action short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
-                            </div>
-
-                            <div class="media-block">
-                                <h5 class="media-title">Robot Hardware &amp; How It Works</h5>
-                                <p class="media-caption">
-                                    Overview of the physical robot: ESP32, motors, servos, mounting, and how the hardware connects to the AI and website.
-                                </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/EIFPCpJY1R4" title="Multifunctional AI Robot – hardware overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
-                            </div>
-
-                            <div class="media-block">
-                                <h5 class="media-title">Object &amp; Body Tracking — Shooting Demo</h5>
-                                <p class="media-caption">
-                                    Focused demo of YOLO object detection and body tracking used to aim and shoot, showing the full multi-modal pipeline in action.
-                                </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/Hz-GGYSdzQQ" title="Multifunctional AI Robot – object & body tracking shooting demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
-                            </div>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">System Architecture</h4>
-                            <p class="section-text">
-                                Perception (camera, streaming) → AI layer (YOLO, MediaPipe, color/person tracking, reasoning, voice/conversation) → control (ESP32, motors, servos, ultrasonic) → remote (Wi-Fi, smartphone).
-                            </p>
-                            <div class="diagram-frame">
-                                <iframe src="multifunctional-robot-diagram.html" title="Multifunctional AI Robot System Architecture"></iframe>
-                            </div>
+                            <h4 class="section-heading">Hardware & Stack</h4>
                             <ul class="tech-tags">
-                                <li>MediaPipe</li><li>YOLO</li><li>ESP32</li><li>Mecanum</li><li>Wi-Fi</li><li>Voice</li><li>Python</li>
+                                <li>Raspberry Pi Zero 2W</li><li>Sony IMX500 AI Camera</li><li>YOLO (on-sensor)</li><li>I2S Speaker &amp; Mic</li><li>Gemini 2.5 Flash</li><li>LiPo + TP4056 + MT3608</li><li>3D-Printed Housing</li>
                             </ul>
                         </div>
 
+                        <!-- PLACEHOLDER: photos, demo videos, and code go here.
+                             Copy the .media-block or .image-grid patterns used in the other
+                             project sections above/below to add real content. -->
                         <div class="project-section-item">
-                            <h4 class="section-heading">Key Technical Challenges</h4>
-                            <ul class="challenge-list">
-                                <li><strong>Multi-modal fusion:</strong> Running YOLO, MediaPipe, and color/person tracking without frame drops or conflicting outputs</li>
-                                <li><strong>Vision–voice alignment:</strong> Keeping conversation and scene understanding in sync with live video</li>
-                                <li><strong>Real-time control loop:</strong> Wi-Fi latency between smartphone/PC and ESP32; timing of motor and servo commands</li>
-                                <li><strong>Safety and fail-safes:</strong> Ultrasonic-based obstacle stop; behavior when vision or network fails</li>
-                                <li><strong>Integration complexity:</strong> Multiple pipelines (video stream, voice, motor commands) on one platform</li>
-                            </ul>
+                            <h4 class="section-heading">Demo & Build Photos</h4>
+                            <div class="placeholder-box">
+                                <p>Add your photos, demo videos, or a link to the code here.</p>
+                                <p class="media-caption">Use a <code>.media-block</code> for a single video, or an <code>.image-grid</code> of <code>.image-card</code> figures for photos — see the Healthcare Robot section above for the exact markup to copy.</p>
+                            </div>
                         </div>
 
                         <div class="project-section-item">
-                            <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
-                            <ul class="decision-list">
-                                <li><strong>Smartphone as brain:</strong> Single device for camera, AI, and voice; trade-off is battery and thermal limits vs. avoiding a separate PC.</li>
-                                <li><strong>YOLO + MediaPipe:</strong> YOLO for objects/people; MediaPipe for face/body; combined coverage at the cost of two pipelines.</li>
-                                <li><strong>ESP32 for actuation only:</strong> Offloads only time-critical motor/servo control; keeps perception and reasoning on the main host.</li>
-                                <li><strong>Mecanum wheels:</strong> Omnidirectional movement for following and positioning; more complex than differential drive.</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Results &amp; Impact</h4>
+                            <h4 class="section-heading">Results & Impact</h4>
                             <div class="results-grid">
                                 <div class="result-item">
-                                    <h5>Multi-modal perception</h5>
-                                    <p>Simultaneous face, body, object, and color tracking in one pipeline</p>
+                                    <h5>Fully on-device</h5>
+                                    <p>Real-time detection and alerts run locally on the camera sensor — no cloud dependency, ultra-low latency</p>
                                 </div>
                                 <div class="result-item">
-                                    <h5>Vision + voice fusion</h5>
-                                    <p>Natural-language queries and spoken answers tied to live vision</p>
+                                    <h5>Sub-$115 build</h5>
+                                    <p>World-first glasses-form-factor assistive device at this price point combining danger detection and scene description</p>
                                 </div>
                                 <div class="result-item">
-                                    <h5>Real-time control</h5>
-                                    <p>Wi-Fi-based command flow from AI to ESP32 to Mecanum and servos</p>
+                                    <h5>Two modes</h5>
+                                    <p>Continuous hazard alerts plus on-demand full scene description and text reading</p>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="project-section-item">
-                            <div class="callout-box">
-                                <h4 class="section-heading">Why This Project Matters</h4>
-                                <ul class="challenge-list">
-                                    <li><strong>Multi-modal perception:</strong> Combining vision and voice in one reasoning pipeline</li>
-                                    <li><strong>Real-time control:</strong> From perception to actuation with latency and safety in mind</li>
-                                    <li><strong>Systems integration:</strong> Smartphone, ESP32, motors, sensors, and network in a single deployable robot</li>
-                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- PROJECT 3 -->
+                <!-- PROJECT 3: ENTREPRENEURSHIP & BUSINESS -->
                 <div id="project-3" class="project-card">
                     <div class="project-header-card">
                         <span class="project-index">03</span>
                         <div>
-                            <h3 class="project-name">Autonomous Assistant Robot <span class="coming-soon">(coming soon)</span></h3>
-                            <span class="project-badge">Indoor Autonomy</span>
-                        </div>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Problem Statement</h4>
-                            <p class="section-text">
-                                Indoor robots that navigate room-to-room without human intervention usually depend on LiDAR, beacons, or pre-installed markers.
-                                These add cost and deployment friction. Many environments need a solution that works with minimal infrastructure — using only
-                                what a robot can see and sense on board.
-                            </p>
-                            <p class="section-text">
-                                The goal is indoor autonomy plus human interaction: the robot should map and navigate, avoid obstacles, and still recognize people
-                                and support tasks like "go to Room A" or "deliver this item" with voice and a visible face (smartphone as interface).
-                            </p>
-                            <p class="section-text section-text--goal">
-                                Goal: Build a humanoid-style assistant that navigates using camera-only (RTAB-Map / visual SLAM), avoids obstacles with ultrasonic + vision, and interacts via face recognition and voice.
-                            </p>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Solution Overview</h4>
-                            <p class="section-text">
-                                A smartphone acts as the robot's face and brain: camera feeds RTAB-Map and AR-based mapping for indoor navigation, MediaPipe/YOLO for face and object detection, and Flask as the control hub.
-                                The ESP32 handles Mecanum wheels, arm servos, and ultrasonic; it receives movement and gesture commands over Wi-Fi and sends sensor feedback. From the user's perspective: the robot greets by name,
-                                answers questions (e.g. temperature, weather), and executes task commands like "go to Room A" or "deliver this" with obstacle avoidance and return-to-base behavior.
-                            </p>
-                            <p class="section-text">
-                                This approach emphasizes camera-only navigation and human interaction without relying on beacons or LiDAR.
-                            </p>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">System Architecture</h4>
-                            <p class="section-text">
-                                Four layers: Physical Hardware (Mecanum, servos, ultrasonic, smartphone mount) → Embedded Control (ESP32) → Perception &amp; AI (Flask, MediaPipe, YOLO, face recognition, RTAB-Map) → Interaction &amp; Autonomy (conversation, voice, task commands, path planning).
-                            </p>
-                            <div class="diagram-frame">
-                                <iframe src="autonomous-assistant-robot-diagram.html" title="Autonomous Assistant Robot System Architecture"></iframe>
-                            </div>
-                            <ul class="tech-tags">
-                                <li>RTAB-Map</li><li>Flask</li><li>MediaPipe</li><li>YOLO</li><li>Face Recognition</li><li>ESP32</li><li>Python</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Key Technical Challenges</h4>
-                            <ul class="challenge-list">
-                                <li><strong>Camera-only navigation:</strong> Reliable mapping and localization without LiDAR; handling lighting and texture-poor areas</li>
-                                <li><strong>Indoor autonomy:</strong> Room transitions, landmarks, and return navigation with visual SLAM / RTAB-Map</li>
-                                <li><strong>Human interaction:</strong> Face recognition and name recall integrated with navigation and task execution</li>
-                                <li><strong>Obstacle avoidance:</strong> Fusing ultrasonic and vision for safe motion and emergency stop</li>
-                                <li><strong>Latency and reliability:</strong> Wi-Fi link between smartphone and ESP32; behavior when connection or perception fails</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
-                            <ul class="decision-list">
-                                <li><strong>RTAB-Map / camera-only:</strong> Avoids LiDAR cost; trade-off is robustness in low-texture or dynamic lighting.</li>
-                                <li><strong>Smartphone as face and brain:</strong> Single device for camera, AI, and voice; limits compute but improves form factor and UX.</li>
-                                <li><strong>ESP32 for motion only:</strong> Keeps navigation and AI on the phone; ESP32 executes low-level motor and servo control.</li>
-                                <li><strong>Ultrasonic + vision:</strong> Redundancy for obstacle detection; ultrasonic for close-range, vision for semantic understanding.</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Results &amp; Impact</h4>
-                            <div class="results-grid">
-                                <div class="result-item">
-                                    <h5>Indoor navigation</h5>
-                                    <p>Room-to-room navigation using visual SLAM / RTAB-Map without fixed infrastructure</p>
-                                </div>
-                                <div class="result-item">
-                                    <h5>Human interaction</h5>
-                                    <p>Face recognition, greeting by name, voice commands, and task execution ("go to room", "deliver")</p>
-                                </div>
-                                <div class="result-item">
-                                    <h5>Obstacle avoidance</h5>
-                                    <p>Ultrasonic and vision-based safety with path planning and return-to-base</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-section-item">
-                            <div class="callout-box">
-                                <h4 class="section-heading">Why This Project Matters</h4>
-                                <ul class="challenge-list">
-                                    <li><strong>Camera-only navigation:</strong> Demonstrates autonomy without LiDAR or beacons</li>
-                                    <li><strong>Indoor autonomy:</strong> Mapping, localization, and path planning in real indoor spaces</li>
-                                    <li><strong>Human interaction:</strong> Face recognition, voice, and task-level commands in one system</li>
-                                    <li><strong>Systems thinking:</strong> Perception, AI, embedded control, and humanoid interaction in a single pipeline</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PROJECT 4 -->
-                <div id="project-4" class="project-card">
-                    <div class="project-header-card">
-                        <span class="project-index">04</span>
-                        <div>
-                            <h3 class="project-name">Self-Driving Car Prototype</h3>
-                            <span class="project-badge">Vision-First Autonomy</span>
-                        </div>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Problem Statement</h4>
-                            <p class="section-text">
-                                Autonomous vehicle navigation demands robust perception for pedestrians and obstacles in real time.
-                                Production systems often rely on LiDAR and radar, which are costly and complex to integrate for education
-                                and rapid prototyping.
-                            </p>
-                            <p class="section-text">
-                                The challenge is to show end-to-end autonomy — lane following, sign detection, person/obstacle avoidance — using
-                                a vision-first, logic-based approach that keeps cost low and the pipeline interpretable.
-                            </p>
-                            <p class="section-text section-text--goal">
-                                Goal: Build a cost-effective self-driving prototype with PC as brain, vision-only perception (YOLO + OpenCV), and ESP32 for motion control — no AI decision model, only computer vision and logic.
-                            </p>
-                            <div class="diagram-frame diagram-frame--video">
-                                <iframe
-                                    src="https://www.youtube.com/embed/sECIhrO91Ug"
-                                    title="Self‑Driving Car – vision, Bluetooth serial & gesture control"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Solution Overview</h4>
-                            <p class="section-text">
-                                A small-scale car with a smartphone camera streaming video to a PC over Wi-Fi. The PC runs Python, OpenCV, and YOLO:
-                                road/lane detection via HOG and Hough line transform, traffic sign and person detection via YOLO, and decision logic
-                                (move, stop, turn, slow) based on rules — no learned policy. The ESP32 receives commands wirelessly and drives four
-                                Mecanum motors; an ultrasonic sensor and buzzer handle close-range obstacle and emergency stop.
-                            </p>
-                            <p class="section-text">
-                                From the user's perspective: the car follows the lane, stops at STOP signs and for people, and avoids obstacles using vision and ultrasonic feedback.
-                            </p>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Inside the Self-Driving Car</h4>
-                            <p class="section-text">
-                                These videos show how the prototype works in practice: gesture control, Bluetooth serial communication, object detection, and the overall self-driving concept.
-                            </p>
-
-                            <div class="media-block">
-                                <h5 class="media-title">In my journey to build Self-Driving-Car from scratch</h5>
-                                <p class="media-caption">
-                                    Short story and video of the project, posted on LinkedIn — testing object detection, Bluetooth serial, and gesture control.
-                                </p>
-                                <a href="https://www.linkedin.com/posts/abdoukadir-jabbi-a7b3082a9_in-my-journey-to-build-self-driving-car-from-activity-7266717928425693184-2iq5?utm_medium=ios_app&rcm=ACoAAEpDL_8B2NvXLZuxIkd_oNxvvdQ1k8C9slU&utm_source=social_share_video_v2&utm_campaign=copy_link" target="_blank" rel="noopener noreferrer" class="text-link">Open LinkedIn video →</a>
-                            </div>
-
-                            <div class="media-block">
-                                <h5 class="media-title">Explaining the Self-Driving Concept</h5>
-                                <p class="media-caption">
-                                    Walk-through of how the self-driving pipeline works: camera input, PC vision processing, decision logic, and ESP32 motor control.
-                                </p>
-                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/LX2zFHhjOsw" title="Self-driving concept explanation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
-                            </div>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">System Architecture</h4>
-                            <p class="section-text">
-                                Vision input (camera over Wi-Fi) → PC (vision processing + decision logic) → ESP32 (motor control, ultrasonic, buzzer) → Mecanum wheels.
-                            </p>
-                            <div class="diagram-frame">
-                                <iframe src="self-driving-car-diagram.html" title="Self-Driving Car System Architecture"></iframe>
-                            </div>
-                            <ul class="tech-tags">
-                                <li>YOLO</li><li>OpenCV</li><li>Hough</li><li>ESP32</li><li>Wi-Fi</li><li>Python</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Key Technical Challenges</h4>
-                            <ul class="challenge-list">
-                                <li><strong>Real-time vision pipeline:</strong> YOLO + OpenCV lane/sign detection with low latency for responsive control</li>
-                                <li><strong>Wi-Fi link:</strong> Video stream and command flow between PC and ESP32; handling packet loss and delay</li>
-                                <li><strong>Smartphone as sensor:</strong> Mounting, framing, and streaming stability for lane and object detection</li>
-                                <li><strong>Decision logic:</strong> Rule-based stop/turn/slow that stays safe under detection noise and missed frames</li>
-                                <li><strong>Ultrasonic + vision fusion:</strong> Emergency stop and obstacle feedback feeding back into the PC loop</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
-                            <ul class="decision-list">
-                                <li><strong>PC as brain:</strong> Heavy compute on PC; ESP32 only for motion — keeps perception and logic in one place and avoids embedded ML constraints.</li>
-                                <li><strong>Vision-first, no learned policy:</strong> YOLO + OpenCV + rules; interpretable and debuggable at the cost of less "end-to-end" flexibility.</li>
-                                <li><strong>Mecanum wheels:</strong> Omnidirectional motion for tight turns and corrections; more complex than differential drive.</li>
-                                <li><strong>Ultrasonic as backup:</strong> Vision for semantics; ultrasonic for close-range safety and emergency stop.</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-section-item">
-                            <h4 class="section-heading">Results &amp; Impact</h4>
-                            <div class="results-grid">
-                                <div class="result-item">
-                                    <h5>Cost-effective autonomy</h5>
-                                    <p>End-to-end prototype without LiDAR or radar; PC + camera + ESP32 + Mecanum</p>
-                                </div>
-                                <div class="result-item">
-                                    <h5>Vision-first pipeline</h5>
-                                    <p>Lane following, STOP/person detection, obstacle avoidance with YOLO and OpenCV</p>
-                                </div>
-                                <div class="result-item">
-                                    <h5>PC-as-brain design</h5>
-                                    <p>Clear separation: perception and decisions on PC, execution on ESP32</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-section-item">
-                            <div class="callout-box">
-                                <h4 class="section-heading">Why This Project Matters</h4>
-                                <ul class="challenge-list">
-                                    <li><strong>Cost-effective autonomy:</strong> Demonstrates perception and control without expensive sensors</li>
-                                    <li><strong>Vision-first approach:</strong> Lane, sign, and object detection with interpretable logic</li>
-                                    <li><strong>PC-as-brain:</strong> Systems thinking — where compute lives and how data flows between vision, decision, and actuation</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PROJECT 5 -->
-                <div id="project-5" class="project-card">
-                    <div class="project-header-card">
-                        <span class="project-index">05</span>
-                        <div>
                             <h3 class="project-name">Electric Mobility Systems</h3>
-                            <span class="project-badge">Hardware &amp; EV</span>
+                            <span class="project-badge">Entrepreneurship & Business</span>
                         </div>
                     </div>
                     <div class="project-body">
@@ -833,6 +521,405 @@
                         </div>
                     </div>
                 </div>
+                <!-- PROJECT 4: AUTONOMOUS ROBOT WITH ARM -->
+                <div id="project-4" class="project-card">
+                    <div class="project-header-card">
+                        <span class="project-index">04</span>
+                        <div>
+                            <h3 class="project-name">Autonomous Assistant Robot <span class="coming-soon">(coming soon)</span></h3>
+                            <span class="project-badge">Autonomous Robot with Arm</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Problem Statement</h4>
+                            <p class="section-text">
+                                Indoor robots that navigate room-to-room without human intervention usually depend on LiDAR, beacons, or pre-installed markers.
+                                These add cost and deployment friction. Many environments need a solution that works with minimal infrastructure — using only
+                                what a robot can see and sense on board.
+                            </p>
+                            <p class="section-text">
+                                The goal is indoor autonomy plus human interaction: the robot should map and navigate, avoid obstacles, and still recognize people
+                                and support tasks like "go to Room A" or "deliver this item" with voice and a visible face (smartphone as interface).
+                            </p>
+                            <p class="section-text section-text--goal">
+                                Goal: Build a humanoid-style assistant that navigates using camera-only (RTAB-Map / visual SLAM), avoids obstacles with ultrasonic + vision, and interacts via face recognition and voice.
+                            </p>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Solution Overview</h4>
+                            <p class="section-text">
+                                A smartphone acts as the robot's face and brain: camera feeds RTAB-Map and AR-based mapping for indoor navigation, MediaPipe/YOLO for face and object detection, and Flask as the control hub.
+                                The ESP32 handles Mecanum wheels, arm servos, and ultrasonic; it receives movement and gesture commands over Wi-Fi and sends sensor feedback. From the user's perspective: the robot greets by name,
+                                answers questions (e.g. temperature, weather), and executes task commands like "go to Room A" or "deliver this" with obstacle avoidance and return-to-base behavior.
+                            </p>
+                            <p class="section-text">
+                                This approach emphasizes camera-only navigation and human interaction without relying on beacons or LiDAR.
+                            </p>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">System Architecture</h4>
+                            <p class="section-text">
+                                Four layers: Physical Hardware (Mecanum, servos, ultrasonic, smartphone mount) → Embedded Control (ESP32) → Perception &amp; AI (Flask, MediaPipe, YOLO, face recognition, RTAB-Map) → Interaction &amp; Autonomy (conversation, voice, task commands, path planning).
+                            </p>
+                            <div class="diagram-frame">
+                                <iframe src="autonomous-assistant-robot-diagram.html" title="Autonomous Assistant Robot System Architecture"></iframe>
+                            </div>
+                            <ul class="tech-tags">
+                                <li>RTAB-Map</li><li>Flask</li><li>MediaPipe</li><li>YOLO</li><li>Face Recognition</li><li>ESP32</li><li>Python</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Key Technical Challenges</h4>
+                            <ul class="challenge-list">
+                                <li><strong>Camera-only navigation:</strong> Reliable mapping and localization without LiDAR; handling lighting and texture-poor areas</li>
+                                <li><strong>Indoor autonomy:</strong> Room transitions, landmarks, and return navigation with visual SLAM / RTAB-Map</li>
+                                <li><strong>Human interaction:</strong> Face recognition and name recall integrated with navigation and task execution</li>
+                                <li><strong>Obstacle avoidance:</strong> Fusing ultrasonic and vision for safe motion and emergency stop</li>
+                                <li><strong>Latency and reliability:</strong> Wi-Fi link between smartphone and ESP32; behavior when connection or perception fails</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
+                            <ul class="decision-list">
+                                <li><strong>RTAB-Map / camera-only:</strong> Avoids LiDAR cost; trade-off is robustness in low-texture or dynamic lighting.</li>
+                                <li><strong>Smartphone as face and brain:</strong> Single device for camera, AI, and voice; limits compute but improves form factor and UX.</li>
+                                <li><strong>ESP32 for motion only:</strong> Keeps navigation and AI on the phone; ESP32 executes low-level motor and servo control.</li>
+                                <li><strong>Ultrasonic + vision:</strong> Redundancy for obstacle detection; ultrasonic for close-range, vision for semantic understanding.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Results &amp; Impact</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <h5>Indoor navigation</h5>
+                                    <p>Room-to-room navigation using visual SLAM / RTAB-Map without fixed infrastructure</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Human interaction</h5>
+                                    <p>Face recognition, greeting by name, voice commands, and task execution ("go to room", "deliver")</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Obstacle avoidance</h5>
+                                    <p>Ultrasonic and vision-based safety with path planning and return-to-base</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <div class="callout-box">
+                                <h4 class="section-heading">Why This Project Matters</h4>
+                                <ul class="challenge-list">
+                                    <li><strong>Camera-only navigation:</strong> Demonstrates autonomy without LiDAR or beacons</li>
+                                    <li><strong>Indoor autonomy:</strong> Mapping, localization, and path planning in real indoor spaces</li>
+                                    <li><strong>Human interaction:</strong> Face recognition, voice, and task-level commands in one system</li>
+                                    <li><strong>Systems thinking:</strong> Perception, AI, embedded control, and humanoid interaction in a single pipeline</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 5: AI PROJECTS -->
+                <div id="project-5" class="project-card">
+                    <div class="project-header-card">
+                        <span class="project-index">05</span>
+                        <div>
+                            <h3 class="project-name">Multifunctional AI Robot</h3>
+                            <span class="project-badge">AI Projects</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Problem Statement</h4>
+                            <p class="section-text">
+                                Human–robot interaction in real environments needs versatile perception and intuitive control. Many robots support
+                                either vision or voice, but not both in a single pipeline — and few fuse face, body, and object tracking with
+                                natural-language queries and real-time motion control.
+                            </p>
+                            <p class="section-text">
+                                The gap: a single platform that sees (people, objects, color), hears (voice commands), reasons (e.g. "What do you see?"),
+                                and acts (Mecanum drive, servos, safety) with low latency and clear failure handling.
+                            </p>
+                            <p class="section-text section-text--goal">
+                                Goal: Build a multi-modal robot that combines vision, voice, and real-time control so it can follow, greet, answer questions, and operate safely indoors.
+                            </p>
+                            <div class="diagram-frame diagram-frame--video">
+                                <iframe
+                                    src="https://www.youtube.com/embed/qGLxgG_UZm4"
+                                    title="Multifunctional AI Robot – talking to the AI, YOLO object detection & movement"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Solution Overview</h4>
+                            <p class="section-text">
+                                A centralized robot platform with a smartphone as the main sensor and AI host: camera feeds YOLO and MediaPipe for object/person/face tracking;
+                                voice input drives conversation and "What do you see?"-style queries; an AI reasoning layer turns perception into behavior; and an ESP32 executes
+                                motor and servo commands over Wi-Fi. From the user's perspective: speak to the robot, point at objects, and it responds with movement and spoken answers.
+                            </p>
+                            <p class="section-text">
+                                This approach keeps perception and AI on a single compute node (smartphone/PC) while offloading only real-time actuation to the embedded controller — balancing latency and complexity.
+                            </p>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Inside the Multifunctional AI Robot</h4>
+                            <p class="section-text">
+                                These videos show how the robot sees with YOLO, listens with AI, moves with Mecanum wheels, and connects to the control website and hardware.
+                            </p>
+
+                            <div class="media-block">
+                                <h5 class="media-title">Website, Robot Connection &amp; Tracking Demo</h5>
+                                <p class="media-caption">
+                                    Walk-through of the Flask-based control website, connecting to the robot, and demonstrating object detection, person tracking and body tracking.
+                                </p>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/FTZ58UlRBk8" title="Multifunctional AI Robot – website & tracking demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
+                            </div>
+
+                            <div class="media-block">
+                                <h5 class="media-title">Robot Shooting Me in Action (Short)</h5>
+                                <p class="media-caption">
+                                    Quick action shot of the robot tracking and shooting at the target (me) using its vision pipeline.
+                                </p>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/iGd9X0dIq2M" title="Multifunctional AI Robot – shooting action short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
+                            </div>
+
+                            <div class="media-block">
+                                <h5 class="media-title">Robot Hardware &amp; How It Works</h5>
+                                <p class="media-caption">
+                                    Overview of the physical robot: ESP32, motors, servos, mounting, and how the hardware connects to the AI and website.
+                                </p>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/EIFPCpJY1R4" title="Multifunctional AI Robot – hardware overview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
+                            </div>
+
+                            <div class="media-block">
+                                <h5 class="media-title">Object &amp; Body Tracking — Shooting Demo</h5>
+                                <p class="media-caption">
+                                    Focused demo of YOLO object detection and body tracking used to aim and shoot, showing the full multi-modal pipeline in action.
+                                </p>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/Hz-GGYSdzQQ" title="Multifunctional AI Robot – object & body tracking shooting demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">System Architecture</h4>
+                            <p class="section-text">
+                                Perception (camera, streaming) → AI layer (YOLO, MediaPipe, color/person tracking, reasoning, voice/conversation) → control (ESP32, motors, servos, ultrasonic) → remote (Wi-Fi, smartphone).
+                            </p>
+                            <div class="diagram-frame">
+                                <iframe src="multifunctional-robot-diagram.html" title="Multifunctional AI Robot System Architecture"></iframe>
+                            </div>
+                            <ul class="tech-tags">
+                                <li>MediaPipe</li><li>YOLO</li><li>ESP32</li><li>Mecanum</li><li>Wi-Fi</li><li>Voice</li><li>Python</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Key Technical Challenges</h4>
+                            <ul class="challenge-list">
+                                <li><strong>Multi-modal fusion:</strong> Running YOLO, MediaPipe, and color/person tracking without frame drops or conflicting outputs</li>
+                                <li><strong>Vision–voice alignment:</strong> Keeping conversation and scene understanding in sync with live video</li>
+                                <li><strong>Real-time control loop:</strong> Wi-Fi latency between smartphone/PC and ESP32; timing of motor and servo commands</li>
+                                <li><strong>Safety and fail-safes:</strong> Ultrasonic-based obstacle stop; behavior when vision or network fails</li>
+                                <li><strong>Integration complexity:</strong> Multiple pipelines (video stream, voice, motor commands) on one platform</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
+                            <ul class="decision-list">
+                                <li><strong>Smartphone as brain:</strong> Single device for camera, AI, and voice; trade-off is battery and thermal limits vs. avoiding a separate PC.</li>
+                                <li><strong>YOLO + MediaPipe:</strong> YOLO for objects/people; MediaPipe for face/body; combined coverage at the cost of two pipelines.</li>
+                                <li><strong>ESP32 for actuation only:</strong> Offloads only time-critical motor/servo control; keeps perception and reasoning on the main host.</li>
+                                <li><strong>Mecanum wheels:</strong> Omnidirectional movement for following and positioning; more complex than differential drive.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Results &amp; Impact</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <h5>Multi-modal perception</h5>
+                                    <p>Simultaneous face, body, object, and color tracking in one pipeline</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Vision + voice fusion</h5>
+                                    <p>Natural-language queries and spoken answers tied to live vision</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Real-time control</h5>
+                                    <p>Wi-Fi-based command flow from AI to ESP32 to Mecanum and servos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <div class="callout-box">
+                                <h4 class="section-heading">Why This Project Matters</h4>
+                                <ul class="challenge-list">
+                                    <li><strong>Multi-modal perception:</strong> Combining vision and voice in one reasoning pipeline</li>
+                                    <li><strong>Real-time control:</strong> From perception to actuation with latency and safety in mind</li>
+                                    <li><strong>Systems integration:</strong> Smartphone, ESP32, motors, sensors, and network in a single deployable robot</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROJECT 6: EXTRA ROBOTICS PROJECTS -->
+                <div id="project-6" class="project-card">
+                    <div class="project-header-card">
+                        <span class="project-index">06</span>
+                        <div>
+                            <h3 class="project-name">Self-Driving Car Prototype</h3>
+                            <span class="project-badge">Extra Robotics Projects</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Problem Statement</h4>
+                            <p class="section-text">
+                                Autonomous vehicle navigation demands robust perception for pedestrians and obstacles in real time.
+                                Production systems often rely on LiDAR and radar, which are costly and complex to integrate for education
+                                and rapid prototyping.
+                            </p>
+                            <p class="section-text">
+                                The challenge is to show end-to-end autonomy — lane following, sign detection, person/obstacle avoidance — using
+                                a vision-first, logic-based approach that keeps cost low and the pipeline interpretable.
+                            </p>
+                            <p class="section-text section-text--goal">
+                                Goal: Build a cost-effective self-driving prototype with PC as brain, vision-only perception (YOLO + OpenCV), and ESP32 for motion control — no AI decision model, only computer vision and logic.
+                            </p>
+                            <div class="diagram-frame diagram-frame--video">
+                                <iframe
+                                    src="https://www.youtube.com/embed/sECIhrO91Ug"
+                                    title="Self‑Driving Car – vision, Bluetooth serial & gesture control"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Solution Overview</h4>
+                            <p class="section-text">
+                                A small-scale car with a smartphone camera streaming video to a PC over Wi-Fi. The PC runs Python, OpenCV, and YOLO:
+                                road/lane detection via HOG and Hough line transform, traffic sign and person detection via YOLO, and decision logic
+                                (move, stop, turn, slow) based on rules — no learned policy. The ESP32 receives commands wirelessly and drives four
+                                Mecanum motors; an ultrasonic sensor and buzzer handle close-range obstacle and emergency stop.
+                            </p>
+                            <p class="section-text">
+                                From the user's perspective: the car follows the lane, stops at STOP signs and for people, and avoids obstacles using vision and ultrasonic feedback.
+                            </p>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Inside the Self-Driving Car</h4>
+                            <p class="section-text">
+                                These videos show how the prototype works in practice: gesture control, Bluetooth serial communication, object detection, and the overall self-driving concept.
+                            </p>
+
+                            <div class="media-block">
+                                <h5 class="media-title">In my journey to build Self-Driving-Car from scratch</h5>
+                                <p class="media-caption">
+                                    Short story and video of the project, posted on LinkedIn — testing object detection, Bluetooth serial, and gesture control.
+                                </p>
+                                <a href="https://www.linkedin.com/posts/abdoukadir-jabbi-a7b3082a9_in-my-journey-to-build-self-driving-car-from-activity-7266717928425693184-2iq5?utm_medium=ios_app&rcm=ACoAAEpDL_8B2NvXLZuxIkd_oNxvvdQ1k8C9slU&utm_source=social_share_video_v2&utm_campaign=copy_link" target="_blank" rel="noopener noreferrer" class="text-link">Open LinkedIn video →</a>
+                            </div>
+
+                            <div class="media-block">
+                                <h5 class="media-title">Explaining the Self-Driving Concept</h5>
+                                <p class="media-caption">
+                                    Walk-through of how the self-driving pipeline works: camera input, PC vision processing, decision logic, and ESP32 motor control.
+                                </p>
+                                <iframe width="100%" height="400" src="https://www.youtube.com/embed/LX2zFHhjOsw" title="Self-driving concept explanation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="media-el"></iframe>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">System Architecture</h4>
+                            <p class="section-text">
+                                Vision input (camera over Wi-Fi) → PC (vision processing + decision logic) → ESP32 (motor control, ultrasonic, buzzer) → Mecanum wheels.
+                            </p>
+                            <div class="diagram-frame">
+                                <iframe src="self-driving-car-diagram.html" title="Self-Driving Car System Architecture"></iframe>
+                            </div>
+                            <ul class="tech-tags">
+                                <li>YOLO</li><li>OpenCV</li><li>Hough</li><li>ESP32</li><li>Wi-Fi</li><li>Python</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Key Technical Challenges</h4>
+                            <ul class="challenge-list">
+                                <li><strong>Real-time vision pipeline:</strong> YOLO + OpenCV lane/sign detection with low latency for responsive control</li>
+                                <li><strong>Wi-Fi link:</strong> Video stream and command flow between PC and ESP32; handling packet loss and delay</li>
+                                <li><strong>Smartphone as sensor:</strong> Mounting, framing, and streaming stability for lane and object detection</li>
+                                <li><strong>Decision logic:</strong> Rule-based stop/turn/slow that stays safe under detection noise and missed frames</li>
+                                <li><strong>Ultrasonic + vision fusion:</strong> Emergency stop and obstacle feedback feeding back into the PC loop</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Engineering Decisions &amp; Trade-offs</h4>
+                            <ul class="decision-list">
+                                <li><strong>PC as brain:</strong> Heavy compute on PC; ESP32 only for motion — keeps perception and logic in one place and avoids embedded ML constraints.</li>
+                                <li><strong>Vision-first, no learned policy:</strong> YOLO + OpenCV + rules; interpretable and debuggable at the cost of less "end-to-end" flexibility.</li>
+                                <li><strong>Mecanum wheels:</strong> Omnidirectional motion for tight turns and corrections; more complex than differential drive.</li>
+                                <li><strong>Ultrasonic as backup:</strong> Vision for semantics; ultrasonic for close-range safety and emergency stop.</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-section-item">
+                            <h4 class="section-heading">Results &amp; Impact</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <h5>Cost-effective autonomy</h5>
+                                    <p>End-to-end prototype without LiDAR or radar; PC + camera + ESP32 + Mecanum</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>Vision-first pipeline</h5>
+                                    <p>Lane following, STOP/person detection, obstacle avoidance with YOLO and OpenCV</p>
+                                </div>
+                                <div class="result-item">
+                                    <h5>PC-as-brain design</h5>
+                                    <p>Clear separation: perception and decisions on PC, execution on ESP32</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-section-item">
+                            <div class="callout-box">
+                                <h4 class="section-heading">Why This Project Matters</h4>
+                                <ul class="challenge-list">
+                                    <li><strong>Cost-effective autonomy:</strong> Demonstrates perception and control without expensive sensors</li>
+                                    <li><strong>Vision-first approach:</strong> Lane, sign, and object detection with interpretable logic</li>
+                                    <li><strong>PC-as-brain:</strong> Systems thinking — where compute lives and how data flows between vision, decision, and actuation</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- PLACEHOLDER: more robotics side-projects go here as this section grows. -->
+                        <div class="project-section-item">
+                            <h4 class="section-heading">More Robotics Projects</h4>
+                            <div class="placeholder-box">
+                                <p>More projects coming soon. Copy a full <code>.project-section-item</code> block (Problem Statement → Solution Overview → media → tech tags) to add the next one here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
         </section>
