@@ -33,6 +33,22 @@ body {
     padding: 14px 24px;
 }
 .floating-nav-header { display: none; }
+.nav-toggle {
+    display: none;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--ink);
+    padding: 4px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-toggle-arrow { transition: transform 0.2s ease; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-arrow { transform: rotate(180deg); }
 .floating-nav-list { display: flex; flex-wrap: wrap; gap: 4px 22px; max-width: 900px; margin: 0 auto; }
 .floating-nav-item {
     background: none; border: none; cursor: pointer;
@@ -152,4 +168,16 @@ video.media-el { height: auto; }
 @media (max-width: 640px) {
     .hero-name { font-size: 1.9rem; }
     .media-el, .diagram-frame iframe { height: 260px; }
+
+    .floating-nav-header { display: block; }
+    .nav-toggle { display: flex; }
+    .floating-nav-list {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 10px;
+    }
+    .floating-nav-list.open { display: flex; }
+    .floating-nav-item { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+    .floating-nav-item:last-child { border-bottom: none; }
 }
