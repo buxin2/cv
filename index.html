@@ -17,8 +17,12 @@
     <nav class="floating-project-nav" aria-label="Project index">
         <div class="floating-nav-header">
             <span class="nav-title">Projects</span>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false">
+                <span class="nav-toggle-label">Menu</span>
+                <span class="nav-toggle-arrow">▾</span>
+            </button>
         </div>
-        <div class="floating-nav-list">
+        <div class="floating-nav-list" id="navList">
             <button class="floating-nav-item active" data-project="project-1">
                 <span class="nav-number">01</span>
                 <span class="nav-name">Healthcare Robot</span>
@@ -52,7 +56,7 @@
         <header class="hero-section">
             <div class="hero-content">
                 <div class="profile-container">
-                    <img src="profile.png" alt="Abdoukadir Jabbi" class="profile-img">
+                    <img src="ja.png" alt="Abdoukadir Jabbi" class="profile-img">
                 </div>
                 <p class="hero-eyebrow">Portfolio</p>
                 <h1 class="hero-name">Abdoukadir Jabbi</h1>
@@ -1073,5 +1077,24 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        (function () {
+            var toggle = document.getElementById('navToggle');
+            var list = document.getElementById('navList');
+            if (!toggle || !list) return;
+
+            toggle.addEventListener('click', function () {
+                var isOpen = list.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+
+            list.querySelectorAll('.floating-nav-item').forEach(function (item) {
+                item.addEventListener('click', function () {
+                    list.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
